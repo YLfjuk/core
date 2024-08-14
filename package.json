@@ -1,0 +1,27 @@
+{
+    "name": "root",
+    "version": "0.0.0",
+    "private": true,
+    "author": "YLfjuk",
+    "type": "module",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YLfjuk/core.git"
+    },
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint"
+    },
+    "devDependencies": {
+        "turbo": "^2.0.11"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "packageManager": "npm@10.8.1",
+    "workspaces": [
+        "packages/*"
+    ]
+}
