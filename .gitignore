@@ -1,8 +1,14 @@
+# ignore top-level vscode settings
+.vscode/settings.json
+
 # build output
 dist/
 
 # dependencies
 node_modules/
+
+# general
+.turbo
 
 # logs
 npm-debug.log*
