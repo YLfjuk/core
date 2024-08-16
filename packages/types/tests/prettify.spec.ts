@@ -1,8 +1,7 @@
 import type { Prettify } from '../src';
-import { describe, test } from 'vitest';
-import { expectTypeOf } from 'expect-type';
+import { describe, test, expectTypeOf } from 'vitest';
 
-describe('Value Of', () => {
+describe('Prettify the type', () => {
     test('simple union', () => {
         type Bob = {
             Bob: string;
@@ -24,7 +23,7 @@ describe('Value Of', () => {
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
-    test('type contains values of const object', () => {
+    test('complex union', () => {
         type Bob = {
             Bob: string;
         };

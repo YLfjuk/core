@@ -1,6 +1,5 @@
 import type { ValueOf } from '../src';
-import { describe, test } from 'vitest';
-import { expectTypeOf } from 'expect-type';
+import { describe, test, expectTypeOf } from 'vitest';
 
 describe('Value Of', () => {
     test('type contains values of object', () => {

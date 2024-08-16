@@ -22,10 +22,14 @@
     },
     "scripts": {
         "build": "npm test",
-        "test": "tsc --project tests/tsconfig.json",
-        "test:types": "npm test"
+        "coverage": "vitest run --coverage",
+        "test": "vitest --typecheck && npm run test:types",
+        "test:ui": "vitest --ui",
+        "test:types": "tsc --project tests/tsconfig.json"
     },
     "devDependencies": {
+        "@vitest/coverage-v8": "^2.0.5",
+        "@vitest/ui": "^2.0.5",
         "expect-type": "^0.19.0",
         "typescript": "^5.5.4",
         "vitest": "^2.0.5"
