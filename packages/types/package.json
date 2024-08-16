@@ -1,0 +1,26 @@
+{
+    "name": "@ylfjuk-core/types",
+    "version": "0.0.0",
+    "author": "YLfjuk",
+    "type": "module",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YLfjuk/core.git",
+        "directory": "packages/types"
+    },
+    "keywords": [
+        "ylfjuk",
+        "core",
+        "types"
+    ],
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "devDependencies": {
+        "typescript": "^5.5.4"
+    },
+    "peerDependencies": {
+        "typescript": "^5.5.4"
+    }
+}
