@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk-core/types",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "YLfjuk",
     "type": "module",
     "license": "MIT",
@@ -14,11 +14,21 @@
         "core",
         "types"
     ],
+    "files": [
+        "src"
+    ],
     "exports": {
         ".": "./src/index.ts"
     },
+    "scripts": {
+        "build": "npm test",
+        "test": "tsc --project tests/tsconfig.json",
+        "test:types": "npm test"
+    },
     "devDependencies": {
-        "typescript": "^5.5.4"
+        "expect-type": "^0.19.0",
+        "typescript": "^5.5.4",
+        "vitest": "^2.0.5"
     },
     "peerDependencies": {
         "typescript": "^5.5.4"
