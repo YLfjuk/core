@@ -1,5 +1,4 @@
 {
-    "include": ["tests"],
     "compilerOptions": {
         "moduleResolution": "Bundler",
         "module": "ES2020",
