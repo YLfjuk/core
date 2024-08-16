@@ -1,0 +1,29 @@
+{
+    "name": "@ylfjuk/core",
+    "version": "0.0.1",
+    "description": "The core packages",
+    "author": "YLfjuk",
+    "type": "module",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YLfjuk/core.git",
+        "directory": "packages/core"
+    },
+    "keywords": [
+        "ylfjuk",
+        "core"
+    ],
+    "files": [
+        "src"
+    ],
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "dependencies": {
+        "@ylfjuk-core/types": "*"
+    },
+    "devDependencies": {
+        "typescript": "^5.5.4"
+    }
+}

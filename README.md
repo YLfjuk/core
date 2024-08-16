@@ -1,9 +1,11 @@
 # @ylfjuk/core
 
-The core package for `@ylfjuk` projects
+The core packages for `@ylfjuk` projects
 
-## Content:
-- @ylfjuk-core/types
+## Packages
+
+- [@ylfjuk/core](packages/core/README.md)
+- [@ylfjuk-core/types](packages/types/README.md)
 
 ## License
 
