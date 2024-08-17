@@ -1,18 +1,18 @@
 {
-    "name": "@ylfjuk-core/types",
-    "version": "0.0.2",
+    "name": "@ylfjuk-core/utils",
+    "version": "0.0.0",
     "author": "YLfjuk",
     "type": "module",
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YLfjuk/core.git",
-        "directory": "packages/types"
+        "directory": "packages/utils"
     },
     "keywords": [
         "ylfjuk",
         "core",
-        "types"
+        "utils"
     ],
     "files": [
         "src"
@@ -21,7 +21,7 @@
         ".": "./src/index.ts"
     },
     "scripts": {
-        "build": "npm test",
+        "build": "tsc",
         "coverage": "vitest run --coverage",
         "test": "vitest --typecheck && npm run test:types",
         "test:ui": "vitest --ui",
