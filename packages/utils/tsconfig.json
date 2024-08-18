@@ -1,4 +1,4 @@
 {
-    "extends": "@ylfjuk/tsconfigs/tsconfig.lib.json",
+    "extends": "@ylfjuk/tsconfigs/lib",
     "include": ["src"]
 }
