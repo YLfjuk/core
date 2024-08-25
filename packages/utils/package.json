@@ -23,7 +23,7 @@
     "scripts": {
         "build": "tsc",
         "coverage": "vitest run --coverage",
-        "test": "vitest --typecheck && npm run test:types",
+        "test": "npm run test:types && vitest --typecheck",
         "test:ui": "vitest --ui",
         "test:types": "tsc --project tsconfig.test.json"
     },

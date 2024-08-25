@@ -1,5 +1,5 @@
-import type { Extend, MappedEnum, ValueOf } from '../src';
-import { describe, test, expectTypeOf } from 'vitest';
+import { describe, expectTypeOf, test } from 'vitest';
+import type { MappedEnum, ValueOf } from '../src';
 
 describe('Map an enum into an object', () => {
     test('standalone', () => {

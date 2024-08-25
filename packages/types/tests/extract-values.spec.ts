@@ -1,5 +1,5 @@
-import type { ValueOf, ExtractValues } from '../src';
-import { describe, test, expectTypeOf } from 'vitest';
+import { describe, expectTypeOf, test } from 'vitest';
+import type { ExtractValues, ValueOf } from '../src';
 
 describe('Extract the values from a nested object', () => {
     test('1-layer-deep object', () => {
