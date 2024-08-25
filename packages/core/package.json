@@ -21,7 +21,8 @@
         ".": "./src/index.ts"
     },
     "dependencies": {
-        "@ylfjuk-core/types": "*"
+        "@ylfjuk-core/types": "*",
+        "@ylfjuk-core/utils": "*"
     },
     "devDependencies": {
         "@ylfjuk/tsconfigs": "^0.0.6",
