@@ -21,11 +21,10 @@
         ".": "./src/index.ts"
     },
     "dependencies": {
-        "@ylfjuk-core/types": "*",
-        "@ylfjuk-core/utils": "*"
+        "@ylfjuk-core/types": "*"
     },
     "devDependencies": {
-        "@ylfjuk/tsconfigs": "^0.0.5",
+        "@ylfjuk/tsconfigs": "^0.0.6",
         "typescript": "^5.5.4"
     }
 }

@@ -1,7 +1,4 @@
 {
     "extends": "@ylfjuk/tsconfigs/lib",
-    "compilerOptions": {
-        "verbatimModuleSyntax": false
-    },
     "include": ["src"]
 }
