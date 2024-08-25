@@ -9,3 +9,13 @@ export type Extend<T, Ext extends Partial<Record<keyof T, unknown>>> = {
 };
 
 export type AutoCompleteStr<T> = T | (string & {});
+
+export type Maybe<T> = T | null | undefined;
+
+export type MappedEnum<E extends string> = { [K in E]: K };
+
+export type ExtractValues<T> = T extends object
+    ? T extends Date
+        ? T
+        : ExtractValues<ValueOf<T>>
+    : T;

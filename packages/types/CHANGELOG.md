@@ -1,5 +1,11 @@
 # @ylfjuk-core/types
 
+## 0.0.4
+
+### Patch Changes
+
+- added AutoCompleteStr, Maybe, MappedEnum & ExtractValues types
+
 ## 0.0.3
 
 ### Patch Changes
