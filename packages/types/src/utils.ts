@@ -19,3 +19,8 @@ export type ExtractValues<T> = T extends object
         ? T
         : ExtractValues<ValueOf<T>>
     : T;
+
+export type StrictOmit<T, K extends keyof T> = Omit<T, K>;
+
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+export type FN<Return = any, Args = any> = (...args: Args[]) => Return;
