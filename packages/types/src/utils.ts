@@ -14,10 +14,16 @@ export type Maybe<T> = T | null | undefined;
 
 export type MappedEnum<E extends string> = { [K in E]: K };
 
-export type ExtractValues<T> = T extends object
+export type ExtractValues<T, extractFnReturnType = false> = T extends FN<
+    infer R
+>
+    ? extractFnReturnType extends true
+        ? ExtractValues<R, true>
+        : never
+    : T extends object
     ? T extends Date
         ? T
-        : ExtractValues<ValueOf<T>>
+        : ExtractValues<ValueOf<T>, extractFnReturnType>
     : T;
 
 export type StrictOmit<T, K extends keyof T> = Omit<T, K>;

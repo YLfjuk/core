@@ -107,4 +107,168 @@ describe('Extract the values from a nested object', () => {
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
+
+    describe('fn return type', () => {
+        test('fn, extract = false', () => {
+            const fn = () => 'bob';
+
+            type Expected = never;
+            type Actual = ExtractValues<typeof fn>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('fn, extract = true', () => {
+            const fn = () => 'bob';
+
+            type Expected = string;
+            type Actual = ExtractValues<typeof fn, true>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('fn w/ const return type, extract = false', () => {
+            const fn = () => 'bob';
+
+            type Expected = never;
+            type Actual = ExtractValues<typeof fn>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('fn w/ const return type, extract = true', () => {
+            const fn = () => 'bob';
+
+            type Expected = string;
+            type Actual = ExtractValues<typeof fn, true>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('object w/ fn, extract = false', () => {
+            const obj = {
+                Bob: 'bob',
+                Bert: {
+                    name: 'bert',
+                },
+                Other: {
+                    index: 'other',
+                    tmp: () => 0,
+                    user(username: string) {
+                        return `${this.index}/${username}`;
+                    },
+                },
+            };
+
+            type Expected = string;
+            type Actual = ExtractValues<typeof obj>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('object w/ fn, extract = true', () => {
+            const obj = {
+                Bob: 'bob',
+                Bert: {
+                    name: 'bert',
+                },
+                Other: {
+                    index: 'other',
+                    tmp: () => 0,
+                    user(username: string) {
+                        return `${this.index}/${username}`;
+                    },
+                },
+            };
+
+            type Expected = string | number;
+            type Actual = ExtractValues<typeof obj, true>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('const object w/ fn, extract = false', () => {
+            const obj = {
+                Bob: 'bob',
+                Bert: {
+                    name: 'bert',
+                },
+                Other: {
+                    index: 'other',
+                    tmp: () => 0,
+                    user(username: string) {
+                        return `${this.index}/${username}`;
+                    },
+                },
+            } as const;
+
+            type Expected = 'bob' | 'bert' | 'other';
+            type Actual = ExtractValues<typeof obj>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('const object w/ fn, extract = true', () => {
+            const obj = {
+                Bob: 'bob',
+                Bert: {
+                    name: 'bert',
+                },
+                Other: {
+                    index: 'other',
+                    tmp: () => 0,
+                    user(username: string) {
+                        return `${this.index}/${username}`;
+                    },
+                },
+            } as const;
+
+            type Expected = string | number;
+            type Actual = ExtractValues<typeof obj, true>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('const object w/ const fn, extract = false', () => {
+            const obj = {
+                Bob: 'bob',
+                Bert: {
+                    name: 'bert',
+                },
+                Other: {
+                    index: 'other',
+                    tmp: () => 0 as const,
+                    user(username: string) {
+                        return `other/${username}` as const;
+                    },
+                },
+            } as const;
+
+            type Expected = 'bert' | 'other' | 'bob';
+            type Actual = ExtractValues<typeof obj>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+
+        test('const object w/ const fn, extract = true', () => {
+            const obj = {
+                Bob: 'bob',
+                Bert: {
+                    name: 'bert',
+                },
+                Other: {
+                    index: 'other',
+                    tmp: () => 0 as const,
+                    user(username: string) {
+                        return `other/${username}` as const;
+                    },
+                },
+            } as const;
+
+            type Expected = 0 | 'bert' | 'other' | 'bob' | `other/${string}`;
+            type Actual = ExtractValues<typeof obj, true>;
+
+            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+        });
+    });
 });
