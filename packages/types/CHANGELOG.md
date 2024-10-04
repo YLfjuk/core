@@ -1,5 +1,11 @@
 # @ylfjuk-core/types
 
+## 0.0.6
+
+### Patch Changes
+
+- added function return type logic to the extractValue type
+
 ## 0.0.5
 
 ### Patch Changes
