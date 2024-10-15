@@ -1,5 +1,11 @@
 # @ylfjuk-core/types
 
+## 0.0.7
+
+### Patch Changes
+
+- Added union-related types
+
 ## 0.0.6
 
 ### Patch Changes

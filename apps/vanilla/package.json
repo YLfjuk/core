@@ -12,6 +12,6 @@
     "vite": "^5.4.8"
   },
   "dependencies": {
-    "@ylfjuk/core": "^0.0.3"
+    "@ylfjuk/core": "^0.0.4"
   }
 }
