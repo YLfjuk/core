@@ -1,0 +1,17 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
+    "overrides": [
+        {
+            "include": [
+                "packages/types/**"
+            ],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noExplicitAny": "off"
+                    }
+                }
+            }
+        }
+    ]
+}
