@@ -1,5 +1,13 @@
 # @ylfjuk/core
 
+## 0.0.3
+
+### Patch Changes
+
+- Bundled
+- Updated dependencies
+  - @ylfjuk-core/utils@0.0.1
+
 ## 0.0.2
 
 ### Patch Changes
