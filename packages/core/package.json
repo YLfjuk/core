@@ -15,10 +15,22 @@
         "core"
     ],
     "files": [
-        "src"
+        "dist"
     ],
+    "main": "dist/index.cjs",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
     "exports": {
-        ".": "./src/index.ts"
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "test": "npm run test:types",
+        "test:types": "tsc --project tsconfig.test.json"
     },
     "dependencies": {
         "@ylfjuk-core/types": "*",
@@ -26,6 +38,7 @@
     },
     "devDependencies": {
         "@ylfjuk/tsconfigs": "^0.0.6",
+        "tsup": "^8.3.0",
         "typescript": "^5.5.4"
     }
 }
