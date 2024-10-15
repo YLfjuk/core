@@ -1,5 +1,13 @@
 # @ylfjuk/core
 
+## 0.0.6
+
+### Patch Changes
+
+- utils: removed prod check
+- Updated dependencies
+  - @ylfjuk-core/utils@0.0.4
+
 ## 0.0.5
 
 ### Patch Changes
