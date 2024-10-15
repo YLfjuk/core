@@ -3,6 +3,5 @@ export const assertNever = (_?: never): never => {
 };
 
 assertNever.silent = (_?: never): void => {
-    if (process.env.NODE_ENVIRONMENT !== 'production')
-        console.error(`Unexpected value: ${_}`);
+    console.error(`Unexpected value: ${_}`);
 };
