@@ -1,3 +1,4 @@
 {
-    "extends": "@ylfjuk/md/.markdownlint.json"
+    "extends": "@ylfjuk/md/.markdownlint.json",
+    "MD013": false
 }
