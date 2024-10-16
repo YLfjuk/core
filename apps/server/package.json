@@ -8,10 +8,10 @@
     "dependencies": {
         "@hono/node-server": "^1.13.2",
         "@ylfjuk/core": "^0.0.7",
-        "hono": "^4.6.4"
+        "hono": "^4.6.5"
     },
     "devDependencies": {
-        "@types/node": "^20.11.17",
-        "tsx": "^4.7.1"
+        "@types/node": "^22.7.5",
+        "tsx": "^4.19.1"
     }
 }
