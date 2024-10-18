@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { noop } from '../../src';
+import { noop } from '../src';
 
 describe('Function that accepts any parameter(s) and returns undefined', () => {
     test('no params', () => {

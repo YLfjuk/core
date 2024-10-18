@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { assertNever, noop } from '../../src';
+import { assertNever, noop } from '../src';
 
 describe('Function that asserts a value has not reached it', () => {
     it('throw', () => {
