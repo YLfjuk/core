@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk/core",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "The core packages",
     "author": "YLfjuk",
     "type": "module",
@@ -33,7 +33,7 @@
         "test:types": "tsc --project tsconfig.test.json"
     },
     "dependencies": {
-        "@ylfjuk-core/types": "^0.0.7",
+        "@ylfjuk-core/types": "^0.0.8",
         "@ylfjuk-core/utils": "^0.0.4"
     },
     "devDependencies": {
