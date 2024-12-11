@@ -1,12 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
-import { assertNever, noop } from '../src';
+import { assertNever } from '../src/assert-never';
+import { noop } from '../src/noop';
 
 describe('Function that asserts a value has not reached it', () => {
-    it('throw', () => {
+    it('should throw', () => {
         expect(assertNever).toThrowError();
     });
 
-    it('silent', () => {
+    it('should error silently', () => {
         const consoleSpy = vi.spyOn(console, 'error').mockImplementation(noop);
 
         assertNever.silent();

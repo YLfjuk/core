@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, test } from 'vitest';
-import { isDefined } from '../src';
+import { isDefined } from '../src/is-defined';
 
 describe('Checks if a value is defined', () => {
     test('null value', () => {
