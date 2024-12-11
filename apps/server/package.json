@@ -6,12 +6,12 @@
         "dev": "tsx watch src/index.ts"
     },
     "dependencies": {
-        "@hono/node-server": "^1.13.2",
+        "@hono/node-server": "^1.13.7",
         "@ylfjuk/core": "^0.0.8",
-        "hono": "^4.6.5"
+        "hono": "^4.6.13"
     },
     "devDependencies": {
-        "@types/node": "^22.7.5",
-        "tsx": "^4.19.1"
+        "@types/node": "^22.10.2",
+        "tsx": "^4.19.2"
     }
 }
