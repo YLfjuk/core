@@ -1,5 +1,27 @@
 # @ylfjuk-core/types
 
+## 0.0.9
+
+### Patch Changes
+
+#### Chores 🧹
+
+- flattened & spread the files
+
+#### Features 🆕
+
+- Added types
+  - DeepDict
+  - EmptyObject
+  - InverseExtract
+  - MaskLiterals
+  - NonEmptyArray
+  - Primitive
+
+#### Fixes 🩹
+
+- Simplified the ExtractLiterals type (breaking 💥)
+
 ## 0.0.8
 
 ### Patch Changes
