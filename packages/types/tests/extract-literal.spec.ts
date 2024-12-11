@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, test } from 'vitest';
-import type { ExtractLiteral } from '../src';
+import type { ExtractLiteral } from '../src/extract-literals';
 
 describe('Extract the type from a template literal type', () => {
     test('string', () => {
@@ -24,7 +24,7 @@ describe('Extract the type from a template literal type', () => {
     });
 
     test('const number', () => {
-        type Expected = number;
+        type Expected = 12345;
         type Actual = ExtractLiteral<'12345'>;
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
@@ -52,7 +52,14 @@ describe('Extract the type from a template literal type', () => {
     });
 
     test('const bigint', () => {
-        type Expected = number;
+        type Expected = 12345678910111213n;
+        type Actual = ExtractLiteral<`${12345678910111213n}`>;
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
+    test('const "bigint"', () => {
+        type Expected = 12345;
         type Actual = ExtractLiteral<`${12345n}`>;
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
@@ -66,7 +73,7 @@ describe('Extract the type from a template literal type', () => {
     });
 
     test('const boolean', () => {
-        type Expected = boolean;
+        type Expected = true;
         type Actual = ExtractLiteral<`${true}`>;
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
@@ -96,6 +103,13 @@ describe('Extract the type from a template literal type', () => {
     test('literals union', () => {
         type Expected = boolean | number;
         type Actual = ExtractLiteral<`${boolean | number}`>;
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
+    test('const literals union', () => {
+        type Expected = true | 1234;
+        type Actual = ExtractLiteral<`${true | 1234}`>;
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });

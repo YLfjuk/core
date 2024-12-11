@@ -1,5 +1,5 @@
-import type { Extend } from '../src';
-import { describe, test, expectTypeOf  } from 'vitest';
+import { describe, expectTypeOf, test } from 'vitest';
+import type { Extend } from '../src/extend';
 
 describe('Extend another type', () => {
     test('extend existing fields and ignore non-existing fields', () => {

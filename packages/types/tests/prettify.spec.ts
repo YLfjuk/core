@@ -1,5 +1,5 @@
-import type { Prettify } from '../src';
-import { describe, test, expectTypeOf } from 'vitest';
+import { describe, expectTypeOf, test } from 'vitest';
+import type { Prettify } from '../src/prettify';
 
 describe('Prettify the type', () => {
     test('simple union', () => {

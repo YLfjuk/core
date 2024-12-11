@@ -1,5 +1,5 @@
-import type { StrictOmit } from '../src';
-import { describe, test, expectTypeOf } from 'vitest';
+import { describe, expectTypeOf, test } from 'vitest';
+import type { StrictOmit } from '../src/strict-omit';
 
 describe('Strict Omit', () => {
     test('type omit keys of object from object', () => {
@@ -11,7 +11,7 @@ describe('Strict Omit', () => {
         type Expected = {
             Bob: string;
         };
-        
+
         type Actual = StrictOmit<typeof obj, 'Bert'>;
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();

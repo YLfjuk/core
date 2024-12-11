@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, test } from 'vitest';
-import type { IsDisjointUnion } from '../src';
+import type { IsDisjointUnion } from '../src/is-disjoint-union';
 
 describe('is disjoint union', () => {
     test('a non-union', () => {
