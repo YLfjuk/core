@@ -25,7 +25,7 @@ describe('Ensure that the array is populated with at least one element', () => {
 
     it('should not allow an empty array', () => {
         type Expected = NonEmptyArray;
-        const emptyArray = [];
+        const emptyArray = [] as [];
 
         expectTypeOf(emptyArray).not.toMatchTypeOf<Expected>();
     });
