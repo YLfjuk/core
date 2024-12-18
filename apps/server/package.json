@@ -7,7 +7,7 @@
     },
     "dependencies": {
         "@hono/node-server": "^1.13.7",
-        "@ylfjuk/core": "^0.0.9",
+        "@ylfjuk/core": "^0.0.10",
         "hono": "^4.6.13"
     },
     "devDependencies": {
