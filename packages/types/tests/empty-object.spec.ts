@@ -1,7 +1,7 @@
 import { describe, expectTypeOf, it } from 'vitest';
 import type { EmptyObject } from '../src/empty-object';
 
-describe('Deep Dictionary', () => {
+describe('Empty Object', () => {
     it('should match an empty object', () => {
         type Actual = EmptyObject;
         const actual = {};

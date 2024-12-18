@@ -4,14 +4,14 @@ import { InfiniteObject } from './../src/infinite-object';
 describe('Object that can be accessed ad infinitum', () => {
     it('can be accessed infinitely', () => {
         const expected = InfiniteObject;
-        const actual = InfiniteObject.a.b.c;
+        const actual = InfiniteObject.a?.b?.c;
 
         expect(actual).toBe(expected);
     });
 
     it('can handle function calls', () => {
         const expected = InfiniteObject;
-        const actual = InfiniteObject.a.b().c;
+        const actual = InfiniteObject.a?.b?.()?.c;
 
         expect(actual).toBe(expected);
     });

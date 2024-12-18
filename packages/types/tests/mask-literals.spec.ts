@@ -100,6 +100,15 @@ describe('Extract the type from a template literal type', () => {
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
+    test('symbol', () => {
+        const actual = Symbol(0);
+
+        type Expected = symbol;
+        type Actual = MaskLiterals<typeof actual>;
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
     test('null', () => {
         type Expected = null;
         type Actual = MaskLiterals<null>;

@@ -30,6 +30,35 @@ describe('Extract the type from a template literal type', () => {
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
+    test('negative const number', () => {
+        type Expected = -12345;
+        type Actual = ExtractLiteral<'-12345'>;
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
+    test('float const number', () => {
+        type Expected = 1.06;
+        type Actual = ExtractLiteral<'1.06'>;
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
+    test('negative float const number', () => {
+        type Expected = -1.6;
+        type Actual = ExtractLiteral<'-1.6'>;
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
+    test.fails.todo('"negative" zero', () => {
+        type Expected = 0;
+        type Actual = ExtractLiteral<'-0'>;
+
+        // @ts-expect-error: this test fails
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
     test('str number', () => {
         type Expected = 'number';
         type Actual = ExtractLiteral<'number'>;

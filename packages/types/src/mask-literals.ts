@@ -17,7 +17,7 @@ import type { Primitive } from './primitive';
  * `K extends boolean ? boolean : K` is used since boolean is often spread into `true | false`
  */
 export type MaskLiterals<T> = {
-    [K in Primitive as `${Primitive}`]: InverseExtract<
+    [K in Primitive as string]: InverseExtract<
         T,
         K extends boolean ? boolean : K
     >;
