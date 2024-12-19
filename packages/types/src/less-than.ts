@@ -1,22 +1,22 @@
 import type { Abs } from './abs';
 import type { ArrayOfN } from './array-of-n';
-import type { IsNatural } from './is-natural';
+import type { IsPositiveOrZero } from './is-positive-or-zero';
 
 /**
  * @description
- * A, B - ℤ (integers)
+ * A, B ∈ ℤ (integers)
  *
- * @note does not work for floats
+ * @note does not support float values
  */
 export type LessThan<
     A extends number,
     B extends number
-> = IsNatural<A> extends true
-    ? IsNatural<B> extends true
+> = IsPositiveOrZero<A> extends true
+    ? IsPositiveOrZero<B> extends true
         ? ArrayOfN<A, B> extends never
             ? false
             : true
         : false
-    : IsNatural<B> extends true
+    : IsPositiveOrZero<B> extends true
     ? true
     : LessThan<Abs<B>, Abs<A>>;
