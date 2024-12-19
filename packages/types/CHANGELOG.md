@@ -1,5 +1,18 @@
 # @ylfjuk-core/types
 
+## 0.0.11
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added types
+  - `Increment` | Increments a N ∈ ℕ number by 1 | ⚠️ Negative/Floats Unsupported
+
+#### Fixes 🩹
+
+- Renamed `IsNatural` to `IsPositiveOrZero` to describe it better (breaking 💥)
+
 ## 0.0.10
 
 ### Patch Changes
