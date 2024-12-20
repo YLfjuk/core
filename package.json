@@ -12,8 +12,9 @@
     "scripts": {
         "release": "npm run build && changeset publish",
         "version": "changeset version",
-        "build": "turbo run build",
-        "dev": "turbo run dev",
+        "build": "turbo run build --filter=!./playground/*",
+        "dev": "turbo run dev --filter=!./playground/*",
+        "dev:*": "turbo run dev",
         "test": "turbo test && npm run test:v",
         "coverage": "vitest run --coverage",
         "test:v": "vitest --typecheck",
@@ -36,6 +37,7 @@
     "packageManager": "npm@10.9.2",
     "workspaces": [
         "apps/*",
-        "packages/*"
+        "packages/*",
+        "playground/*"
     ]
 }
