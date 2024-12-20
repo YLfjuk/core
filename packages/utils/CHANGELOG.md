@@ -1,5 +1,14 @@
 # @ylfjuk-core/utils
 
+## 0.0.6
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added Utilities:
+  - toggle | toggles between elements in an array
+
 ## 0.0.5
 
 ### Patch Changes

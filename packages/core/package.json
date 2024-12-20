@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk/core",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "description": "The core packages",
     "author": "YLfjuk",
     "type": "module",
@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@ylfjuk-core/types": "0.0.11",
-        "@ylfjuk-core/utils": "0.0.5"
+        "@ylfjuk-core/utils": "0.0.6"
     },
     "devDependencies": {
         "@ylfjuk/tsconfigs": "^0.0.6",
