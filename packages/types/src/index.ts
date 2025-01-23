@@ -1,8 +1,10 @@
 export type * from './abs';
 export type * from './array-of-n';
 export type * from './at-least-one';
+export type * from './box';
 export type * from './deep-dict';
 export type * from './empty-object';
+export type * from './equal';
 export type * from './exactly-one';
 export type * from './extend';
 export type * from './extract-literals';
@@ -13,6 +15,7 @@ export type * from './inverse-extract';
 export type * from './is-disjoint-union';
 export type * from './is-positive-or-zero';
 export type * from './is-tuple';
+export type * from './less-than-equal';
 export type * from './less-than';
 export type * from './mapped-enum';
 export type * from './mask-literals';
