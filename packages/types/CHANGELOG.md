@@ -1,12 +1,26 @@
 # @ylfjuk-core/types
 
+## 0.0.12
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added Types
+  - Box | Boxes union types
+  - Equal | Returns if two types are strictly equal
+  - LessThanEqual | Returns if a number is less than or equal to another number | ⚠️ Floats Unsupported
+
+- Modified Types
+  - ArrayOfN | Fill now accepts any type
+
 ## 0.0.11
 
 ### Patch Changes
 
 #### Features 🆕
 
-- Added types
+- Added Types
   - `Increment` | Increments a N ∈ ℕ number by 1 | ⚠️ Negative/Floats Unsupported
 
 #### Fixes 🩹
@@ -23,7 +37,7 @@
 
 #### Features 🆕
 
-- Added types
+- Added Types
   - Abs | Returns the absolute value of a number
   - ArrayOfN | Returns an array of n length
   - AtLeastOne | Requires at least one of the fields in an object
@@ -47,7 +61,7 @@
 
 #### Features 🆕
 
-- Added types
+- Added Types
   - DeepDict
   - EmptyObject
   - InverseExtract

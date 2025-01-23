@@ -25,22 +25,7 @@ describe('returns an increment of the provided value', () => {
 
     test('negative int', () => {
         type Actual = Increment<-1>;
-        type Expected = 'error: Unsupported numeric value';
-
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
-
-    test.todo('negative int', () => {
-        type Actual = Increment<-1>;
-        type Expected = 0;
-
-        // @ts-expect-error: unsupported
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
-
-    test('negative int', () => {
-        type Actual = Increment<-1>;
-        type Expected = 'error: Unsupported numeric value';
+        type Expected = 'Error: Unsupported numeric value';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
