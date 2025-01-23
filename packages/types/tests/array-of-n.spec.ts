@@ -70,11 +70,18 @@ describe('Array of n', () => {
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
-    test('Acc can not contain numbers other than Fill value', () => {
+    test('Acc can not contain values other than Fill value', () => {
         // @ts-expect-error: testing
         type Actual = ArrayOfN<4, -1, [1], 2>;
         type Expected = [2, 2, 2, 2];
 
         expectTypeOf<Actual>().not.toEqualTypeOf<Expected>();
+    });
+
+    test('Can be filled with any type', () => {
+        type Actual = ArrayOfN<4, -1, [], true>;
+        type Expected = [true, true, true, true];
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 });
