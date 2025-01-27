@@ -29,6 +29,11 @@
             "dependsOn": [
                 "^test"
             ]
+        },
+        "test:types": {
+            "dependsOn": [
+                "^test:types"
+            ]
         }
     }
 }
