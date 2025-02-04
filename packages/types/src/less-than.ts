@@ -3,10 +3,17 @@ import type { ArrayOfN } from './array-of-n';
 import type { IsPositiveOrZero } from './is-positive-or-zero';
 
 /**
+ * @see {@link IsPositiveOrZero}
+ * @see {@link ArrayOfN}
+ * @see {@link LessThan}
+ * @see {@link Abs}
+ *
  * @description
  * A, B ∈ ℤ (integers)
  *
  * @note does not support float values
+ *
+ * @since 0.0.10
  */
 export type LessThan<
     A extends number,

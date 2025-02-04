@@ -5,6 +5,9 @@ import type { Abs } from './abs';
  * @param Limit - exclusive upper bound
  * @param Acc - A prior accumulation of 0[]
  * @param Fill - What to fill the array with
+ *
+ * @since 0.0.10
+ * @modified 0.0.12
  */
 export type ArrayOfN<
     Amount extends number,
