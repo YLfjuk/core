@@ -24,6 +24,8 @@ export type * from './non-empty-array';
 export type * from './pick-by';
 export type * from './prettify';
 export type * from './primitive';
+export type * from './result';
+export type * from './safe-record';
 export type * from './strict-omit';
 export type * from './suggest';
 export type * from './union-to-intersection';
