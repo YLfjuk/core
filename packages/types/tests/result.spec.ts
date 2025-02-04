@@ -1,4 +1,4 @@
-import { describe, expect, expectTypeOf, it, suite, test } from 'vitest';
+import { describe, expect, expectTypeOf, it, suite } from 'vitest';
 import type { Result, ResultData, ResultError } from './../src/result';
 
 describe('Result of a function call. Either successful w/ data, or not w/ a reason', () => {
