@@ -1,5 +1,25 @@
 # @ylfjuk-core/types
 
+## 0.0.13
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added Types
+  - SafeRecord | A record that emulates the `noUncheckedIndexedAccess` tsconfig setting
+  - Result
+  - ResultData | Extracts the data from a `Result` type
+  - ResultError | Extracts the error from a `Result` type
+
+- Modified Types
+  - ValueOf | Add support for arrays
+  - Extend
+
+#### Chores 🧹
+
+- Add the @since, @modified, and more to the jsdoc of the types
+
 ## 0.0.12
 
 ### Patch Changes
@@ -38,6 +58,7 @@
 #### Features 🆕
 
 - Added Types
+
   - Abs | Returns the absolute value of a number
   - ArrayOfN | Returns an array of n length
   - AtLeastOne | Requires at least one of the fields in an object
