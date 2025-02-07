@@ -1,0 +1,37 @@
+{
+    "name": "@playground/types",
+    "private": true,
+    "version": "0.0.0",
+    "author": "YLfjuk",
+    "type": "module",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YLfjuk/core.git",
+        "directory": "packages/types"
+    },
+    "keywords": [
+        "ylfjuk",
+        "core",
+        "types"
+    ],
+    "files": [
+        "src"
+    ],
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "scripts": {
+        "build": "npm test",
+        "test": "npm run test:types",
+        "test:types": "tsc --project tsconfig.test.json"
+    },
+    "devDependencies": {
+        "@ylfjuk-core/types": "*",
+        "@ylfjuk/tsconfigs": "^0.0.6",
+        "typescript": "^5.7.2"
+    },
+    "peerDependencies": {
+        "typescript": "^5.5.4"
+    }
+}
