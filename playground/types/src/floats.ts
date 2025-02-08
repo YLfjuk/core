@@ -130,13 +130,13 @@ type Float1 = 5.0076;
 type Float2 = 5.00016;
 type Float3 = 5.0086;
 
-type SplitF1 = Split<`${Float1}`, { splitter: '.' }>;
+type SplitF1 = Split<`${Float1}`, { separator: '.' }>;
 //   ^?
 
-type SplitF2 = Split<`${Float2}`, { splitter: '.' }>;
+type SplitF2 = Split<`${Float2}`, { separator: '.' }>;
 //   ^?
 
-type SplitF3 = Split<`${Float3}`, { splitter: '.' }>;
+type SplitF3 = Split<`${Float3}`, { separator: '.' }>;
 // //   ^?
 
 // type SplitFPoint1 = ZeroPaddedNumber<SplitF1[1]>;
@@ -167,13 +167,13 @@ type SplitF3 = Split<`${Float3}`, { splitter: '.' }>;
 //         : false
 //     : false;
 
-type SplitFPoint1 = Split<SplitF1[1], { splitter: ''; extractLiterals: true }>;
+type SplitFPoint1 = Split<SplitF1[1], { separator: ''; extractLiterals: true }>;
 //   ^?
 
-type SplitFPoint2 = Split<SplitF2[1], { splitter: ''; extractLiterals: true }>;
+type SplitFPoint2 = Split<SplitF2[1], { separator: ''; extractLiterals: true }>;
 //   ^?
 
-type SplitFPoint3 = Split<SplitF3[1], { splitter: ''; extractLiterals: true }>;
+type SplitFPoint3 = Split<SplitF3[1], { separator: ''; extractLiterals: true }>;
 //   ^?
 
 // type IsF1LessThanF3 = LessThan<
