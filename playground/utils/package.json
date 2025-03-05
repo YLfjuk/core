@@ -1,5 +1,5 @@
 {
-    "name": "@playground/types",
+    "name": "@playground/utils",
     "private": true,
     "version": "0.0.0",
     "author": "YLfjuk",
@@ -8,19 +8,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YLfjuk/core.git",
-        "directory": "packages/types"
-    },
-    "keywords": [
-        "ylfjuk",
-        "core",
-        "types",
-        "playground"
-    ],
-    "files": [
-        "src"
-    ],
-    "exports": {
-        ".": "./src/index.ts"
+        "directory": "packages/utils"
     },
     "scripts": {
         "build": "npm test",
@@ -28,9 +16,10 @@
         "test:types": "tsc --project tsconfig.test.json"
     },
     "devDependencies": {
+        "@ylfjuk-core/utils": "*",
         "@ylfjuk-core/types": "*",
         "@ylfjuk/tsconfigs": "^0.0.6",
-        "typescript": "^5.7.3"
+        "typescript": "^5.7.2"
     },
     "peerDependencies": {
         "typescript": "^5.5.4"
