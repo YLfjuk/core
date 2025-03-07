@@ -1,3 +1,6 @@
+'use ready';
+'use new';
+
 import type { Split } from './split';
 
 export type Length<T extends string | unknown[]> = T extends string

@@ -1,32 +1,28 @@
-import type { ExtractLiteral } from '@ylfjuk-core/types';
-import type { Extends } from './extends';
+'use ready';
+'use new';
 
-type SplitSettings = { separator: string; extractLiterals?: boolean };
-type DefaultSplitSettings = { separator: ''; extractLiterals: false };
+import type { ExtractLiteral } from '@ylfjuk-core/types';
+import type { OptionalFallback } from './optional-fallback';
+
+type Settings = { separator: string; extractLiterals?: boolean };
+type DefaultSettings = { separator: ''; extractLiterals: false };
 
 type BuildSeparator<
     T extends string,
-    Settings extends SplitSettings
-> = T extends `${infer U}${Settings['separator']}${infer Rest}`
+    Options extends Settings
+> = T extends `${infer U}${Options['separator']}${infer Rest}`
     ? [
-          Settings['extractLiterals'] extends true ? ExtractLiteral<U> : U,
-          ...BuildSeparator<Rest, Settings>
+          Options['extractLiterals'] extends true ? ExtractLiteral<U> : U,
+          ...BuildSeparator<Rest, Options>
       ]
     : T extends ''
     ? []
-    : [Settings['extractLiterals'] extends true ? ExtractLiteral<T> : T];
+    : [Options['extractLiterals'] extends true ? ExtractLiteral<T> : T];
 
 export type Split<
     T extends string,
-    Settings extends SplitSettings = DefaultSplitSettings
-> = T extends `${infer U}${Settings['separator']}${infer Rest}`
-    ? [
-          Settings['extractLiterals'] extends true ? ExtractLiteral<U> : U,
-          ...Split<Rest, Settings>
-      ]
-    : T extends ''
-    ? []
-    : [Settings['extractLiterals'] extends true ? ExtractLiteral<T> : T];
+    Options extends Settings = DefaultSettings
+> = BuildSeparator<T, OptionalFallback<Settings, Options, DefaultSettings>>;
 
 // region Tests
 

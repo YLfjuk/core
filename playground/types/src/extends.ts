@@ -1,3 +1,5 @@
+'use ready';
+
 import type { Box } from '@ylfjuk-core/types';
 
 /**

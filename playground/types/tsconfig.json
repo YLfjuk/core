@@ -4,7 +4,8 @@
         "target": "ES2020",
         "module": "ESNext",
         "moduleResolution": "bundler",
-        "isolatedDeclarations": false
+        "isolatedDeclarations": false,
+        "exactOptionalPropertyTypes": true
     },
     "include": ["src"]
 }

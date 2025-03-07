@@ -1,5 +1,6 @@
 import type { Equal } from '@ylfjuk-core/types';
 
+// TODO: add a date / functions guard?
 export type DeepReadonly<T> = T extends object
     ? {
           readonly [K in keyof T]: DeepReadonly<T[K]>;
@@ -33,4 +34,10 @@ type Test3_6 = DeepReadonly<{
 }>;
 
 type Test3_7 = Equal<DeepReadonly<Date>, Readonly<Date>>;
+//   ^?
+
+type Readonly_Date = Readonly<Date>;
+//   ^?
+
+type Deep_Readonly_Date = DeepReadonly<Date>;
 //   ^?

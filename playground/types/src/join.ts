@@ -1,28 +1,27 @@
+'use ready';
+'use new';
+
 import type { Primitive } from '@ylfjuk-core/types';
 
-type JoinSettings = { separator: string };
-type DefaultJoinSettings = { separator: '' };
+type Settings = { separator: string };
+type DefaultSettings = { separator: '' };
 
+// TODO: expose
 type Stringifiable = Exclude<Primitive, symbol>;
 
-type BuildStr<
+export type Join<
     T extends Stringifiable[],
-    Settings extends JoinSettings
+    Options extends Settings = DefaultSettings
 > = T extends [
     infer S extends Stringifiable,
     ...infer Rest extends Stringifiable[]
 ]
-    ? `${S}${BuildStr<Rest, Settings> extends infer U extends string
+    ? `${S}${Join<Rest, Options> extends infer U extends string
           ? U extends ''
               ? ''
-              : `${Settings['separator']}${U}`
+              : `${Options['separator']}${U}`
           : ''}`
     : '';
-
-export type Join<
-    T extends Stringifiable[],
-    Settings extends JoinSettings = DefaultJoinSettings
-> = BuildStr<T, Settings>;
 
 // region Tests
 

@@ -1,3 +1,5 @@
+'use new';
+
 type LastElement<Arr extends unknown[]> = Arr extends [...infer _, infer Last]
     ? Last
     : never;

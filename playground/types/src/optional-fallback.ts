@@ -1,143 +1,184 @@
-import type { PreserveUndefined } from './preserve-undefined';
+'use ready';
 
-// TODO: omit fields that aren't optional since they'll always have a value
+import type { Maybe } from '@ylfjuk-core/types';
+import type { Suggest } from './modified/suggest';
+import type { NonOptional } from './non-optional';
+import type { PickOptionals } from './pick-optionals';
+
+type Settings = { allowUnknownFallback?: boolean };
+type DefaultSettings = { allowUnknownFallback: false };
+
 export type OptionalFallback<
     T,
-    Keys extends keyof T,
-    Fallback extends unknown | T,
-    Value extends T
+    Value extends T,
+    Fallback extends Options['allowUnknownFallback'] extends true
+        ? Maybe<Suggest<Partial<PickOptionals<T>>>>
+        : Partial<PickOptionals<T>>, //? remove unknown,
+    Options extends Settings = DefaultSettings
 > = {
-    [K in Keys & keyof PreserveUndefined<T>]: Value extends {
+    [K in keyof NonOptional<T>]: Value extends {
         [_K in K]: Required<Value>[_K];
     }
         ? Value[K]
-        : Fallback extends T
+        : K extends keyof Fallback
         ? Fallback[K]
         : Fallback;
-}[Keys];
+};
 
 // region Tests
 type Type = { bob: number; bert?: string | undefined };
 type ExtendedType = { bob: number; bert?: string | undefined; berta?: boolean };
 
-type Test = OptionalFallback<Type, 'bob', null, { bob: 4; bert: 'bob' }>;
-//   ^?
+type Test = OptionalFallback<
+    //^?
+    Type,
+    { bob: 4; bert: 'bob' },
+    null,
+    { allowUnknownFallback: true }
+>;
 
-type Test2 = OptionalFallback<Type, 'bob', null, { bob: 4; bert: undefined }>;
-//   ^?
+type Test2 = OptionalFallback<
+    //^?
+    Type,
+    { bob: 4; bert: undefined },
+    null,
+    { allowUnknownFallback: true }
+>;
 
-type Test3 = OptionalFallback<Type, 'bob', null, { bob: 4 }>;
-//   ^?
+type Test3 = OptionalFallback<
+    //^?
+    Type,
+    { bob: 4 },
+    null,
+    { allowUnknownFallback: true }
+>;
 
-type Test4 = OptionalFallback<Type, 'bert', null, { bob: 4; bert: 'bob' }>;
-//   ^?
+type Test4 = OptionalFallback<
+    //^?
+    Type,
+    { bob: 4; bert: 'bob' },
+    null,
+    { allowUnknownFallback: true }
+>;
 
-type Test5 = OptionalFallback<Type, 'bert', null, { bob: 4; bert: undefined }>;
-//   ^?
+type Test5 = OptionalFallback<
+    //^?
+    Type,
+    { bob: 4; bert: undefined },
+    null,
+    { allowUnknownFallback: true }
+>;
 
-type Test6 = OptionalFallback<Type, 'bert', null, { bob: 4 }>;
-//   ^?
+type Test6 = OptionalFallback<
+    //^?
+    Type,
+    { bob: 4 },
+    null,
+    { allowUnknownFallback: true }
+>;
 
 type Test7 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
+    { bob: 4; bert: 'bob'; berta: true },
     null,
-    { bob: 4; bert: 'bob'; berta: true }
+    { allowUnknownFallback: true }
 >;
 
 type Test8 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
+    { bob: 4; bert: undefined; berta: false },
     null,
-    { bob: 4; bert: undefined; berta: false }
+    { allowUnknownFallback: true }
 >;
 
 type Test9 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
+    { bob: 4; bert: 'bob'; berta: undefined },
     null,
-    { bob: 4; bert: 'bob'; berta: undefined }
+    { allowUnknownFallback: true }
 >;
 
 type Test10 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
+    { bob: 4; bert: undefined; berta: undefined },
     null,
-    { bob: 4; bert: undefined; berta: undefined }
+    { allowUnknownFallback: true }
 >;
 
 type Test11 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
+    { bob: 4; bert: 'bob' },
     null,
-    { bob: 4; bert: 'bob' }
+    { allowUnknownFallback: true }
 >;
 
 type Test12 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
+    { bob: 4; berta: false },
     null,
-    { bob: 4; berta: false }
+    { allowUnknownFallback: true }
 >;
 
 type Test13 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
+    { bob: 4 },
     null,
-    { bob: 4 }
+    { allowUnknownFallback: true }
 >;
 
 type Test14 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
-    { bob: 3; bert: 'bert'; berta: false },
-    { bob: 4; bert: 'bob'; berta: true }
+    { bob: 4; bert: 'bob'; berta: true },
+    { bert: 'bert'; berta: false }
 >;
 
 type Test15 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
-    { bob: 3; bert: 'bert'; berta: false },
-    { bob: 4; bert: 'bob' }
+    { bob: 4; bert: 'bob' },
+    { bert: 'bert'; berta: false }
 >;
 
 type Test16 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
-    { bob: 3; bert: 'bert'; berta: false },
-    { bob: 4; berta: true }
+    { bob: 4; berta: true },
+    { bert: 'bert'; berta: false }
 >;
 
 type Test17 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
-    { bob: 3; bert: 'bert'; berta: false },
-    { bob: 4; bert: undefined }
+    { bob: 4; bert: undefined },
+    { bert: 'bert'; berta: false }
 >;
 
 type Test18 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
-    { bob: 3; bert: 'bert'; berta: false },
-    { bob: 4; berta: undefined }
+    { bob: 4; berta: undefined },
+    { bert: 'bert'; berta: false }
 >;
 
 type Test19 = OptionalFallback<
     //^?
     ExtendedType,
-    'bert' | 'berta',
-    { bob: 3; bert: 'bert'; berta: false },
-    { bob: 4; bert: undefined; berta: undefined }
+    { bob: 4; bert: undefined; berta: undefined },
+    { bert: 'bert'; berta: false }
+>;
+
+type Test20 = OptionalFallback<
+    //^?
+    ExtendedType,
+    { bob: 4 },
+    { bert: 'bert'; berta: number },
+    { allowUnknownFallback: true }
 >;

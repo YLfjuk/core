@@ -1,3 +1,5 @@
+'use new';
+
 import type { GuardDate } from './guard-date';
 
 export type Replace<T, R, N> = T extends R
