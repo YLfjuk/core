@@ -1,9 +1,8 @@
 'use ready';
 
-import type { Maybe } from '@ylfjuk-core/types';
-import type { Suggest } from './modified/suggest';
 import type { NonOptional } from './non-optional';
 import type { PickOptionals } from './pick-optionals';
+import type { Whatever } from './whatever';
 
 type Settings = { allowUnknownFallback?: boolean };
 type DefaultSettings = { allowUnknownFallback: false };
@@ -12,7 +11,7 @@ export type OptionalFallback<
     T,
     Value extends T,
     Fallback extends Options['allowUnknownFallback'] extends true
-        ? Maybe<Suggest<Partial<PickOptionals<T>>>>
+        ? Whatever<Partial<PickOptionals<T>>>
         : Partial<PickOptionals<T>>, //? remove unknown,
     Options extends Settings = DefaultSettings
 > = {
@@ -96,7 +95,7 @@ type Test8 = OptionalFallback<
 type Test9 = OptionalFallback<
     //^?
     ExtendedType,
-    { bob: 4; bert: 'bob'; berta: undefined },
+    { bob: 4; bert: 'bob' },
     null,
     { allowUnknownFallback: true }
 >;
@@ -104,7 +103,7 @@ type Test9 = OptionalFallback<
 type Test10 = OptionalFallback<
     //^?
     ExtendedType,
-    { bob: 4; bert: undefined; berta: undefined },
+    { bob: 4; berta: false },
     null,
     { allowUnknownFallback: true }
 >;
@@ -112,7 +111,7 @@ type Test10 = OptionalFallback<
 type Test11 = OptionalFallback<
     //^?
     ExtendedType,
-    { bob: 4; bert: 'bob' },
+    { bob: 4 },
     null,
     { allowUnknownFallback: true }
 >;
@@ -120,62 +119,32 @@ type Test11 = OptionalFallback<
 type Test12 = OptionalFallback<
     //^?
     ExtendedType,
-    { bob: 4; berta: false },
-    null,
-    { allowUnknownFallback: true }
->;
-
-type Test13 = OptionalFallback<
-    //^?
-    ExtendedType,
-    { bob: 4 },
-    null,
-    { allowUnknownFallback: true }
->;
-
-type Test14 = OptionalFallback<
-    //^?
-    ExtendedType,
     { bob: 4; bert: 'bob'; berta: true },
     { bert: 'bert'; berta: false }
 >;
 
-type Test15 = OptionalFallback<
+type Test13 = OptionalFallback<
     //^?
     ExtendedType,
     { bob: 4; bert: 'bob' },
     { bert: 'bert'; berta: false }
 >;
 
-type Test16 = OptionalFallback<
+type Test14 = OptionalFallback<
     //^?
     ExtendedType,
     { bob: 4; berta: true },
     { bert: 'bert'; berta: false }
 >;
 
-type Test17 = OptionalFallback<
+type Test15 = OptionalFallback<
     //^?
     ExtendedType,
     { bob: 4; bert: undefined },
     { bert: 'bert'; berta: false }
 >;
 
-type Test18 = OptionalFallback<
-    //^?
-    ExtendedType,
-    { bob: 4; berta: undefined },
-    { bert: 'bert'; berta: false }
->;
-
-type Test19 = OptionalFallback<
-    //^?
-    ExtendedType,
-    { bob: 4; bert: undefined; berta: undefined },
-    { bert: 'bert'; berta: false }
->;
-
-type Test20 = OptionalFallback<
+type Test16 = OptionalFallback<
     //^?
     ExtendedType,
     { bob: 4 },
