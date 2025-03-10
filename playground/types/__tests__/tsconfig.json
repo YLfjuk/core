@@ -6,5 +6,5 @@
         "moduleResolution": "bundler",
         "isolatedDeclarations": false
     },
-    "include": ["tests"]
+    "include": ["./*"]
 }
