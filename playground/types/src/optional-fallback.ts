@@ -1,8 +1,8 @@
 'use ready';
 
-import type { NonOptional } from './non-optional';
+import type { NonOptional } from '@ylfjuk-core/types';
+import type { Whatever } from '@ylfjuk-core/types';
 import type { PickOptionals } from './pick-optionals';
-import type { Whatever } from './whatever';
 
 type Settings = { allowUnknownFallback?: boolean };
 type DefaultSettings = { allowUnknownFallback: false };
