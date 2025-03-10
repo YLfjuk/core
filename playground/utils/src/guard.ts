@@ -16,7 +16,7 @@ type Settings =
           allowed?: Primitive;
       };
 
-type DefaultSettings<T> = {
+type DefaultSettings<T extends Primitive> = {
     allowUnknown: true;
     allowed: MaskLiterals<T>;
 };
