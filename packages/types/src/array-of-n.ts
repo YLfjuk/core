@@ -1,13 +1,13 @@
 import type { Abs } from './abs';
 
 /**
- * @param Amount - amount of zeros
+ * @param Amount - amount of {@link Fill}
  * @param Limit - exclusive upper bound
- * @param Acc - A prior accumulation of 0[]
+ * @param Acc - A prior accumulation of {@link Fill}[]
  * @param Fill - What to fill the array with
  *
  * @since 0.0.10
- * @modified 0.0.12
+ * @modified 0.0.12 - Now accepts any type for {@link Fill}
  */
 export type ArrayOfN<
     Amount extends number,
