@@ -1,6 +1,13 @@
 import type { Primitive } from './primitive';
 
 /**
+ * @description Extracts the literals from a string
+ *
+ * @note The opposite of MaskLiterals
+ *
+ * @example
+ * type LiteralNumber = ExtractLiterals<'56'>; //? 56
+ *
  * @see {@link Primitive}
  *
  * @since 0.0.8

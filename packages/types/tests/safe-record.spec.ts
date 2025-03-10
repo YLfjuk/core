@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, it } from 'vitest';
-import type { SafeRecord } from './../src/safe-record';
+import type { SafeRecord } from '../src/safe-record';
 
 describe('A safe way to access a record when `noUncheckedIndexedAccess` is turned off', () => {
     it('should be the same as adding `| undefined` to a regular record', () => {

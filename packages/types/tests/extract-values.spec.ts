@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, test } from 'vitest';
-import type { ValueOf } from '../src';
+import type { ValueOf } from '../src/value-of';
 import type { ExtractValues } from '../src/extract-values';
 
 describe('Extract the values from a nested object', () => {
