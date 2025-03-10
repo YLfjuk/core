@@ -1,6 +1,6 @@
 /**
  * @description
- * Suggests the provided type {@link T}, but allows for any non-nullable value
+ * Suggests the provided type {@link T}, but allows any non-nullable value
  *
  * @since 0.0.9
  * @modified 0.0.14 - Now a generic suggestion

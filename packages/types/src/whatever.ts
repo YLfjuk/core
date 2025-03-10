@@ -3,7 +3,7 @@ import type { Suggest } from './suggest';
 
 /**
  * @description
- * Suggests the provided type {@link T}, but allows for any value
+ * Suggests the provided type {@link T}, but allows any value
  *
  * @see {@link Suggest}
  * @see {@link Maybe}
