@@ -13,6 +13,7 @@
   - Stringifiable | `Primitive`s that can be stringified, or an object with the `toString` method
   - Stringify | Stringifies values that can be stringified
   - Join | Joins together `Stringifiable` elements
+  - OmitFunctions | Omits the set of properties that are functions
 
 - Modified Types
   - MaskLiterals | Only accepts a `Primitive` type (breaking 💥)
