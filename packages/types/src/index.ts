@@ -23,6 +23,7 @@ export type * from './mask-literals';
 export type * from './maybe';
 export type * from './non-empty-array';
 export type * from './non-optional';
+export type * from './omit-functions';
 export type * from './pick-by';
 export type * from './prettify';
 export type * from './primitive';
