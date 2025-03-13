@@ -10,6 +10,9 @@
   - NonOptional | Makes all keys required
   - Reverse | Reverses an array
   - UnknownArray | An array of unknown values
+  - Stringifiable | `Primitive`s that can be stringified, or an object with the `toString` method
+  - Stringify | Stringifies values that can be stringified
+  - Join | Joins together `Stringifiable` elements
 
 - Modified Types
   - MaskLiterals | Only accepts a `Primitive` type (breaking 💥)
