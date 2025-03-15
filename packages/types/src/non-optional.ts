@@ -9,5 +9,5 @@
  * @since 0.0.14
  */
 export type NonOptional<T> = {
-    [K in keyof (T & Required<T>)]: T[K];
+    [K in keyof Required<T>]: T[K];
 };
