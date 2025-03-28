@@ -1,10 +1,15 @@
 'use new';
 
-type LastElement<Arr extends unknown[]> = Arr extends [...infer _, infer Last]
+import type { UnknownArray } from '@ylfjuk-core/types';
+
+type LastElement<Arr extends UnknownArray> = Arr extends [
+    ...infer _,
+    infer Last
+]
     ? Last
     : never;
 
-type LastElement2<Arr extends unknown[]> = [never, ...Arr][Arr['length']];
+type LastElement2<Arr extends UnknownArray> = [never, ...Arr][Arr['length']];
 
 // region Tests 1
 

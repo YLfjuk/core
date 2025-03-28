@@ -1,8 +1,7 @@
 'use ready';
 'use new';
 
-import type { Reverse } from '@ylfjuk-core/types';
-import type { Join } from './join';
+import type { Join, Reverse } from '@ylfjuk-core/types';
 import type { Split } from './split';
 
 type ReverseSettings = { separator: string };

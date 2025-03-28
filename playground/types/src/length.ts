@@ -1,9 +1,10 @@
 'use ready';
 'use new';
 
+import type { UnknownArray } from '@ylfjuk-core/types';
 import type { Split } from './split';
 
-export type Length<T extends string | unknown[]> = T extends string
+export type Length<T extends string | UnknownArray> = T extends string
     ? Length<Split<T>>
     : T['length'];
 

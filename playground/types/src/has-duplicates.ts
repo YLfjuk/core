@@ -1,4 +1,6 @@
-export type HasDuplicates<T extends readonly unknown[]> = T extends readonly [
+import type { UnknownArray } from '@ylfjuk-core/types';
+
+export type HasDuplicates<T extends UnknownArray> = T extends readonly [
     infer First,
     ...infer Rest
 ]
