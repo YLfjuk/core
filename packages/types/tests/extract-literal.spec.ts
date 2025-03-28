@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, test } from 'vitest';
-import type { ExtractLiteral } from '../src/extract-literals';
+import type { ExtractLiteral } from '../src/extract-literal';
 
 describe('Extract the type from a template literal type', () => {
     test('string', () => {

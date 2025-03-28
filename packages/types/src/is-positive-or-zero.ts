@@ -1,10 +1,10 @@
 import type { Abs } from './abs';
 
 /**
- * @see {@link Abs}
- *
  * @description
  * return N >= 0;
+ *
+ * @see {@link Abs}
  *
  * @previous IsNatural {@v 0.0.10}
  *

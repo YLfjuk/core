@@ -2,11 +2,12 @@ import type { ArrayOfN } from './array-of-n';
 import type { IsPositiveOrZero } from './is-positive-or-zero';
 
 /**
+ * @param N ∈ ℕ
+ *
+ * @note does not support negative/float values
+ *
  * @see {@link IsPositiveOrZero}
  * @see {@link ArrayOfN}
- *
- * @param N ∈ ℕ
- * @note does not support negative/float values
  *
  * @since 0.0.10
  */

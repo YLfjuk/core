@@ -2,14 +2,13 @@ import type { Equal } from './equal';
 import type { LessThan } from './less-than';
 
 /**
- *
- * @see {@link Equal}
- * @see {@link LessThan}
- *
  * @description
  * A, B ∈ ℤ (integers)
  *
  * @note does not support float values
+ *
+ * @see {@link Equal}
+ * @see {@link LessThan}
  *
  * @since 0.0.12
  */

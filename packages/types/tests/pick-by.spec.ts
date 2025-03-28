@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, test } from 'vitest';
 import type { PickBy } from '../src/pick-by';
-import type { EmptyObject } from './../src/empty-object';
+import type { EmptyObject } from '../src/empty-object';
 
 describe('pick fields of an object if they match type', () => {
     test('matches', () => {
