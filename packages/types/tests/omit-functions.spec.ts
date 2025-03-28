@@ -28,13 +28,17 @@ describe('Omits the set of properties that are functions', () => {
             width!: number;
             height!: number;
 
-            #private: 'hidden';
+            #private = 'hidden';
 
             getWidth() {
                 return this.width;
             }
 
             getHeight = () => this.height;
+
+            getPrivate() {
+                return this.#private;
+            }
         }
 
         const instance = new Class();
