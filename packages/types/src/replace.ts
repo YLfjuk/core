@@ -8,10 +8,8 @@ import type { DateGuard } from './date-guard';
  * @template N - The type that replaces occurrences of `R`.
  *
  * @example
- * ```ts
  * type Example = Replace<{ a: number; b: string; c: number[] }, number, boolean>;
  * // Result: { a: boolean; b: string; c: boolean[] }
- * ```
  *
  * @since 0.0.14
  */
