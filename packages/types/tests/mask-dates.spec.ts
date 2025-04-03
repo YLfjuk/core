@@ -1,7 +1,7 @@
 import { describe, expectTypeOf, it } from 'vitest';
 import type { MaskDates } from '../src/mask-dates';
 
-describe.todo('Masks the `Date` type as a `string`', () => {
+describe('Masks the `Date` type as a `string`', () => {
     it('should mask all `Date` types as `string`', () => {
         type Actual = MaskDates<{
             date: Date;
