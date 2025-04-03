@@ -1,7 +1,7 @@
 /**
  * @description An infinite record
  *
- * @variants deep
+ * @note Deep
  *
  * @since 0.0.9
  */

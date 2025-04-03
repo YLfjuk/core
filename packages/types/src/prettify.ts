@@ -3,7 +3,8 @@ import type { GuardDate } from './guard-date';
 /**
  * @description Prettifies the type and expands it
  *
- * @variant deep
+ * @note Deep
+ * @note preserves `Date`
  *
  * @since 0.0.1
  * @modified 0.0.14 {@breaking 💥} | Prettifies the entire `object`, and avoids expanding the `Date` type

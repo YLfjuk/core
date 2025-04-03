@@ -24,7 +24,7 @@
         }
     },
     "scripts": {
-        "build": "npm test",
+        "build": "npm test && test:types",
         "test": "vitest run --typecheck",
         "test:types": "tsc --noEmit"
     },
