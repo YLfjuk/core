@@ -1,14 +1,17 @@
+import type { Replace } from './replace';
+
 /**
  * @description Masks the `Date` type as a `string`
  *
- * @note Useful for wrapping the return type of an api call, or `JSON` data
+ * @note Useful for wrapping API response types or handling `JSON` data where `Date` objects are serialized as strings.
+ *
+ * @see {@link Replace}
+ *
+ * @example
+ * type Original = { createdAt: Date; details: { timestamp: Date; name: string } };
+ * type Masked = MaskDates<Original>;
+ * // Result: { createdAt: string; details: { timestamp: string; name: string } }
  *
  * @since 0.0.14
  */
-export type MaskDates<T> = T extends Date
-    ? string
-    : T extends object
-    ? {
-          [K in keyof T]: MaskDates<T[K]>;
-      }
-    : T;
+export type MaskDates<T> = Replace<T, Date, string>;
