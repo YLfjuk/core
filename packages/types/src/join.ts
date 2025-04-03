@@ -8,7 +8,7 @@ type DefaultSettings = { separator: '' };
  * @description Joins together stringifiable elements
  *
  * @see {@link Stringifiable}
- * @see {@link Stringify}
+ * @see {@link ToStr}
  *
  * @since 0.0.14
  */
