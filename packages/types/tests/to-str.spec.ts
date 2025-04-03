@@ -1,58 +1,58 @@
 import { describe, expectTypeOf, it } from 'vitest';
-import type { Stringify } from '../src';
+import type { ToStr } from '../src/to-str';
 
-describe('Stringifies values that can be stringified', () => {
+describe('Stringifies values that can be turned into strings', () => {
     it('should stringify string', () => {
-        type Actual = Stringify<'bob'>;
+        type Actual = ToStr<'bob'>;
         type Expected = 'bob';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
     it('should stringify number', () => {
-        type Actual = Stringify<3>;
+        type Actual = ToStr<3>;
         type Expected = '3';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
     it('should stringify bigint', () => {
-        type Actual = Stringify<30923987n>;
+        type Actual = ToStr<30923987n>;
         type Expected = '30923987';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
     it('should stringify boolean', () => {
-        type Actual = Stringify<boolean>;
+        type Actual = ToStr<boolean>;
         type Expected = 'true' | 'false';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
     it('should stringify null', () => {
-        type Actual = Stringify<null>;
+        type Actual = ToStr<null>;
         type Expected = 'null';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
     it('should stringify undefined', () => {
-        type Actual = Stringify<undefined>;
+        type Actual = ToStr<undefined>;
         type Expected = 'undefined';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
     it('should not stringify symbol', () => {
-        type Actual = Stringify<symbol>;
+        type Actual = ToStr<symbol>;
         type Expected = never;
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
     it('should stringify an object that implements `toString(): string`', () => {
-        type Actual = Stringify<{ toString(): 'bob' }>;
+        type Actual = ToStr<{ toString(): 'bob' }>;
         type Expected = 'bob';
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
