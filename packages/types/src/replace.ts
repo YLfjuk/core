@@ -1,5 +1,3 @@
-import type { GuardDate } from './guard-date';
-
 /**
  * @description Recursively replaces occurrences of type `R` in `T` with `N`.
  *
@@ -17,13 +15,10 @@ import type { GuardDate } from './guard-date';
  */
 export type Replace<T, R, N> = T extends R
     ? N
-    : GuardDate<
-          T,
-          R,
-          N,
-          T extends object
-              ? {
-                    [K in keyof T]: Replace<T[K], R, N>;
-                }
-              : T
-      >;
+    : T extends Date
+    ? Date
+    : T extends object
+    ? {
+          [K in keyof T]: Replace<T[K], R, N>;
+      }
+    : T;

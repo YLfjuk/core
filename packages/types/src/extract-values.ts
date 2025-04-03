@@ -2,6 +2,8 @@ import type { FN } from './fn';
 import type { ValueOf } from './value-of';
 
 /**
+ * @note preserves `Date`
+ *
  * @see {@link ValueOf}
  *
  * @since 0.0.4
