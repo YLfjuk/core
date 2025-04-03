@@ -19,6 +19,7 @@
   - Guard | A guard wrapper for the `Date` type
   - DateGuard | A `Guard` wrapper for the `Date` type
   - Replace | Recursively replaces occurrences of type `R` in `T` with `N`.
+  - MaskDates | Masks the `Date` type as a `string`
 
 - Modified
   - MaskLiterals | Only accepts a `Primitive` type (breaking 💥)
