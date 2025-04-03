@@ -17,7 +17,7 @@
   - Extends | A wrapper around the `extends` keyword', with option for strictness
   - If | A wrapper around conditional types
   - Guard | A guard wrapper for the `Date` type
-  - DateGuard | A `Guard` wrapper for the `Date` type
+  - GuardDate | A `Guard` wrapper for the `Date` type
   - Replace | Recursively replaces occurrences of type `R` in `T` with `N`.
   - MaskDates | Masks the `Date` type as a `string`
   - PickOptional | Extracts optional properties from a given type `T`
