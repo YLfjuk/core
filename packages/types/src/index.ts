@@ -29,6 +29,7 @@ export type * from './maybe';
 export type * from './non-empty-array';
 export type * from './non-optional';
 export type * from './omit-functions';
+export type * from './partial-deep';
 export type * from './pick-by';
 export type * from './pick-optional';
 export type * from './prettify';
