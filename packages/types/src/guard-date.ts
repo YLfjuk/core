@@ -7,7 +7,7 @@ import type { Guard } from './guard';
  *
  * @since 0.0.14
  */
-export type DateGuard<T, TCheck, OnCheck, OnNotCheck, OnDate = Date> = Guard<
+export type GuardDate<T, TCheck, OnCheck, OnNotCheck, OnDate = Date> = Guard<
     Date,
     OnDate,
     TCheck,
