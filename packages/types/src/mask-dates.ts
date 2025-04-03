@@ -8,9 +8,11 @@ import type { Replace } from './replace';
  * @see {@link Replace}
  *
  * @example
+ * ```ts
  * type Original = { createdAt: Date; details: { timestamp: Date; name: string } };
  * type Masked = MaskDates<Original>;
  * // Result: { createdAt: string; details: { timestamp: string; name: string } }
+ * ```
  *
  * @since 0.0.14
  */

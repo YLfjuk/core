@@ -9,7 +9,9 @@ import type { Primitive } from './primitive';
  * @see {@link Primitive}
  *
  * @example
+ * ```ts
  * type MaskedLiteral = ExtractLiterals<56>; //? number
+ * ```
  *
  * @alternative
  * works the same as
