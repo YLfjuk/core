@@ -1,4 +1,4 @@
-import type { DateGuard } from './date-guard';
+import type { GuardDate } from './guard-date';
 
 /**
  * @description Recursively replaces occurrences of type `R` in `T` with `N`.
@@ -17,7 +17,7 @@ import type { DateGuard } from './date-guard';
  */
 export type Replace<T, R, N> = T extends R
     ? N
-    : DateGuard<
+    : GuardDate<
           T,
           R,
           N,
