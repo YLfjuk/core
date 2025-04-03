@@ -10,15 +10,15 @@
         "url": "git+https://github.com/YLfjuk/core.git"
     },
     "scripts": {
+        "prepare": "npx changeset",
         "release": "npm run build && changeset publish",
         "version": "changeset version",
         "build": "turbo run build",
         "dev": "turbo run dev",
-        "dev:*": "turbo run dev",
-        "test": "turbo test",
+        "test": "turbo run test",
         "coverage": "vitest run --coverage",
         "test:v": "vitest --typecheck",
-        "test:ui": "vitest --ui",
+        "test:ui": "vitest  --typecheck --ui",
         "test:types": "turbo run test:types",
         "lint": "turbo run lint"
     },
