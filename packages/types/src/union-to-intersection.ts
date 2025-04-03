@@ -1,8 +1,9 @@
 /**
  * Type to intersect a union type.
  * @see {@link https://fettblog.eu/typescript-union-to-intersection/}
- * 
- * @typeParam U - union
+ *
+ * @template T - union
+ *
  * @example
  * ```
  * UnionToIntersection<{ foo: string } | { bar: number }>

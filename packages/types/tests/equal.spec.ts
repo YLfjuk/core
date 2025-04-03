@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, test } from 'vitest';
-import type { Equal } from './../src/equal';
+import type { Equal } from '../src/equal';
 
 describe('A type that checks if two other types are strictly equal', () => {
     test('diff types', () => {

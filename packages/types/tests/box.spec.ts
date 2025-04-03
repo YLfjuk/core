@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, it } from 'vitest';
-import type { InverseExtract } from '../src';
-import type { Box } from './../src/box';
+import type { InverseExtract } from '../src/inverse-extract';
+import type { Box } from '../src/box';
 
 describe('A type to Box union types', () => {
     it('should match full unions instead of testing each element separately', () => {

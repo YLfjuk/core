@@ -1,4 +1,4 @@
-import { describe, expectTypeOf, test } from 'vitest';
+import { describe, expectTypeOf, it, test } from 'vitest';
 import type { MaskLiterals } from '../src/mask-literals';
 
 describe('Extract the type from a template literal type', () => {
@@ -164,4 +164,22 @@ describe('Extract the type from a template literal type', () => {
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
+
+    // it('should musk an object with literals', () => {
+    //     type Actual = MaskLiterals<{
+    //         name: 'bob';
+    //         age: -1;
+    //         likes: ['ts'];
+    //         birthday: Date;
+    //     }>;
+
+    //     type Expected = {
+    //         name: string;
+    //         age: number;
+    //         likes: [string];
+    //         birthday: Date;
+    //     };
+
+    //     expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    // });
 });
