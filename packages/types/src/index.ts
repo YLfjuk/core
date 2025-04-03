@@ -32,6 +32,7 @@ export type * from './omit-functions';
 export type * from './pick-by';
 export type * from './prettify';
 export type * from './primitive';
+export type * from './replace';
 export type * from './result';
 export type * from './reverse';
 export type * from './safe-record';
