@@ -1,6 +1,6 @@
 {
     "$schema": "https://turbo.build/schema.json",
-    "ui": "stream",
+    "ui": "tui",
     "tasks": {
         "dev": {
             "cache": false,
@@ -14,25 +14,25 @@
                 "dist/**"
             ]
         },
-        "deploy": {
+        "test": {
+            "with": [
+                "test:types"
+            ],
             "dependsOn": [
-                "lint",
-                "build"
+                "^test:types",
+                "^test",
+                "^build"
+            ]
+        },
+        "test:types": {
+            "dependsOn": [
+                "^test:types",
+                "^build"
             ]
         },
         "lint": {
             "dependsOn": [
                 "^lint"
-            ]
-        },
-        "test": {
-            "dependsOn": [
-                "^test"
-            ]
-        },
-        "test:types": {
-            "dependsOn": [
-                "^test:types"
             ]
         }
     }
