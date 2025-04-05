@@ -21,7 +21,7 @@
   - GuardDate | A `Guard` wrapper for the `Date` type
   - Replace | Recursively replaces occurrences of type `R` in `T` with `N`.
   - MaskDates | Masks the `Date` type as a `string`
-  - PickOptional | Extracts optional properties from a given type `T`
+  - PickOptional | Picks optional properties from a given type `T`
   - PartialDeep | Recursively makes all properties in `T` optional.
 
 - Modified
