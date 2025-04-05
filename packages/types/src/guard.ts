@@ -11,6 +11,10 @@ import type { If } from './if';
  * @template OnNotCheck The result if {@link T} does not extend {@link TCheck}
  * @template T The type to check against
  *
+ * @bug Does not work on the `never` type
+ * @deprecated Fixing the bug may include changing the api
+ * TODO: fix @bug
+ *
  * @since 0.0.14
  */
 export type Guard<TGuard, OnGuard, TCheck, OnCheck, OnNotCheck, T> = If<
