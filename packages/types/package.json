@@ -24,13 +24,13 @@
         }
     },
     "scripts": {
-        "build": "npm test && test:types",
+        "build": "npm test && npm run test:types",
         "test": "vitest run --typecheck",
         "test:types": "tsc --noEmit"
     },
     "devDependencies": {
         "@ylfjuk/tsconfigs": "^0.0.6",
-        "typescript": "^5.8.2"
+        "typescript": "^5.8.3"
     },
     "peerDependencies": {
         "typescript": "^5.5.4"

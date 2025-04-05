@@ -7,7 +7,7 @@ describe('Suggests a type, but accepts any value', () => {
 
         const actual: Expected = { bob: 'bob' };
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 
     it('should accept primitive suggestion', () => {
@@ -15,7 +15,7 @@ describe('Suggests a type, but accepts any value', () => {
 
         const actual: Expected = 6;
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 
     it('should accept any value', () => {
@@ -23,6 +23,6 @@ describe('Suggests a type, but accepts any value', () => {
 
         const actual: Expected = null;
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 });

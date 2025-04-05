@@ -7,7 +7,7 @@ describe('Suggests strings, but accepts any string', () => {
 
         const actual: Expected = 'bob';
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 
     it('should accept any string', () => {
@@ -15,6 +15,6 @@ describe('Suggests strings, but accepts any string', () => {
 
         const actual: Expected = 'berta';
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 });

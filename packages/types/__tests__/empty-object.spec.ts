@@ -9,8 +9,8 @@ describe('Empty Object', () => {
         // biome-ignore lint/complexity/noBannedTypes: testing types
         type Expected = {};
 
-        expectTypeOf(actual).toMatchTypeOf<Actual>();
-        expectTypeOf<Actual>().toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Actual>();
+        expectTypeOf<Actual>().toExtend<Expected>();
     });
 
     it('should not work non-empty objects', () => {
@@ -20,6 +20,6 @@ describe('Empty Object', () => {
 
         type Expected = EmptyObject;
 
-        expectTypeOf(nestedDict).not.toMatchTypeOf<Expected>();
+        expectTypeOf(nestedDict).not.toExtend<Expected>();
     });
 });

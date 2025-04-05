@@ -1,8 +1,8 @@
 import { describe, expectTypeOf, it } from 'vitest';
-import type { AtLeastOne } from '../src/at-least-one';
+import type { ExactlyOne } from '../src/exactly-one';
 
-describe('requires to pass at least one of the values', () => {
-    it('should allow objects with at least one of the fields', () => {
+describe('requires to pass exactly one of the values', () => {
+    it('should allow objects with exactly one of the fields', () => {
         type Obj = {
             bob: string;
             bert: number;
@@ -11,7 +11,7 @@ describe('requires to pass at least one of the values', () => {
             };
         };
 
-        type Actual = AtLeastOne<Obj>;
+        type Actual = ExactlyOne<Obj>;
 
         const exactlyBob = { bob: '13' };
         const exactlyBert = { bert: 13 };
@@ -50,14 +50,14 @@ describe('requires to pass at least one of the values', () => {
 
         const nothing = {};
 
-        expectTypeOf(exactlyBob).toMatchTypeOf<Actual>();
-        expectTypeOf(exactlyBert).toMatchTypeOf<Actual>();
-        expectTypeOf(exactlyBerta).toMatchTypeOf<Actual>();
-        expectTypeOf(bobAndBert).toMatchTypeOf<Actual>();
-        expectTypeOf(bobAndBerta).toMatchTypeOf<Actual>();
-        expectTypeOf(bertAndBerta).toMatchTypeOf<Actual>();
-        expectTypeOf(all).toMatchTypeOf<Actual>();
+        expectTypeOf(exactlyBob).toExtend<Actual>();
+        expectTypeOf(exactlyBert).toExtend<Actual>();
+        expectTypeOf(exactlyBerta).toExtend<Actual>();
 
-        expectTypeOf(nothing).not.toMatchTypeOf<Actual>();
+        expectTypeOf(bobAndBert).not.toExtend<Actual>();
+        expectTypeOf(bobAndBerta).not.toExtend<Actual>();
+        expectTypeOf(bertAndBerta).not.toExtend<Actual>();
+        expectTypeOf(all).not.toExtend<Actual>();
+        expectTypeOf(nothing).not.toExtend<Actual>();
     });
 });
