@@ -6,10 +6,12 @@ import type { Primitive } from './primitive';
  *
  * @note The opposite of ExtractLiteral
  *
- * @example
- * type MaskedLiteral = ExtractLiterals<56>; //? number
- *
  * @see {@link Primitive}
+ *
+ * @example
+ * ```ts
+ * type MaskedLiteral = ExtractLiterals<56>; //? number
+ * ```
  *
  * @alternative
  * works the same as

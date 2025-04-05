@@ -16,8 +16,8 @@ describe('Deep Dictionary', () => {
 
         type Expected = DeepDict<number>;
 
-        expectTypeOf(dict).toMatchTypeOf<Expected>();
-        expectTypeOf(nestedDict).toMatchTypeOf<Expected>();
+        expectTypeOf(dict).toExtend<Expected>();
+        expectTypeOf(nestedDict).toExtend<Expected>();
     });
 
     it('should work with never', () => {
@@ -29,7 +29,7 @@ describe('Deep Dictionary', () => {
 
         type Expected = DeepDict<never>;
 
-        expectTypeOf(dict).toMatchTypeOf<Expected>();
-        expectTypeOf(nestedDict).toMatchTypeOf<Expected>();
+        expectTypeOf(dict).toExtend<Expected>();
+        expectTypeOf(nestedDict).toExtend<Expected>();
     });
 });

@@ -1,6 +1,6 @@
 {
     "$schema": "https://turbo.build/schema.json",
-    "ui": "stream",
+    "ui": "tui",
     "tasks": {
         "dev": {
             "cache": false,
@@ -14,25 +14,31 @@
                 "dist/**"
             ]
         },
-        "deploy": {
+        "@ylfjuk-core/types#build": {
             "dependsOn": [
-                "lint",
-                "build"
+                "^build"
+            ],
+            "outputs": []
+        },
+        "test": {
+            "with": [
+                "test:types"
+            ],
+            "dependsOn": [
+                "^test:types",
+                "^test",
+                "^build"
+            ]
+        },
+        "test:types": {
+            "dependsOn": [
+                "^test:types",
+                "^build"
             ]
         },
         "lint": {
             "dependsOn": [
                 "^lint"
-            ]
-        },
-        "test": {
-            "dependsOn": [
-                "^test"
-            ]
-        },
-        "test:types": {
-            "dependsOn": [
-                "^test:types"
             ]
         }
     }

@@ -1,5 +1,5 @@
 import type { Stringifiable } from './stringifiable';
-import type { Stringify } from './stringify';
+import type { ToStr } from './to-str';
 
 type Settings = { separator: string };
 type DefaultSettings = { separator: '' };
@@ -8,7 +8,7 @@ type DefaultSettings = { separator: '' };
  * @description Joins together stringifiable elements
  *
  * @see {@link Stringifiable}
- * @see {@link Stringify}
+ * @see {@link ToStr}
  *
  * @since 0.0.14
  */
@@ -19,7 +19,7 @@ export type Join<
     infer S extends Stringifiable,
     ...infer Rest extends Stringifiable[]
 ]
-    ? `${Stringify<S>}${Join<Rest, Options> extends infer U extends string
+    ? `${ToStr<S>}${Join<Rest, Options> extends infer U extends string
           ? U extends ''
               ? ''
               : `${Options['separator']}${U}`

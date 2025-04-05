@@ -7,7 +7,7 @@ describe('Suggests a type, but accepts any non-nullable value', () => {
 
         const actual: Expected = { bob: 'bob' };
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 
     it('should accept primitive suggestion', () => {
@@ -15,7 +15,7 @@ describe('Suggests a type, but accepts any non-nullable value', () => {
 
         const actual: Expected = 6;
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 
     it('should accept any non nullable value', () => {
@@ -23,7 +23,7 @@ describe('Suggests a type, but accepts any non-nullable value', () => {
 
         const actual: Expected = 2;
 
-        expectTypeOf(actual).toMatchTypeOf<Expected>();
+        expectTypeOf(actual).toExtend<Expected>();
     });
 
     it('should not accept nullable value', () => {
@@ -32,6 +32,6 @@ describe('Suggests a type, but accepts any non-nullable value', () => {
         // @ts-expect-error: testing
         const actual = null satisfies Expected;
 
-        expectTypeOf(actual).not.toMatchTypeOf<Expected>();
+        expectTypeOf(actual).not.toExtend<Expected>();
     });
 });

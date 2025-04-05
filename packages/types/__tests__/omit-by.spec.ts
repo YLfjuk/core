@@ -1,8 +1,7 @@
 import { describe, expectTypeOf, test } from 'vitest';
-import type { PickBy } from '../src/pick-by';
-import type { EmptyObject } from '../src/empty-object';
+import type { OmitBy } from '../src/omit-by';
 
-describe('pick fields of an object if they match type', () => {
+describe('Omits keys by condition', () => {
     test('matches', () => {
         type Obj = {
             bob: string;
@@ -13,10 +12,12 @@ describe('pick fields of an object if they match type', () => {
             };
         };
 
-        type Actual = PickBy<Obj, string>;
+        type Actual = OmitBy<Obj, string>;
         type Expected = {
-            bob: string;
-            bert: string;
+            berta: number;
+            josh: {
+                amount: number;
+            };
         };
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
@@ -32,11 +33,11 @@ describe('pick fields of an object if they match type', () => {
             };
         };
 
-        type Actual = PickBy<Obj, { amount: number }>;
+        type Actual = OmitBy<Obj, { amount: number }>;
         type Expected = {
-            josh: {
-                amount: number;
-            };
+            bob: string;
+            bert: string;
+            berta: number;
         };
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
@@ -52,8 +53,8 @@ describe('pick fields of an object if they match type', () => {
             };
         };
 
-        type Actual = PickBy<Obj, symbol>;
-        type Expected = EmptyObject;
+        type Actual = OmitBy<Obj, symbol>;
+        type Expected = Obj;
 
         expectTypeOf<Actual>().toMatchTypeOf<Expected>();
     });
