@@ -13,6 +13,7 @@
   - Stringifiable | `Primitive`s that can be stringified, or an object with the `toString` method
   - ToStr | Stringifies values that can be turned into strings
   - Join | Joins together `Stringifiable` elements
+  - OmitBy | Omits keys by condition
   - OmitFunctions | Omits the set of properties that are functions
   - Extends | A wrapper around the `extends` keyword', with option for strictness
   - If | A wrapper around conditional types

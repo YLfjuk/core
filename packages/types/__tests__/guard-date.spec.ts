@@ -20,4 +20,10 @@ describe('A guard wrapper for the `Date` type', () => {
         type Result = GuardDate<A, B, 'OnCheck', 'OnNotCheck'>;
         expectTypeOf<Result>().toEqualTypeOf<'OnNotCheck'>();
     });
+
+    test.todo('should work on the `never` type', () => {
+        type Result = GuardDate<never, 'Check', 'OnCheck', 'OnNotCheck'>;
+        // @ts-expect-error: fails
+        expectTypeOf<Result>().not.toEqualTypeOf<Date>();
+    });
 });

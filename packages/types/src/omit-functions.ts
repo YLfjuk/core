@@ -1,12 +1,11 @@
 import type { FN } from './fn';
-import type { PickBy } from './pick-by';
-import type { StrictOmit } from './strict-omit';
+import type { OmitBy } from './omit-by';
 
 /**
  * @description Omits the set of properties that are functions
  *
- * @see {@link PickBy}
+ * @see {@link OmitBy}
  *
  * @since 0.0.14
  */
-export type OmitFunctions<T> = StrictOmit<T, keyof PickBy<T, FN>>;
+export type OmitFunctions<T> = OmitBy<T, FN>;

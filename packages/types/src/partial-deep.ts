@@ -1,4 +1,3 @@
-import type { GuardDate } from './guard-date';
 /**
  * @description Recursively makes all properties in `T` optional.
  *
@@ -14,11 +13,10 @@ import type { GuardDate } from './guard-date';
  *
  * @since 0.0.14
  */
-export type PartialDeep<T> = GuardDate<
-    T,
-    object,
-    {
-        [K in keyof T]?: PartialDeep<T[K]>;
-    },
-    T
->;
+export type PartialDeep<T> = T extends Date
+    ? Date
+    : T extends object
+    ? {
+          [K in keyof T]?: PartialDeep<T[K]>;
+      }
+    : T;
