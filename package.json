@@ -10,7 +10,7 @@
         "url": "git+https://github.com/YLfjuk/core.git"
     },
     "scripts": {
-        "prepare": "npx changeset",
+        "pre:ver": "npx changeset",
         "release": "npm run build && changeset publish",
         "version": "changeset version",
         "build": "turbo run build",
