@@ -1,8 +1,7 @@
 'use ready';
 
-import type { NonOptional } from '@ylfjuk-core/types';
+import type { NonOptional, PickOptional } from '@ylfjuk-core/types';
 import type { Whatever } from '@ylfjuk-core/types';
-import type { PickOptionals } from './pick-optionals';
 
 type Settings = { allowUnknownFallback?: boolean };
 type DefaultSettings = { allowUnknownFallback: false };
@@ -11,8 +10,8 @@ export type OptionalFallback<
     T,
     Value extends T,
     Fallback extends Options['allowUnknownFallback'] extends true
-        ? Whatever<Partial<PickOptionals<T>>>
-        : Partial<PickOptionals<T>>, //? remove unknown,
+        ? Whatever<Partial<PickOptional<T>>>
+        : Partial<PickOptional<T>>, //? remove unknown,
     Options extends Settings = DefaultSettings
 > = {
     [K in keyof NonOptional<T>]: Value extends {

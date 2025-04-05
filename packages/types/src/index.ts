@@ -28,6 +28,7 @@ export type * from './mask-literals';
 export type * from './maybe';
 export type * from './non-empty-array';
 export type * from './non-optional';
+export type * from './omit-by';
 export type * from './omit-functions';
 export type * from './partial-deep';
 export type * from './pick-by';
