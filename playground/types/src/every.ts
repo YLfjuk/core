@@ -1,4 +1,4 @@
-import type { Extends } from './extends';
+import type { Extends } from '@ylfjuk-core/types';
 
 export type Every<T extends readonly unknown[], U = true> = Extends<
     T[number],
