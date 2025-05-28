@@ -1,7 +1,7 @@
 'use modified'; // Usage of {@link Extends}
 'use rename'; // Equal -> Equals
 
-import type { Extends } from '../extends';
+import type { Extends } from '@ylfjuk-core/types';
 
 /**
  * @see {@link Extends}
