@@ -15,16 +15,12 @@ import type { IsTuple } from '@ylfjuk-core/types';
  */
 export type KeyPath<T> = T extends Date
     ? never
+    : T extends Array<infer U>
+    ? IsTuple<T> extends true
+        ? KeyPath<Omit<T, keyof unknown[]>>
+        : `${number}` | `${number}.${KeyPath<U>}`
     : T extends object
     ? {
-          [K in keyof T & string]:
-              | `${K}`
-              | (T[K] extends Array<infer U>
-                    ? IsTuple<T[K]> extends true
-                        ? `${K}.${KeyPath<Omit<T[K], keyof unknown[]>>}`
-                        : `${K}.${number}` | `${K}.${number}.${KeyPath<U>}`
-                    : T[K] extends object
-                    ? `${K}.${KeyPath<T[K]>}`
-                    : never);
+          [K in keyof T & string]: `${K}` | `${K}.${KeyPath<T[K]>}`;
       }[keyof T & string]
     : never;
