@@ -1,5 +1,5 @@
-import type { Extends } from './extends';
-import type { If } from './if';
+import type { Extends } from '../../../packages/types/src/extends';
+import type { If } from '../../../packages/types/src/if';
 
 /**
  * @description A guard wrapper for a conditional check
