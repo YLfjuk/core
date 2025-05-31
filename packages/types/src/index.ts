@@ -4,7 +4,7 @@ export type * from './at-least-one';
 export type * from './box';
 export type * from './deep-dict';
 export type * from './empty-object';
-export type * from './equal';
+export type * from './equals';
 export type * from './exactly-one';
 export type * from './extend';
 export type * from './extends';
