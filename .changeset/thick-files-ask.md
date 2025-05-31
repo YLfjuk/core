@@ -6,6 +6,7 @@
 
 - Added
   - Extends | A wrapper around the `extends` keyword', with option for strictness
+  - HasDuplicates | Checks if an array has duplicate elements
   - If | A wrapper around conditional types
   - Join | Joins together `Stringifiable` elements
   - KeyPath | Extracts all possible key paths from a given object

@@ -11,6 +11,7 @@ export type * from './extends';
 export type * from './extract-literal';
 export type * from './extract-values';
 export type * from './fn';
+export type * from './has-duplicates';
 export type * from './if';
 export type * from './increment';
 export type * from './inverse-extract';
