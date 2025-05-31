@@ -1,5 +1,4 @@
-import type { Extends } from '../../../packages/types/src/extends';
-import type { If } from '../../../packages/types/src/if';
+import type { If, Extends } from '@ylfjuk-core/types';
 
 /**
  * @description A guard wrapper for a conditional check

@@ -29,7 +29,7 @@ import type { Primitive } from './primitive';
  *
  * @since 0.0.9
  * @modified 0.0.10
- * @modified 0.0.14 {@breaking 💥} | Only accepts {@link Primitive}
+ * @modified 0.0.14 {@breaking 💥}
  *
  * TODO: Support objects
  */

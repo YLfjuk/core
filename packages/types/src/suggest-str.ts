@@ -9,6 +9,6 @@ import type { Suggest } from './suggest';
  * @previous AutoCompleteStr {@v 0.0.1}
  *
  * @since 0.0.1
- * @modified 0.0.14 {@breaking 💥} | split from {@link Suggest}
+ * @modified 0.0.14 {@breaking 💥}
  */
 export type SuggestStr<T extends string> = T | (string & {});

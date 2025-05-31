@@ -1,5 +1,4 @@
-import { describe, test } from 'vitest';
-import { expectTypeOf } from 'vitest';
+import { describe, expectTypeOf, test } from 'vitest';
 import type { GuardDate } from '../src/guard-date';
 
 type A = { a: number };
