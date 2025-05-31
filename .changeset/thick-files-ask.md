@@ -25,6 +25,7 @@
   - PartialDeep | Recursively makes all properties in `T` optional.
 
 - Modified
+  - Equals | Renamed from `Equal`
   - MaskLiterals | Only accepts a `Primitive` type (breaking 💥)
   - Suggest | Now a generic suggestion
   - SuggestStr | Split from `Suggest`
