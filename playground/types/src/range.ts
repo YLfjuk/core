@@ -1,6 +1,7 @@
 import type { LessThan, LessThanEqual } from '@ylfjuk-core/types';
 
 // TODO: add support for floats
+// TODO: handle negative values
 type BuildRange<
     Start extends number,
     End extends number,
@@ -51,4 +52,7 @@ type Test4 = Range<5, 2>;
 
 // TODO: handle negative values
 type Test5 = Range<-1, 5>;
+//   ^?
+
+type Test6 = Range<0.5, 2>;
 //   ^?
