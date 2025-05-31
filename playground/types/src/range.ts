@@ -12,7 +12,7 @@ type BuildRange<
           [
               ...Acc,
               LessThan<Acc['length'], Start> extends true
-                  ? unknown
+                  ? unknown //! is this really necessary?
                   : Acc['length']
           ]
       >;
