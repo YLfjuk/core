@@ -29,10 +29,49 @@ describe('FN', () => {
     test('string void function type', () => {
         const fn = (...args: string[]) => console.log(args);
 
-        type Expected = FN<void, string>;
+        type Expected = FN<void, string[]>;
 
         type Actual = typeof fn;
 
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
+
+    test('function with named arguments', () => {
+        const fn = (arg1: string, arg2: number, ...rest: boolean[]) =>
+            console.log(arg1, arg2, ...rest);
+
+        type Expected = FN<
+            void,
+            [arg1: string, arg2: number, ...rest: boolean[]]
+        >;
+
+        type Actual = typeof fn;
+
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
+
+    // test('function with `this`', () => {
+    //     const fn = function (
+    //         this: { name: string },
+    //         arg1: string,
+    //         arg2: number,
+    //         ...rest: boolean[]
+    //     ) {
+    //         console.log(this.name, arg1, arg2, ...rest);
+    //     };
+
+    //     type Expected = FN<
+    //         void,
+    //         [
+    //             this: { name: string },
+    //             arg1: string,
+    //             arg2: number,
+    //             ...rest: boolean[]
+    //         ]
+    //     >;
+
+    //     type Actual = typeof fn;
+
+    //     expectTypeOf<Actual>().toMatchObjectType<Expected>();
+    // });
 });
