@@ -6,8 +6,9 @@ import type { Primitive } from './primitive';
  * @note The opposite of MaskLiterals
  *
  * @see {@link Primitive}
- * ```ts
+ *
  * @example
+ * ```ts
  * type LiteralNumber = ExtractLiterals<'56'>; //? 56
  * ```
  *
