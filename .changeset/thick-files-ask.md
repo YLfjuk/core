@@ -27,6 +27,7 @@
 - Modified
   - Equals | Renamed from `Equal`
   - ExtractValues | Flattened the nesting
+  - FN | Added better support for args array (breaking 💥)
   - MaskLiterals | Only accepts a `Primitive` type (breaking 💥)
   - Prettify | Prettifies the entire `object`, and avoids expanding the `Date` type
   - Suggest | Now a generic suggestion
