@@ -1,5 +1,6 @@
 import type { LessThan, LessThanEqual } from '@ylfjuk-core/types';
 
+// TODO: add support for floats
 type BuildRange<
     Start extends number,
     End extends number,
