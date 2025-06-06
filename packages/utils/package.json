@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk-core/utils",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "author": "YLfjuk",
     "type": "module",
     "license": "MIT",
@@ -34,7 +34,7 @@
     },
     "devDependencies": {
         "@ylfjuk/tsconfigs": "^0.0.6",
-        "@ylfjuk-core/types": "^0.0.13",
+        "@ylfjuk-core/types": "^0.0.14",
         "tsup": "^8.4.0",
         "typescript": "^5.8.3"
     }
