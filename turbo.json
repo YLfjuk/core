@@ -14,12 +14,6 @@
                 "dist/**"
             ]
         },
-        "@ylfjuk-core/types#build": {
-            "dependsOn": [
-                "^build"
-            ],
-            "outputs": []
-        },
         "test": {
             "with": [
                 "test:types"
