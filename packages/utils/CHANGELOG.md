@@ -1,5 +1,18 @@
 # @ylfjuk-core/utils
 
+## 0.0.7
+
+### Patch Changes
+
+#### Features 🆕
+
+- Modified
+  - toggle | The `isEqual` arg now directly accepts both arguments for comparison (breaking 💥)
+
+#### Chores 🧹
+
+- Add the @since, @modified, and more to the jsdoc
+
 ## 0.0.6
 
 ### Patch Changes
@@ -37,7 +50,7 @@
 
 ### Patch Changes
 
-- Added assertNever (w/ silent variant) utility fuctions
+- Added assertNever (w/ silent variant) utility function
 
 ## 0.0.1
 

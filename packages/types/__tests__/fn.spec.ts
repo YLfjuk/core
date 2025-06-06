@@ -50,28 +50,24 @@ describe('FN', () => {
         expectTypeOf<Actual>().toEqualTypeOf<Expected>();
     });
 
-    // test('function with `this`', () => {
-    //     const fn = function (
-    //         this: { name: string },
-    //         arg1: string,
-    //         arg2: number,
-    //         ...rest: boolean[]
-    //     ) {
-    //         console.log(this.name, arg1, arg2, ...rest);
-    //     };
+    test('function with `this`', () => {
+        function fn(
+            this: { name: string },
+            arg1: string,
+            arg2: number,
+            ...rest: boolean[]
+        ) {
+            console.log(this.name, arg1, arg2, ...rest);
+        }
 
-    //     type Expected = FN<
-    //         void,
-    //         [
-    //             this: { name: string },
-    //             arg1: string,
-    //             arg2: number,
-    //             ...rest: boolean[]
-    //         ]
-    //     >;
+        type Expected = FN<
+            void,
+            [arg1: string, arg2: number, ...rest: boolean[]],
+            { name: string }
+        >;
 
-    //     type Actual = typeof fn;
+        type Actual = typeof fn;
 
-    //     expectTypeOf<Actual>().toMatchObjectType<Expected>();
-    // });
+        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+    });
 });
