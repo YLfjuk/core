@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk-core/types",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "author": "YLfjuk",
     "type": "module",
     "license": "MIT",
@@ -24,7 +24,7 @@
         }
     },
     "scripts": {
-        "build": "npm test",
+        "build": "npm test && npm run test:types",
         "test": "vitest run --typecheck",
         "test:types": "tsc --noEmit"
     },

@@ -50,14 +50,14 @@ describe('requires to pass at least one of the values', () => {
 
         const nothing = {};
 
-        expectTypeOf(exactlyBob).toMatchTypeOf<Actual>();
-        expectTypeOf(exactlyBert).toMatchTypeOf<Actual>();
-        expectTypeOf(exactlyBerta).toMatchTypeOf<Actual>();
-        expectTypeOf(bobAndBert).toMatchTypeOf<Actual>();
-        expectTypeOf(bobAndBerta).toMatchTypeOf<Actual>();
-        expectTypeOf(bertAndBerta).toMatchTypeOf<Actual>();
-        expectTypeOf(all).toMatchTypeOf<Actual>();
+        expectTypeOf(exactlyBob).toExtend<Actual>();
+        expectTypeOf(exactlyBert).toExtend<Actual>();
+        expectTypeOf(exactlyBerta).toExtend<Actual>();
+        expectTypeOf(bobAndBert).toExtend<Actual>();
+        expectTypeOf(bobAndBerta).toExtend<Actual>();
+        expectTypeOf(bertAndBerta).toExtend<Actual>();
+        expectTypeOf(all).toExtend<Actual>();
 
-        expectTypeOf(nothing).not.toMatchTypeOf<Actual>();
+        expectTypeOf(nothing).not.toExtend<Actual>();
     });
 });

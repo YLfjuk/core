@@ -2,11 +2,14 @@ import type { ArrayOfN } from './array-of-n';
 import type { IsPositiveOrZero } from './is-positive-or-zero';
 
 /**
+ * @description Increments a numeric value by 1
+ *
+ * @note does not support negative/float values
+ *
+ * @template N ∈ ℕ
+ *
  * @see {@link IsPositiveOrZero}
  * @see {@link ArrayOfN}
- *
- * @param N ∈ ℕ
- * @note does not support negative/float values
  *
  * @since 0.0.10
  */

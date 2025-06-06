@@ -1,5 +1,14 @@
 # @ylfjuk/core
 
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies [18201d3]
+- Updated dependencies [b89cb4c]
+  - @ylfjuk-core/utils@0.0.7
+  - @ylfjuk-core/types@0.0.14
+
 ## 0.0.14
 
 ### Patch Changes

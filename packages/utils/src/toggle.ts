@@ -15,21 +15,24 @@ import type { FN, Maybe } from '@ylfjuk-core/types';
  * const [next,] = toggle([true, false], true) // [false, 1]
  * const [next,] = toggle([1, 2], 3) // [1, 0]
  * const [next,] = toggle([{ id: 1 }, { id: 2 }], { id: 2 }, ([a, b]) => a.id === b.id) // [{ id: 1 }, 0]
+ *
+ * @since 0.0.6
+ * @modified 0.0.7 {@breaking 💥}
  */
 export const toggle = <const T>(
     options: ReadonlyArray<T>,
     currentOption?: NoInfer<T>,
-    isEqual: FN<boolean, [T, T]> = ([a, b]) => a === b
+    isEqual: FN<boolean, [a: T, b: T]> = (a, b) => a === b
 ): [Maybe<T>, number] => {
     if (!options.length) {
         console.warn('Array has no options to toggle');
         return [null, -1];
     }
 
-    if (!currentOption) return [options[0] as T, 0];
+    if (!currentOption) return [options[0], 0];
 
     const currentIdx = options.findIndex((option) =>
-        isEqual([option, currentOption])
+        isEqual(option, currentOption)
     );
 
     if (currentIdx === -1) {

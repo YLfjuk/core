@@ -1,10 +1,10 @@
 import { describe, expectTypeOf, test } from 'vitest';
-import type { Equal } from './../src/equal';
+import type { Equals } from '../src/equals';
 
 describe('A type that checks if two other types are strictly equal', () => {
     test('diff types', () => {
-        type Actual = Equal<string, number>;
-        type InvertedActual = Equal<number, string>;
+        type Actual = Equals<string, number>;
+        type InvertedActual = Equals<number, string>;
 
         type Expected = false;
 
@@ -13,7 +13,7 @@ describe('A type that checks if two other types are strictly equal', () => {
     });
 
     test('same types', () => {
-        type Actual = Equal<number, number>;
+        type Actual = Equals<number, number>;
 
         type Expected = true;
 
@@ -21,7 +21,7 @@ describe('A type that checks if two other types are strictly equal', () => {
     });
 
     test('same literals', () => {
-        type Actual = Equal<2, 2>;
+        type Actual = Equals<2, 2>;
 
         type Expected = true;
 
@@ -29,8 +29,8 @@ describe('A type that checks if two other types are strictly equal', () => {
     });
 
     test('literals and mask', () => {
-        type Actual = Equal<2, number>;
-        type InvertedActual = Equal<number, 2>;
+        type Actual = Equals<2, number>;
+        type InvertedActual = Equals<number, 2>;
 
         type Expected = false;
 
@@ -39,8 +39,8 @@ describe('A type that checks if two other types are strictly equal', () => {
     });
 
     test('type and union with it', () => {
-        type Actual = Equal<string | number, number>;
-        type InvertedActual = Equal<number, string | number>;
+        type Actual = Equals<string | number, number>;
+        type InvertedActual = Equals<number, string | number>;
 
         type Expected = false;
 

@@ -109,11 +109,7 @@ describe('toggles between elements in an array', () => {
     it('should work when providing a `isEqual` function', () => {
         const options = [1, 2, 3, 4, 5, 6].map((id) => ({ id }));
 
-        const [next, idx] = toggle(
-            options,
-            { id: 2 },
-            ([a, b]) => a.id === b.id
-        );
+        const [next, idx] = toggle(options, { id: 2 }, (a, b) => a.id === b.id);
 
         expect(next).toBe(options[2]);
         expect(idx).toBe(2);

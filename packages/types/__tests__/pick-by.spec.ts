@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, test } from 'vitest';
+import type { EmptyObject } from '../src/empty-object';
 import type { PickBy } from '../src/pick-by';
-import type { EmptyObject } from './../src/empty-object';
 
 describe('pick fields of an object if they match type', () => {
     test('matches', () => {
@@ -55,6 +55,6 @@ describe('pick fields of an object if they match type', () => {
         type Actual = PickBy<Obj, symbol>;
         type Expected = EmptyObject;
 
-        expectTypeOf<Actual>().toMatchTypeOf<Expected>();
+        expectTypeOf<Actual>().toExtend<Expected>();
     });
 });

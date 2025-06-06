@@ -2,9 +2,18 @@ import type { InverseExtract } from './inverse-extract';
 import type { Primitive } from './primitive';
 
 /**
+ * @description Masks the literals as their primitive form
+ *
+ * @note The opposite of ExtractLiteral
+ *
  * @see {@link Primitive}
  *
- * @description
+ * @example
+ * ```ts
+ * type MaskedLiteral = ExtractLiterals<56>; //? number
+ * ```
+ *
+ * @alternative
  * works the same as
  * ```ts
  * type MaskLiterals<T> =
@@ -20,8 +29,11 @@ import type { Primitive } from './primitive';
  *
  * @since 0.0.9
  * @modified 0.0.10
+ * @modified 0.0.14 {@breaking 💥}
+ *
+ * TODO: Support objects
  */
-export type MaskLiterals<T> = {
+export type MaskLiterals<T extends Primitive> = {
     [K in Primitive as string]: InverseExtract<
         T,
         K extends boolean ? boolean : K

@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk/core",
-    "version": "0.0.14",
+    "version": "0.0.15",
     "description": "The core packages",
     "author": "YLfjuk",
     "type": "module",
@@ -33,8 +33,8 @@
         "test:types": "tsc --noEmit"
     },
     "dependencies": {
-        "@ylfjuk-core/types": "0.0.13",
-        "@ylfjuk-core/utils": "0.0.6"
+        "@ylfjuk-core/types": "0.0.14",
+        "@ylfjuk-core/utils": "0.0.7"
     },
     "devDependencies": {
         "@ylfjuk/tsconfigs": "^0.0.6",
