@@ -1,3 +1,7 @@
+/**
+ *
+ * @since 0.0.2
+ */
 export const assertNever = (_?: never): never => {
     throw new Error(`Unexpected value: ${_}`);
 };

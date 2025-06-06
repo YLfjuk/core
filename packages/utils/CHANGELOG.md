@@ -37,7 +37,7 @@
 
 ### Patch Changes
 
-- Added assertNever (w/ silent variant) utility fuctions
+- Added assertNever (w/ silent variant) utility function
 
 ## 0.0.1
 
