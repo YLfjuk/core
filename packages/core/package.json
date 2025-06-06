@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk/core",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "description": "The core packages",
     "author": "YLfjuk",
     "type": "module",
@@ -33,7 +33,7 @@
         "test:types": "tsc --noEmit"
     },
     "dependencies": {
-        "@ylfjuk-core/types": "0.0.14",
+        "@ylfjuk-core/types": "0.0.15",
         "@ylfjuk-core/utils": "0.0.7"
     },
     "devDependencies": {
