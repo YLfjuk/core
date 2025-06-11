@@ -4,6 +4,11 @@ type InfiniteObject = {
     new (...args: unknown[]): InfiniteObject;
 };
 
+/**
+ * @description An object you can use to access any property or method without worrying about it existing.
+ *
+ * @since 0.0.5
+ */
 export const InfiniteObject: InfiniteObject = new Proxy<InfiniteObject>(
     class {} as InfiniteObject,
     {
