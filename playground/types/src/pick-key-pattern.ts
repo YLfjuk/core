@@ -1,6 +1,8 @@
 import type { Suggest } from '@ylfjuk-core/types';
 
 /**
+ * Picks object keys that match a pattern
+ *
  * TODO: find a way to restrict to restrict to
  * {@link PropertyKey}
  */
@@ -16,11 +18,12 @@ type Obj = {
     bob: 'bob';
     bert: 'bert';
     bobbert: 'bobert';
+    berto: 'berto';
     prefix_kdhgfed: 'dgdg';
     dhshH_suffix: 'dhdfhg';
     [sym]: 'egdgd';
     11: 'sgsdg';
 };
 
-type Test = PickKeyPattern<Obj, 11>;
+type Test = PickKeyPattern<Obj, `ber${string}`>;
 //   ^?
