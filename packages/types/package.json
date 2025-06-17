@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk-core/types",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "author": "YLfjuk",
     "type": "module",
     "license": "MIT",
@@ -23,6 +23,7 @@
             "types": "./src/index.ts"
         }
     },
+    "sideEffects": false,
     "scripts": {
         "build": "npm test && npm run test:types",
         "test": "vitest run --typecheck",

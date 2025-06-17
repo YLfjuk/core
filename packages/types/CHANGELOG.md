@@ -1,5 +1,18 @@
 # @ylfjuk-core/types
 
+## 0.0.16
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added
+  - Falsy | A type that represents all representable falsy values in TypeScript
+
+#### Chores 🧹
+
+- Added `"sideEffects": false` to the `package.json`
+
 ## 0.0.15
 
 ### Patch Changes
