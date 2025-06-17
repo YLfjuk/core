@@ -1,5 +1,18 @@
 # @ylfjuk/core
 
+## 0.0.17
+
+### Patch Changes
+
+#### Chores 🧹
+
+- Added `"sideEffects": false` to the `package.json`
+
+- Updated dependencies
+- Updated dependencies
+  - @ylfjuk-core/utils@0.0.8
+  - @ylfjuk-core/types@0.0.16
+
 ## 0.0.16
 
 ### Patch Changes

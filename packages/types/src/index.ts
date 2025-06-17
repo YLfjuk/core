@@ -10,6 +10,7 @@ export type * from './extend';
 export type * from './extends';
 export type * from './extract-literal';
 export type * from './extract-values';
+export type * from './falsy';
 export type * from './fn';
 export type * from './has-duplicates';
 export type * from './if';
