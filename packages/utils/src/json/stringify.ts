@@ -1,0 +1,83 @@
+import type { FN } from "@ylfjuk-core/types";
+import type { ReplacerFN } from "./types/helpers";
+
+type JsonStringify = {
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value (`undefined`, `symbol`, or a function)
+	 * @param replacer Is not used in this case, so it is set to `never`.
+	 * @param spaceIs Is not used in this case, so it is set to `never`.
+	 */
+	(value: undefined | symbol | FN, replacer?: never, space?: never): undefined;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value (`undefined`, `symbol`, or a function)
+	 * @param replacer A function that transforms the results.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
+	(
+		value: undefined | symbol | FN,
+		replacer?: ReplacerFN,
+		space?: string | number,
+	): undefined;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value, usually an object or array, to be converted.
+	 * @param replacer A function that transforms the results.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
+	(value: unknown, replacer?: ReplacerFN, space?: string | number): string;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value, usually an object or array, to be converted.
+	 * @param replacer A function that transforms the results.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
+	(
+		value: unknown,
+		replacer?: ReplacerFN,
+		space?: string | number,
+	): string | undefined;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value (`undefined`, `symbol`, or a function)
+	 * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
+	(
+		value: undefined | symbol | FN,
+		replacer?: (number | string)[] | null,
+		space?: string | number,
+	): undefined;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value, usually an object or array, to be converted.
+	 * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
+	(
+		value: unknown,
+		replacer?: (number | string)[] | null,
+		space?: string | number,
+	): string;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value, usually an object or array, to be converted.
+	 * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
+	(
+		value: unknown,
+		replacer?: (number | string)[] | null,
+		space?: string | number,
+	): string | undefined;
+};
+
+export const jsonStringify = ((value) =>
+	JSON.stringify(value)) as JsonStringify;

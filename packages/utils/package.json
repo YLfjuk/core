@@ -31,11 +31,13 @@
         "build": "tsup",
         "dev": "tsup --watch",
         "test": "vitest run --typecheck",
-        "test:types": "tsc --noEmit"
+        "test:types": "tsc --noEmit",
+        "lint": "biome lint --write"
     },
     "devDependencies": {
-        "@ylfjuk/tsconfigs": "^0.0.6",
         "@ylfjuk-core/types": "^0.0.16",
+        "@ylfjuk/biome": "^0.1.1",
+        "@ylfjuk/tsconfigs": "^0.0.6",
         "tsup": "^8.4.0",
         "typescript": "^5.8.3"
     }
