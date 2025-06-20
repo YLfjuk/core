@@ -1,4 +1,4 @@
-import type { FN } from "@ylfjuk-core/types";
+import type { FN, Stringifiable, ToStr } from "@ylfjuk-core/types";
 import type { ReplacerFN } from "./types/helpers";
 
 type JsonStringify = {
@@ -21,6 +21,18 @@ type JsonStringify = {
 		replacer?: ReplacerFN,
 		space?: string | number,
 	): undefined;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value, usually an object or array, to be converted.
+	 * @param replacer A function that transforms the results.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
+	<T extends Stringifiable>(
+		value: T,
+		replacer?: ReplacerFN,
+		space?: string | number,
+	): ToStr<T>;
 
 	/**
 	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
@@ -60,6 +72,18 @@ type JsonStringify = {
 	 * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
 	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
 	 */
+	<T extends Stringifiable>(
+		value: T,
+		replacer?: (number | string)[] | null,
+		space?: string | number,
+	): ToStr<T>;
+
+	/**
+	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+	 * @param value A JavaScript value, usually an object or array, to be converted.
+	 * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
+	 * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+	 */
 	(
 		value: unknown,
 		replacer?: (number | string)[] | null,
@@ -79,5 +103,12 @@ type JsonStringify = {
 	): string | undefined;
 };
 
-export const jsonStringify = ((value) =>
+/**
+ * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+ *
+ * @note A wrapper for {@link JSON.stringify} that provides type safety and overloads for various input types.
+ *
+ * @since 0.0.9
+ */
+export const jsonStringify = ((value: unknown) =>
 	JSON.stringify(value)) as JsonStringify;

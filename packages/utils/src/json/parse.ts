@@ -82,7 +82,6 @@ export type JsonParse = {
  * Parses a JSON string into an object.
  *
  * @note A wrapper for {@link JSON.parse} that provides type safety and overloads for various input types.
- * @note When provided with a literal string, or `null`, the `reviver` function is not used
  *
  * @since 0.0.9
  */
