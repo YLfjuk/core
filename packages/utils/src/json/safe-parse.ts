@@ -1,9 +1,4 @@
-import type {
-	ExtractLiteral,
-	Result,
-	Success,
-	ToStr,
-} from "@ylfjuk-core/types";
+import type { ExtractLiteral, Result, Success, ToStr } from "@ylfjuk-core/types";
 import { jsonParse } from "./parse";
 import type {
 	ExtractTupleLiteral,
@@ -12,7 +7,7 @@ import type {
 	StringifiableTuplePrimitive,
 } from "./types/helpers";
 
-export type JsonSafeParse = {
+type JsonSafeParse = {
 	/**
 	 * Converts a JavaScript Object Notation (JSON) string into an object.
 	 * @param text

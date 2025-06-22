@@ -6,7 +6,7 @@ import type {
 	StringifiableTuplePrimitive,
 } from "./types/helpers";
 
-export type JsonParse = {
+type JsonParse = {
 	/**
 	 * Converts a JavaScript Object Notation (JSON) string into an object.
 	 * @param text
@@ -24,10 +24,7 @@ export type JsonParse = {
 	 * Converts a JavaScript Object Notation (JSON) string into an object.
 	 * @param text A string literal of a primitive type
 	 */
-	<const T extends ToStr<StringifiablePrimitive>>(
-		text: T,
-		reviver?: never,
-	): ExtractLiteral<T>;
+	<const T extends ToStr<StringifiablePrimitive>>(text: T, reviver?: never): ExtractLiteral<T>;
 
 	/**
 	 * Converts a JavaScript Object Notation (JSON) string into an object.
@@ -43,10 +40,7 @@ export type JsonParse = {
 	 * Converts a JavaScript Object Notation (JSON) string into an object.
 	 * @param text A tuple array with a single element that is a primitive type or string literal of a primitive type
 	 */
-	<const T extends StringifiableTuplePrimitive>(
-		text: T,
-		reviver?: never,
-	): ExtractTupleLiteral<T>;
+	<const T extends StringifiableTuplePrimitive>(text: T, reviver?: never): ExtractTupleLiteral<T>;
 
 	/**
 	 * Converts a JavaScript Object Notation (JSON) string into an object.
