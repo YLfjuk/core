@@ -1,5 +1,17 @@
 # @ylfjuk-core/utils
 
+## 0.0.9
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added
+  - jsonParse | A wrapper around `JSON.parse` that fixes the type
+  - jsonSafeParse | A wrapper around `jsonParse` that returns a `Result` value instead of throwing
+  - stringify | A wrapper around `JSON.stringify` that fixes the type
+  - Json | Utility functions for JSON
+
 ## 0.0.8
 
 ### Patch Changes
