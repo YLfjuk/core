@@ -35,7 +35,7 @@
     },
     "devDependencies": {
         "@ylfjuk/tsconfigs": "^0.0.6",
-        "@ylfjuk-core/types": "^0.0.16",
+        "@ylfjuk-core/types": "^0.0.17",
         "tsup": "^8.4.0",
         "typescript": "^5.8.3"
     }

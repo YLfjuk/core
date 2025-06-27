@@ -1,5 +1,21 @@
 # @ylfjuk-core/types
 
+## 0.0.17
+
+### Patch Changes
+
+- dabc973: #### Features 🆕
+
+  - Added
+
+    - Success | A Result type that represents a successful operation
+    - Failure | A Result type that represents a failed operation
+    - KeyofUnion | Extracts the keys of a union type
+    - PatchUnion | Creates a type that represents a union of objects, where each object has all keys from the union
+
+  - Modified
+    - Result | Using the `Success` and `Failure` types
+
 ## 0.0.16
 
 ### Patch Changes
@@ -28,6 +44,7 @@
 #### Features 🆕
 
 - Added
+
   - Extends | A wrapper around the `extends` keyword', with option for strictness
   - HasDuplicates | Checks if an array has duplicate elements
   - If | A wrapper around conditional types
@@ -88,6 +105,7 @@
 #### Features 🆕
 
 - Added Types
+
   - Box | Boxes union types
   - Equal | Returns if two types are strictly equal
   - LessThanEqual | Returns if a number is less than or equal to another number | ⚠️ Floats Unsupported
