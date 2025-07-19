@@ -1,14 +1,12 @@
-import { strEndsWith } from './ends-with';
-import { strStartsWith } from './starts-with';
-
 /**
- * Utility functions for strings.
+ * Utility module for strings.
  *
  * @since 0.0.8
+ * @modified 0.0.10
  */
-export const Str = {
-    startsWith: strStartsWith,
-    endsWith: strEndsWith,
-};
+export * as Str from "./Str";
 
-export { strStartsWith, strEndsWith };
+export {
+	endsWith as strEndsWith,
+	startsWith as strStartsWith,
+} from "./Str";

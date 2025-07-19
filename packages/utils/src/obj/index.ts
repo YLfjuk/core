@@ -1,14 +1,12 @@
-import { entriesOf } from './entries-of';
-import { keysOf } from './keys-of';
-
 /**
- * Utility functions for objects.
+ * Utility module for objects.
  *
  * @since 0.0.8
+ * @modified 0.0.10
  */
-export const Obj = {
-    entries: entriesOf,
-    keys: keysOf,
-};
+export * as Obj from "./Obj";
 
-export { entriesOf, keysOf };
+export {
+	entries as entriesOf,
+	keys as keysOf,
+} from "./Obj";

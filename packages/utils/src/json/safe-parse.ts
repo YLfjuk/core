@@ -1,5 +1,5 @@
 import type { ExtractLiteral, Result, Success, ToStr } from "@ylfjuk-core/types";
-import { jsonParse } from "./parse";
+import { parse } from "./parse";
 import type {
 	ExtractTupleLiteral,
 	ReviverFN,
@@ -82,15 +82,16 @@ type JsonSafeParse = {
 /**
  * Safely parses a JSON string, returning a result object that indicates success or failure.
  *
- * @see {@link jsonParse}
+ * @see {@link parse}
  *
  * @since 0.0.9
+ * @modified 0.0.10
  */
-export const jsonSafeParse = ((text: string | null, reviver?: ReviverFN) => {
+export const safeParse = ((text: string | null, reviver?: ReviverFN) => {
 	try {
 		return {
 			success: true,
-			data: jsonParse(text, reviver),
+			data: parse(text, reviver),
 		};
 	} catch (error) {
 		return {

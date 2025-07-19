@@ -1,5 +1,18 @@
 # @ylfjuk-core/utils
 
+## 0.0.10
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added
+  - Enum | Utility module for enums
+  - enum/toTuple | Converts an `enum` into an ordered `tuple`
+
+- Modified
+  - Renamed `Arr`, `Json`, `Obj` and `Str` utilities internally
+
 ## 0.0.9
 
 ### Patch Changes

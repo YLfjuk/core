@@ -78,10 +78,8 @@ type JsonParse = {
  * @note A wrapper for {@link JSON.parse} that provides type safety and overloads for various input types.
  *
  * @since 0.0.9
+ * @modified 0.0.10
  */
-export const jsonParse = ((
-	text: string | null | StringifiableTuplePrimitive,
-	reviver?: ReviverFN,
-) =>
+export const parse = ((text: string | null | StringifiableTuplePrimitive, reviver?: ReviverFN) =>
 	// @ts-expect-error: JSON.parse can receive `null`, or a single literal element tuple, but it is not represented by `ts`
 	JSON.parse(text, reviver)) as JsonParse;

@@ -1,12 +1,9 @@
-import { arrIncludes } from './includes';
-
 /**
- * Utility functions for arrays.
+ * Utility module for arrays.
  *
  * @since 0.0.8
+ * @modified 0.0.10
  */
-export const Arr = {
-    includes: arrIncludes,
-};
+export * as Arr from "./Arr";
 
-export { arrIncludes };
+export { includes as arrIncludes } from "./Arr";

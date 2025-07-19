@@ -125,5 +125,6 @@ type JsonStringify = {
  * @note A wrapper for {@link JSON.stringify} that provides type safety and overloads for various input types.
  *
  * @since 0.0.9
+ * @modified 0.0.10
  */
-export const jsonStringify = ((value: unknown) => JSON.stringify(value)) as JsonStringify;
+export const stringify = ((value: unknown) => JSON.stringify(value)) as JsonStringify;

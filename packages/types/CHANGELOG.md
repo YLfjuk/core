@@ -1,5 +1,15 @@
 # @ylfjuk-core/types
 
+## 0.0.18
+
+### Patch Changes
+
+#### Features 🆕
+
+- Added
+  - LastOfUnion | Extracts the last type from a union type
+  - UnionToTuple | Converts a `union` into an ordered `tuple`
+
 ## 0.0.17
 
 ### Patch Changes

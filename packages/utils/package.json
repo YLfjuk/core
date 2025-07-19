@@ -1,6 +1,6 @@
 {
     "name": "@ylfjuk-core/utils",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "author": "YLfjuk",
     "type": "module",
     "license": "MIT",
@@ -35,7 +35,7 @@
         "lint": "biome lint --write"
     },
     "devDependencies": {
-        "@ylfjuk-core/types": "^0.0.17",
+        "@ylfjuk-core/types": "^0.0.18",
         "@ylfjuk/biome": "^0.1.1",
         "@ylfjuk/tsconfigs": "^0.0.6",
         "tsup": "^8.4.0",

@@ -1,7 +1,7 @@
-import type { ValueOf } from '@ylfjuk-core/types';
+import type { ValueOf } from "@ylfjuk-core/types";
 
 type Entry<T extends object> = ValueOf<{
-    [K in keyof T]: [K, T[K]];
+	[K in keyof T]: [K, T[K]];
 }>;
 
 /**
@@ -10,6 +10,7 @@ type Entry<T extends object> = ValueOf<{
  * @note A wrapper around {@link Object.entries} that retains the type of the keys and values.
  *
  * @since 0.0.8
+ * @modified 0.0.10
  */
-export const entriesOf = <const T extends object>(obj: T): Entry<T>[] =>
-    Object.entries(obj) as Entry<T>[];
+export const entries = <const T extends object>(obj: T): Entry<T>[] =>
+	Object.entries(obj) as Entry<T>[];
