@@ -20,20 +20,17 @@
     "types": "./src/index.ts",
     "exports": {
         ".": {
+            "@ylfjuk-core/dev.src": "./src/index.ts",
             "types": "./src/index.ts"
         }
     },
     "sideEffects": false,
     "scripts": {
-        "build": "npm test && npm run test:types",
+        "build": "pnpm run test && pnpm run test:types",
         "test": "vitest run --typecheck",
         "test:types": "tsc --noEmit"
     },
-    "devDependencies": {
-        "@ylfjuk/tsconfigs": "^0.0.6",
-        "typescript": "^5.8.3"
-    },
     "peerDependencies": {
-        "typescript": "^5.5.4"
+        "typescript": "^7.0.2"
     }
 }

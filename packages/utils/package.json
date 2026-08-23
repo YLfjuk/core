@@ -17,28 +17,20 @@
     "files": [
         "dist"
     ],
-    "main": "dist/index.cjs",
-    "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "exports": {
         ".": {
-            "require": "./dist/index.cjs",
+            "@ylfjuk-core/dev.src": "./src/index.ts",
+            "types": "./dist/index.d.ts",
             "import": "./dist/index.js"
         }
     },
     "sideEffects": false,
     "scripts": {
-        "build": "tsup",
-        "dev": "tsup --watch",
+        "build": "tsdown",
+        "dev": "tsdown --watch",
         "test": "vitest run --typecheck",
         "test:types": "tsc --noEmit",
-        "lint": "biome lint --write"
-    },
-    "devDependencies": {
-        "@ylfjuk-core/types": "^0.0.18",
-        "@ylfjuk/biome": "^0.1.1",
-        "@ylfjuk/tsconfigs": "^0.0.6",
-        "tsup": "^8.4.0",
-        "typescript": "^5.8.3"
+        "lint": "oxlint"
     }
 }
