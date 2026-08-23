@@ -1,6 +1,6 @@
 {
-    "extends": "@ylfjuk/md",
-    "MD013": {
-        "line_length": 120
-    }
+	"extends": "@ylfjuk/md",
+	"MD013": {
+		"line_length": 120
+	}
 }

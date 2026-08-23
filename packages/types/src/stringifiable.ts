@@ -1,4 +1,4 @@
-import type { Primitive } from './primitive';
+import type { Primitive } from "./primitive";
 
 /**
  * @description Primitives that can be stringified, or an object with the `toString` method
@@ -8,7 +8,7 @@ import type { Primitive } from './primitive';
  * @since 0.0.14
  */
 export type Stringifiable =
-    | Exclude<Primitive, symbol>
-    | {
-          toString(): string;
-      };
+	| Exclude<Primitive, symbol>
+	| {
+			toString(): string;
+	  };

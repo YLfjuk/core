@@ -6,7 +6,4 @@
  */
 export * as Str from "./Str";
 
-export {
-	endsWith as strEndsWith,
-	startsWith as strStartsWith,
-} from "./Str";
+export { endsWith as strEndsWith, startsWith as strStartsWith } from "./Str";

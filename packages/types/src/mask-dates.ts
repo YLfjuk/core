@@ -1,4 +1,4 @@
-import type { Replace } from './replace';
+import type { Replace } from "./replace";
 
 /**
  * @description Masks the `Date` type as a `string`

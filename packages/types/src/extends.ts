@@ -1,4 +1,4 @@
-import type { Box } from '@ylfjuk-core/types';
+import type { Box } from "@ylfjuk-core/types";
 
 /**
  * @description A stricter wrapper around the `extends` keyword'

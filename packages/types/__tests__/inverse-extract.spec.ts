@@ -1,46 +1,47 @@
-import { describe, expectTypeOf, it, test } from 'vitest';
-import type { InverseExtract } from '../src/inverse-extract';
+import { describe, expectTypeOf, it, test } from "vitest";
 
-describe('Performs the inverse operation of the built-in `Extract` type', () => {
-    it('should perform the inverse of the `Extract` built-in type', () => {
-        type T = 1234;
-        type U = number;
+import type { InverseExtract } from "../src/inverse-extract";
 
-        type Extracted = Extract<T, U>;
-        type Inverse = InverseExtract<T, U>;
+describe("Performs the inverse operation of the built-in `Extract` type", () => {
+	it("should perform the inverse of the `Extract` built-in type", () => {
+		type T = 1234;
+		type U = number;
 
-        type ExpectedExtract = 1234;
-        type ExpectedInverse = number;
+		type Extracted = Extract<T, U>;
+		type Inverse = InverseExtract<T, U>;
 
-        expectTypeOf<Extracted>().toEqualTypeOf<ExpectedExtract>();
-        expectTypeOf<Inverse>().toEqualTypeOf<ExpectedInverse>();
-    });
+		type ExpectedExtract = 1234;
+		type ExpectedInverse = number;
 
-    test('literals', () => {
-        type Actual = InverseExtract<1234, number>;
-        type Expected = number;
+		expectTypeOf<Extracted>().toEqualTypeOf<ExpectedExtract>();
+		expectTypeOf<Inverse>().toEqualTypeOf<ExpectedInverse>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test("literals", () => {
+		type Actual = InverseExtract<1234, number>;
+		type Expected = number;
 
-    test('unions', () => {
-        type Actual = InverseExtract<1234 | string, number>;
-        type Expected = number;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test("unions", () => {
+		type Actual = InverseExtract<1234 | string, number>;
+		type Expected = number;
 
-    test('unions to unions', () => {
-        type Actual = InverseExtract<1234 | 'non', number | string>;
-        type Expected = number | string;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test("unions to unions", () => {
+		type Actual = InverseExtract<1234 | "non", number | string>;
+		type Expected = number | string;
 
-    it('should result in never if U does not extend T', () => {
-        type Actual = InverseExtract<1234, string>;
-        type Expected = never;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	it("should result in never if U does not extend T", () => {
+		type Actual = InverseExtract<1234, string>;
+		type Expected = never;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

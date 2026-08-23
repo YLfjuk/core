@@ -1,36 +1,37 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { IsDisjointUnion } from '../src/is-disjoint-union';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('is disjoint union', () => {
-    test('a non-union', () => {
-        type Expected = false;
+import type { IsDisjointUnion } from "../src/is-disjoint-union";
 
-        type Actual = IsDisjointUnion<string>;
+describe("is disjoint union", () => {
+	test("a non-union", () => {
+		type Expected = false;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = IsDisjointUnion<string>;
 
-    test('a disjoint union', () => {
-        type Expected = true;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = IsDisjointUnion<string | number>;
+	test("a disjoint union", () => {
+		type Expected = true;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = IsDisjointUnion<string | number>;
 
-    test('a disjoint const union', () => {
-        type Expected = true;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = IsDisjointUnion<'bob' | 'bert'>;
+	test("a disjoint const union", () => {
+		type Expected = true;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = IsDisjointUnion<"bob" | "bert">;
 
-    test('union with intersection', () => {
-        type Expected = false;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = IsDisjointUnion<string | 'bob'>;
+	test("union with intersection", () => {
+		type Expected = false;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = IsDisjointUnion<string | "bob">;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

@@ -1,4 +1,4 @@
 packages:
-  - apps/*
-  - packages/*
-  - playground/*
+    - apps/*
+    - packages/*
+    - playground/*

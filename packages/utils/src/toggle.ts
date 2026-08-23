@@ -1,4 +1,4 @@
-import type { FN, Maybe } from '@ylfjuk-core/types';
+import type { FN, Maybe } from "@ylfjuk-core/types";
 
 /**
  *
@@ -20,29 +20,29 @@ import type { FN, Maybe } from '@ylfjuk-core/types';
  * @modified 0.0.7 {@breaking 💥}
  */
 export const toggle = <const T>(
-    options: ReadonlyArray<T>,
-    currentOption?: NoInfer<T>,
-    isEqual: FN<boolean, [a: T, b: T]> = (a, b) => a === b
+	options: ReadonlyArray<T>,
+	currentOption?: NoInfer<T>,
+	isEqual: FN<boolean, [a: T, b: T]> = (a, b) => a === b,
 ): [Maybe<T>, number] => {
-    if (!options.length) {
-        console.warn('Array has no options to toggle');
-        return [null, -1];
-    }
+	if (!options.length) {
+		// oxlint-disable-next-line no-console -- preserves the existing diagnostic output.
+		console.warn("Array has no options to toggle");
+		return [null, -1];
+	}
 
-    if (!currentOption) return [options[0], 0];
+	if (!currentOption) return [options[0], 0];
 
-    const currentIdx = options.findIndex((option) =>
-        isEqual(option, currentOption)
-    );
+	const currentIdx = options.findIndex((option) => isEqual(option, currentOption));
 
-    if (currentIdx === -1) {
-        console.warn(
-            '`currentOption` was not found in `options` array. defaulting to the first option'
-        );
-    }
+	if (currentIdx === -1) {
+		// oxlint-disable-next-line no-console -- preserves the existing diagnostic output.
+		console.warn(
+			"`currentOption` was not found in `options` array. defaulting to the first option",
+		);
+	}
 
-    const nextIdx = (currentIdx + 1) % options.length;
-    const nextOption = options[nextIdx];
+	const nextIdx = (currentIdx + 1) % options.length;
+	const nextOption = options[nextIdx];
 
-    return [nextOption, nextIdx];
+	return [nextOption, nextIdx];
 };

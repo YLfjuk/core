@@ -14,10 +14,11 @@ import type { KeyofUnion } from "./keyof-union";
  *
  * @since 0.0.17
  */
-export type PatchUnion<T> = Box<T> extends Box<infer _T>
-	? _T extends infer U
-		? U & {
-				[K in Exclude<KeyofUnion<T>, keyof U>]?: never;
-			}
-		: never
-	: never;
+export type PatchUnion<T> =
+	Box<T> extends Box<infer _T>
+		? _T extends infer U
+			? U & {
+					[K in Exclude<KeyofUnion<T>, keyof U>]?: never;
+				}
+			: never
+		: never;

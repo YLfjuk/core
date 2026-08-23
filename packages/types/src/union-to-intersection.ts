@@ -12,8 +12,8 @@
  *
  * @since 0.0.7
  */
-export type UnionToIntersection<T> = (
-    T extends any ? (x: T) => any : never
-) extends (x: infer R) => any
-    ? R
-    : never;
+export type UnionToIntersection<T> = (T extends any ? (x: T) => any : never) extends (
+	x: infer R,
+) => any
+	? R
+	: never;

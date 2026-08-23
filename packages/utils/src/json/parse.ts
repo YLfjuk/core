@@ -1,4 +1,5 @@
 import type { ExtractLiteral, ToStr } from "@ylfjuk-core/types";
+
 import type {
 	ExtractTupleLiteral,
 	ReviverFN,

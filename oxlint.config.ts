@@ -1,3 +1,8 @@
 import { createOxlintConfig } from "@ylfjuk/oxc/oxlint";
 
-export default createOxlintConfig({ jsdoc: true });
+const config = createOxlintConfig({ jsdoc: true });
+
+export default {
+	...config,
+	rules: { ...config.rules, "jsdoc/check-tag-names": "off" },
+};

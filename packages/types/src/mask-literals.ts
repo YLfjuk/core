@@ -1,5 +1,5 @@
-import type { InverseExtract } from './inverse-extract';
-import type { Primitive } from './primitive';
+import type { InverseExtract } from "./inverse-extract";
+import type { Primitive } from "./primitive";
 
 /**
  * @description Masks the literals as their primitive form
@@ -34,8 +34,5 @@ import type { Primitive } from './primitive';
  * TODO: Support objects
  */
 export type MaskLiterals<T extends Primitive> = {
-    [K in Primitive as string]: InverseExtract<
-        T,
-        K extends boolean ? boolean : K
-    >;
+	[K in Primitive as string]: InverseExtract<T, K extends boolean ? boolean : K>;
 }[string];

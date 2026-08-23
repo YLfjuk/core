@@ -1,5 +1,5 @@
-import type { FN } from './fn';
-import type { OmitBy } from './omit-by';
+import type { FN } from "./fn";
+import type { OmitBy } from "./omit-by";
 
 /**
  * @description Omits the set of properties that are functions

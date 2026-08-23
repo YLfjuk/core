@@ -1,22 +1,23 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { IsTuple } from '../src/is-tuple';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('returns if an array is a tuple', () => {
-    test('array', () => {
-        const arr = [1, 2, 3];
+import type { IsTuple } from "../src/is-tuple";
 
-        type Actual = IsTuple<typeof arr>;
-        type Expected = false;
+describe("returns if an array is a tuple", () => {
+	test("array", () => {
+		const arr = [1, 2, 3];
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = IsTuple<typeof arr>;
+		type Expected = false;
 
-    test('const array', () => {
-        const arr = [1, 2, 3] as const;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = IsTuple<typeof arr>;
-        type Expected = true;
+	test("const array", () => {
+		const arr = [1, 2, 3] as const;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = IsTuple<typeof arr>;
+		type Expected = true;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

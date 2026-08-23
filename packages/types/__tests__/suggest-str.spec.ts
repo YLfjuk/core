@@ -1,20 +1,21 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { SuggestStr } from '../src/suggest-str';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('Suggests strings, but accepts any string', () => {
-    it('should accept suggestion', () => {
-        type Expected = SuggestStr<'bob' | 'bert'>;
+import type { SuggestStr } from "../src/suggest-str";
 
-        const actual: Expected = 'bob';
+describe("Suggests strings, but accepts any string", () => {
+	it("should accept suggestion", () => {
+		type Expected = SuggestStr<"bob" | "bert">;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = "bob";
 
-    it('should accept any string', () => {
-        type Expected = SuggestStr<'bob' | 'bert'>;
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 
-        const actual: Expected = 'berta';
+	it("should accept any string", () => {
+		type Expected = SuggestStr<"bob" | "bert">;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = "berta";
+
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 });

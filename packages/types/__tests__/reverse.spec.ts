@@ -1,20 +1,21 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { Reverse } from '../src/reverse';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('Reverses an array', () => {
-    it('should reverse a tuple/array', () => {
-        type Actual = Reverse<[1, 2, 3]>;
+import type { Reverse } from "../src/reverse";
 
-        type Expected = [3, 2, 1];
+describe("Reverses an array", () => {
+	it("should reverse a tuple/array", () => {
+		type Actual = Reverse<[1, 2, 3]>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = [3, 2, 1];
 
-    it('should preserve a generic array', () => {
-        type Actual = Reverse<unknown[]>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = unknown[];
+	it("should preserve a generic array", () => {
+		type Actual = Reverse<unknown[]>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = unknown[];
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

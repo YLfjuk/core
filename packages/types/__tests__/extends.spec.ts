@@ -1,25 +1,26 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { Extends } from '../src/extends';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('A stricter wrapper around the `extends` keyword', () => {
-    test('extends', () => {
-        type Actual = Extends<'bob', string>;
-        type Expected = true;
+import type { Extends } from "../src/extends";
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+describe("A stricter wrapper around the `extends` keyword", () => {
+	test("extends", () => {
+		type Actual = Extends<"bob", string>;
+		type Expected = true;
 
-    test('not extends', () => {
-        type Actual = Extends<number, string>;
-        type Expected = false;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test("not extends", () => {
+		type Actual = Extends<number, string>;
+		type Expected = false;
 
-    test('not strict extends', () => {
-        type Actual = Extends<'bob' | 3, string>;
-        type Expected = false;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test("not strict extends", () => {
+		type Actual = Extends<"bob" | 3, string>;
+		type Expected = false;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

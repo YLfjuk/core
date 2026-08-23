@@ -1,50 +1,53 @@
 {
-    "name": "root",
-    "version": "0.0.0",
-    "private": true,
-    "author": "YLfjuk",
-    "type": "module",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/YLfjuk/core.git"
-    },
-    "scripts": {
-        "build": "turbo run build",
-        "dev": "turbo run dev",
-        "test": "turbo test",
-        "test:types": "turbo run test:types",
-        "test:v": "vitest --typecheck",
-        "coverage": "vitest run --coverage",
-        "lint": "turbo run lint",
-        "knip": "knip",
-        "plan": "changeset",
-        "preversion": "pnpm run build",
-        "version": "changeset version",
-        "prerelease": "pnpm run build",
-        "release": "changeset publish"
-    },
-    "devDependencies": {
-        "@arethetypeswrong/cli": "^0.18.2",
-        "@changesets/cli": "^3.0.1",
-        "@vitest/coverage-v8": "^4.1.11",
-        "@vitest/ui": "^4.1.11",
-        "@ylfjuk/oxc": "^0.0.1",
-        "@ylfjuk/tsconfigs": "^0.1.0",
-        "@ylfjuk/md": "^0.0.3",
-        "knip": "^6.31.0",
-        "oxfmt": "^0.61.0",
-        "oxlint": "^1.77.0",
-        "tsdown": "^0.22.14",
-        "turbo": "^2.10.10",
-        "typescript": "^7.0.2",
-        "vitest": "^4.1.11"
-    },
-    "knip": {
-        "ignoreExportsUsedInFile": true
-    },
-    "engines": {
-        "node": ">=22.18.0"
-    },
-    "packageManager": "pnpm@11.22.0"
+	"name": "root",
+	"version": "0.0.0",
+	"private": true,
+	"license": "MIT",
+	"author": "YLfjuk",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/YLfjuk/core.git"
+	},
+	"type": "module",
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"test": "turbo test",
+		"test:types": "turbo run test:types",
+		"test:v": "vitest --typecheck",
+		"coverage": "vitest run --coverage",
+		"fmt": "oxfmt .",
+		"fmt:check": "oxfmt --check .",
+		"lint": "oxlint .",
+		"lint:fix": "oxlint --fix .",
+		"knip": "knip",
+		"plan": "changeset",
+		"preversion": "pnpm run build",
+		"version": "changeset version",
+		"prerelease": "pnpm run build",
+		"release": "changeset publish"
+	},
+	"devDependencies": {
+		"@arethetypeswrong/cli": "^0.18.2",
+		"@changesets/cli": "^3.0.1",
+		"@vitest/coverage-v8": "^4.1.11",
+		"@vitest/ui": "^4.1.11",
+		"@ylfjuk/md": "^0.0.3",
+		"@ylfjuk/oxc": "^0.0.1",
+		"@ylfjuk/tsconfigs": "^0.1.0",
+		"knip": "^6.31.0",
+		"oxfmt": "^0.61.0",
+		"oxlint": "^1.77.0",
+		"tsdown": "^0.22.14",
+		"turbo": "^2.10.10",
+		"typescript": "^7.0.2",
+		"vitest": "^4.1.11"
+	},
+	"engines": {
+		"node": ">=22.18.0"
+	},
+	"packageManager": "pnpm@11.22.0",
+	"knip": {
+		"ignoreExportsUsedInFile": true
+	}
 }

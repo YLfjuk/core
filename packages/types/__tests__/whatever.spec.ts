@@ -1,28 +1,29 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { Whatever } from '../src/whatever';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('Suggests a type, but accepts any value', () => {
-    it('should accept suggestion', () => {
-        type Expected = Whatever<{ bob: 'bob' }>;
+import type { Whatever } from "../src/whatever";
 
-        const actual: Expected = { bob: 'bob' };
+describe("Suggests a type, but accepts any value", () => {
+	it("should accept suggestion", () => {
+		type Expected = Whatever<{ bob: "bob" }>;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = { bob: "bob" };
 
-    it('should accept primitive suggestion', () => {
-        type Expected = Whatever<6>;
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 
-        const actual: Expected = 6;
+	it("should accept primitive suggestion", () => {
+		type Expected = Whatever<6>;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = 6;
 
-    it('should accept any value', () => {
-        type Expected = Whatever<'bob' | 'bert'>;
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 
-        const actual: Expected = null;
+	it("should accept any value", () => {
+		type Expected = Whatever<"bob" | "bert">;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = null;
+
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 });

@@ -7,11 +7,11 @@
 #### Features 🆕
 
 - Added
-  - Enum | Utility module for enums
-  - enum/toTuple | Converts an `enum` into an ordered `tuple`
+    - Enum | Utility module for enums
+    - enum/toTuple | Converts an `enum` into an ordered `tuple`
 
 - Modified
-  - Renamed `Arr`, `Json`, `Obj` and `Str` utilities internally
+    - Renamed `Arr`, `Json`, `Obj` and `Str` utilities internally
 
 ## 0.0.9
 
@@ -20,10 +20,10 @@
 #### Features 🆕
 
 - Added
-  - jsonParse | A wrapper around `JSON.parse` that fixes the type
-  - jsonSafeParse | A wrapper around `jsonParse` that returns a `Result` value instead of throwing
-  - stringify | A wrapper around `JSON.stringify` that fixes the type
-  - Json | Utility functions for JSON
+    - jsonParse | A wrapper around `JSON.parse` that fixes the type
+    - jsonSafeParse | A wrapper around `jsonParse` that returns a `Result` value instead of throwing
+    - stringify | A wrapper around `JSON.stringify` that fixes the type
+    - Json | Utility functions for JSON
 
 ## 0.0.8
 
@@ -32,15 +32,15 @@
 #### Features 🆕
 
 - Added
-  - bool | A wrapper around `Boolean` that narrows the type to exclude falsy values
-  - keysOf | A wrapper around `Object.keys` that retains the type of the keys
-  - entriesOf | A wrapper around `Object.entries` that retains the type of the keys and values
-  - arrIncludes | A wrapper around `Array.prototype.includes` that allows to check against any type
-  - strStartsWith | A wrapper around `String.prototype.startsWith` that narrows the type to a template literal type
-  - strEndsWith | A wrapper around `String.prototype.endsWith` that narrows the type to a template literal type
-  - Arr | Utility functions for arrays
-  - Obj | Utility functions for objects
-  - Str | Utility functions for strings
+    - bool | A wrapper around `Boolean` that narrows the type to exclude falsy values
+    - keysOf | A wrapper around `Object.keys` that retains the type of the keys
+    - entriesOf | A wrapper around `Object.entries` that retains the type of the keys and values
+    - arrIncludes | A wrapper around `Array.prototype.includes` that allows to check against any type
+    - strStartsWith | A wrapper around `String.prototype.startsWith` that narrows the type to a template literal type
+    - strEndsWith | A wrapper around `String.prototype.endsWith` that narrows the type to a template literal type
+    - Arr | Utility functions for arrays
+    - Obj | Utility functions for objects
+    - Str | Utility functions for strings
 
 #### Chores 🧹
 
@@ -53,7 +53,7 @@
 #### Features 🆕
 
 - Modified
-  - toggle | The `isEqual` arg now directly accepts both arguments for comparison (breaking 💥)
+    - toggle | The `isEqual` arg now directly accepts both arguments for comparison (breaking 💥)
 
 #### Chores 🧹
 
@@ -66,7 +66,7 @@
 #### Features 🆕
 
 - Added Utilities:
-  - toggle | toggles between elements in an array
+    - toggle | toggles between elements in an array
 
 ## 0.0.5
 

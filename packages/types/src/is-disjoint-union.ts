@@ -1,4 +1,4 @@
-import type { UnionToIntersection } from './union-to-intersection';
+import type { UnionToIntersection } from "./union-to-intersection";
 
 /**
  * @see {@link UnionToIntersection}
@@ -28,6 +28,4 @@ import type { UnionToIntersection } from './union-to-intersection';
  *
  * @since 0.0.7
  */
-export type IsDisjointUnion<T> = UnionToIntersection<T> extends never
-    ? true
-    : false;
+export type IsDisjointUnion<T> = UnionToIntersection<T> extends never ? true : false;

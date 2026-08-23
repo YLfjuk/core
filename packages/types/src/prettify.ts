@@ -8,7 +8,7 @@
  * @modified 0.0.14
  */
 export type Prettify<T> = T extends Date
-    ? T
-    : {
-          [K in keyof T]: Prettify<T[K]>;
-      };
+	? T
+	: {
+			[K in keyof T]: Prettify<T[K]>;
+		};

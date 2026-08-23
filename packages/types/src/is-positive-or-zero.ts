@@ -1,4 +1,4 @@
-import type { Abs } from './abs';
+import type { Abs } from "./abs";
 
 /**
  * @description
@@ -11,6 +11,4 @@ import type { Abs } from './abs';
  * @since 0.0.10
  * @modified 0.0.11 {@breaking 💥}
  */
-export type IsPositiveOrZero<N extends number> = Abs<N> extends N
-    ? true
-    : false;
+export type IsPositiveOrZero<N extends number> = Abs<N> extends N ? true : false;

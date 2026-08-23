@@ -1,36 +1,36 @@
 {
-    "name": "@ylfjuk-core/types",
-    "version": "0.0.18",
-    "author": "YLfjuk",
-    "type": "module",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/YLfjuk/core.git",
-        "directory": "packages/types"
-    },
-    "keywords": [
-        "ylfjuk",
-        "core",
-        "types"
-    ],
-    "files": [
-        "src"
-    ],
-    "types": "./src/index.ts",
-    "exports": {
-        ".": {
-            "@ylfjuk-core/dev.src": "./src/index.ts",
-            "types": "./src/index.ts"
-        }
-    },
-    "sideEffects": false,
-    "scripts": {
-        "build": "pnpm run test && pnpm run test:types",
-        "test": "vitest run --typecheck",
-        "test:types": "tsc --noEmit"
-    },
-    "peerDependencies": {
-        "typescript": "^7.0.2"
-    }
+	"name": "@ylfjuk-core/types",
+	"version": "0.0.18",
+	"keywords": [
+		"core",
+		"types",
+		"ylfjuk"
+	],
+	"license": "MIT",
+	"author": "YLfjuk",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/YLfjuk/core.git",
+		"directory": "packages/types"
+	},
+	"files": [
+		"src"
+	],
+	"type": "module",
+	"sideEffects": false,
+	"types": "./src/index.ts",
+	"exports": {
+		".": {
+			"@ylfjuk-core/dev.src": "./src/index.ts",
+			"types": "./src/index.ts"
+		}
+	},
+	"scripts": {
+		"build": "pnpm run test && pnpm run test:types",
+		"test": "vitest run --typecheck",
+		"test:types": "tsc --noEmit"
+	},
+	"peerDependencies": {
+		"typescript": "^7.0.2"
+	}
 }

@@ -1,5 +1,5 @@
-import type { Maybe } from './maybe';
-import type { Suggest } from './suggest';
+import type { Maybe } from "./maybe";
+import type { Suggest } from "./suggest";
 
 /**
  * @description

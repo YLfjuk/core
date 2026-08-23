@@ -1,10 +1,6 @@
-import type { Suggest } from './suggest';
-
 /**
  * @description
  * Suggests the provided string {@link T}, but allows any string
- *
- * @see {@link Suggest}
  *
  * @previous AutoCompleteStr {@v 0.0.1}
  *

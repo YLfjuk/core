@@ -6,7 +6,4 @@
  */
 export * as Obj from "./Obj";
 
-export {
-	entries as entriesOf,
-	keys as keysOf,
-} from "./Obj";
+export { entries as entriesOf, keys as keysOf } from "./Obj";

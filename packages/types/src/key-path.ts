@@ -1,4 +1,4 @@
-import type { IsTuple } from '@ylfjuk-core/types';
+import type { IsTuple } from "@ylfjuk-core/types";
 
 /**
  * Recursively extracts all possible key paths from a given type `T` as string literal types.
@@ -14,13 +14,13 @@ import type { IsTuple } from '@ylfjuk-core/types';
  *
  */
 export type KeyPath<T> = T extends Date
-    ? never
-    : T extends Array<infer U>
-    ? IsTuple<T> extends true
-        ? KeyPath<Omit<T, keyof unknown[]>>
-        : `${number}` | `${number}.${KeyPath<U>}`
-    : T extends object
-    ? {
-          [K in keyof T & string]: `${K}` | `${K}.${KeyPath<T[K]>}`;
-      }[keyof T & string]
-    : never;
+	? never
+	: T extends Array<infer U>
+		? IsTuple<T> extends true
+			? KeyPath<Omit<T, keyof unknown[]>>
+			: `${number}` | `${number}.${KeyPath<U>}`
+		: T extends object
+			? {
+					[K in keyof T & string]: `${K}` | `${K}.${KeyPath<T[K]>}`;
+				}[keyof T & string]
+			: never;

@@ -4,5 +4,9 @@ const config = createOxlintConfig({ jsdoc: true });
 
 export default {
 	...config,
-	rules: { ...config.rules, "typescript/no-explicit-any": "off" },
+	rules: {
+		...config.rules,
+		"jsdoc/check-tag-names": "off",
+		"typescript/no-explicit-any": "off",
+	},
 };

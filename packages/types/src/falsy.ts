@@ -5,4 +5,4 @@
  *
  * @since 0.0.16
  */
-export type Falsy = false | 0 | '' | null | undefined | 0n;
+export type Falsy = false | 0 | "" | null | undefined | 0n;

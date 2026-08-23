@@ -1,3 +1,3 @@
-import { describe } from 'vitest';
+import { describe } from "vitest";
 
-describe.todo('str/startsWith');
+describe.todo("str/startsWith");

@@ -1,41 +1,42 @@
-import { describe, expect, expectTypeOf, it, suite } from 'vitest';
-import type { Result, ResultData, ResultError } from '../src/result';
+import { describe, expect, expectTypeOf, it, suite } from "vitest";
 
-describe('Result of a function call. Either successful w/ data, or not w/ a reason', () => {
-    suite('Result type', () => {
-        it('should contain data when success is set to `true`', () => {
-            const successfulResult: Result<number> = { success: true, data: 5 };
+import type { Result, ResultData, ResultError } from "../src/result";
 
-            expect(successfulResult.success).toBe(true);
-            expect(successfulResult.data).toBeTypeOf('number');
-        });
+describe("Result of a function call. Either successful w/ data, or not w/ a reason", () => {
+	suite("Result type", () => {
+		it("should contain data when success is set to `true`", () => {
+			const successfulResult: Result<number> = { success: true, data: 5 };
 
-        it('should contain reason when success is set to `false`', () => {
-            const successfulResult: Result<number, string> = {
-                success: false,
-                reason: 'a reason',
-            };
+			expect(successfulResult.success).toBe(true);
+			expect(successfulResult.data).toBeTypeOf("number");
+		});
 
-            expect(successfulResult.success).toBe(false);
-            expect(successfulResult.reason).toBeTypeOf('string');
-        });
-    });
+		it("should contain reason when success is set to `false`", () => {
+			const successfulResult: Result<number, string> = {
+				success: false,
+				reason: "a reason",
+			};
 
-    suite('ResultError type', () => {
-        it('should return the type of the reason property of the result', () => {
-            type Expected = string;
-            type Actual = ResultError<Result<unknown, string>>;
+			expect(successfulResult.success).toBe(false);
+			expect(successfulResult.reason).toBeTypeOf("string");
+		});
+	});
 
-            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-        });
-    });
+	suite("ResultError type", () => {
+		it("should return the type of the reason property of the result", () => {
+			type Expected = string;
+			type Actual = ResultError<Result<unknown, string>>;
 
-    suite('ResultData type', () => {
-        it('should return the type of the data property of the result', () => {
-            type Expected = number;
-            type Actual = ResultData<Result<number>>;
+			expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+		});
+	});
 
-            expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-        });
-    });
+	suite("ResultData type", () => {
+		it("should return the type of the data property of the result", () => {
+			type Expected = number;
+			type Actual = ResultData<Result<number>>;
+
+			expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+		});
+	});
 });

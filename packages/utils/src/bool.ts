@@ -1,4 +1,4 @@
-import type { Falsy } from '@ylfjuk-core/types';
+import type { Falsy } from "@ylfjuk-core/types";
 
 /**
  * Type guard that checks if a value is truthy.

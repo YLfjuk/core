@@ -1,4 +1,4 @@
-import type { Box } from './box';
+import type { Box } from "./box";
 
 /**
  * @see {@link Box}
@@ -11,8 +11,4 @@ import type { Box } from './box';
  * @since 0.0.12
  * @modified 0.0.14 {@breaking 💥}
  */
-export type Equals<A, B> = Box<A> extends Box<B>
-    ? Box<B> extends Box<A>
-        ? true
-        : false
-    : false;
+export type Equals<A, B> = Box<A> extends Box<B> ? (Box<B> extends Box<A> ? true : false) : false;

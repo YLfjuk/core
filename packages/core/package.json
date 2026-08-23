@@ -1,39 +1,39 @@
 {
-    "name": "@ylfjuk/core",
-    "version": "0.0.19",
-    "description": "The core packages",
-    "author": "YLfjuk",
-    "type": "module",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/YLfjuk/core.git",
-        "directory": "packages/core"
-    },
-    "keywords": [
-        "ylfjuk",
-        "core"
-    ],
-    "files": [
-        "dist"
-    ],
-    "types": "dist/index.d.ts",
-    "exports": {
-        ".": {
-            "@ylfjuk-core/dev.src": "./src/index.ts",
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js"
-        }
-    },
-    "sideEffects": false,
-    "scripts": {
-        "build": "tsdown",
-        "dev": "tsdown --watch",
-        "test": "vitest run --typecheck",
-        "test:types": "tsc --noEmit"
-    },
-    "dependencies": {
-        "@ylfjuk-core/types": "workspace:*",
-        "@ylfjuk-core/utils": "workspace:*"
-    }
+	"name": "@ylfjuk/core",
+	"version": "0.0.19",
+	"description": "The core packages",
+	"keywords": [
+		"core",
+		"ylfjuk"
+	],
+	"license": "MIT",
+	"author": "YLfjuk",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/YLfjuk/core.git",
+		"directory": "packages/core"
+	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"sideEffects": false,
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"@ylfjuk-core/dev.src": "./src/index.ts",
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch",
+		"test": "vitest run --typecheck",
+		"test:types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@ylfjuk-core/types": "workspace:*",
+		"@ylfjuk-core/utils": "workspace:*"
+	}
 }

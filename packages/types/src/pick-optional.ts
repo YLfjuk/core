@@ -13,5 +13,5 @@
  * @since 0.0.14
  */
 export type PickOptional<T> = {
-    [K in keyof T as T[K] extends Required<T>[K] ? never : K]: T[K];
+	[K in keyof T as T[K] extends Required<T>[K] ? never : K]: T[K];
 };

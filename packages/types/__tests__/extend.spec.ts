@@ -1,37 +1,38 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { Extend } from '../src/extend';
-import type { EmptyObject } from '../src/empty-object';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('Extend another type', () => {
-    test('extend existing fields and ignore non-existing fields', () => {
-        type Bob = {
-            Bob: string;
-            Berta: 4;
-        };
+import type { EmptyObject } from "../src/empty-object";
+import type { Extend } from "../src/extend";
 
-        type Bert = {
-            Bob: number;
-            Bert: string;
-        };
+describe("Extend another type", () => {
+	test("extend existing fields and ignore non-existing fields", () => {
+		type Bob = {
+			Bob: string;
+			Berta: 4;
+		};
 
-        type Expected = {
-            Bob: string | number;
-            Berta: 4;
-        };
+		type Bert = {
+			Bob: number;
+			Bert: string;
+		};
 
-        type Actual = Extend<Bob, Bert>;
+		type Expected = {
+			Bob: string | number;
+			Berta: 4;
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = Extend<Bob, Bert>;
 
-    test('extend with nothing does nothing', () => {
-        type Expected = {
-            Bob: string;
-            Berta: 4;
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = Extend<Expected, EmptyObject>;
+	test("extend with nothing does nothing", () => {
+		type Expected = {
+			Bob: string;
+			Berta: 4;
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = Extend<Expected, EmptyObject>;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

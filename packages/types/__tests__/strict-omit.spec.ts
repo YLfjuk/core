@@ -1,19 +1,20 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { StrictOmit } from '../src/strict-omit';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('Strict Omit', () => {
-    test('type omit keys of object from object', () => {
-        const obj = {
-            Bob: 'bob',
-            Bert: 'bert',
-        };
+import type { StrictOmit } from "../src/strict-omit";
 
-        type Expected = {
-            Bob: string;
-        };
+describe("Strict Omit", () => {
+	test("type omit keys of object from object", () => {
+		const obj = {
+			Bob: "bob",
+			Bert: "bert",
+		};
 
-        type Actual = StrictOmit<typeof obj, 'Bert'>;
+		type Expected = {
+			Bob: string;
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = StrictOmit<typeof obj, "Bert">;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

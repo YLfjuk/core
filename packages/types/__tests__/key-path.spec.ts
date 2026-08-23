@@ -1,72 +1,73 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import { KeyPath } from '../src/key-path';
-import type { Primitive } from '../src';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('KeyPath', () => {
-    it('should extract key paths from an object', () => {
-        type Obj = {
-            a: string;
-            b: number;
-            c: {
-                d: boolean;
-                e: string[];
-            };
-            arr: {
-                f: string;
-            }[];
-            tuple: [first: number, second: { g: Date }];
-        };
+import type { Primitive } from "../src";
+import type { KeyPath } from "../src/key-path";
 
-        type Actual = KeyPath<Obj>;
-        type Expected =
-            | 'a'
-            | 'b'
-            | 'c'
-            | 'c.d'
-            | 'c.e'
-            | `c.e.${number}`
-            | 'arr'
-            | `arr.${number}`
-            | `arr.${number}.f`
-            | 'tuple'
-            | 'tuple.0'
-            | 'tuple.1'
-            | 'tuple.1.g';
+describe("KeyPath", () => {
+	it("should extract key paths from an object", () => {
+		type Obj = {
+			a: string;
+			b: number;
+			c: {
+				d: boolean;
+				e: string[];
+			};
+			arr: {
+				f: string;
+			}[];
+			tuple: [first: number, second: { g: Date }];
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = KeyPath<Obj>;
+		type Expected =
+			| "a"
+			| "b"
+			| "c"
+			| "c.d"
+			| "c.e"
+			| `c.e.${number}`
+			| "arr"
+			| `arr.${number}`
+			| `arr.${number}.f`
+			| "tuple"
+			| "tuple.0"
+			| "tuple.1"
+			| "tuple.1.g";
 
-    it('should extract key paths from a primitive array', () => {
-        type Arr = Primitive[];
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = KeyPath<Arr>;
-        type Expected = `${number}`;
+	it("should extract key paths from a primitive array", () => {
+		type Arr = Primitive[];
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = KeyPath<Arr>;
+		type Expected = `${number}`;
 
-    it('should extract key paths from an array', () => {
-        type Arr = { a: number }[];
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = KeyPath<Arr>;
-        type Expected = `${number}` | `${number}.a`;
+	it("should extract key paths from an array", () => {
+		type Arr = { a: number }[];
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = KeyPath<Arr>;
+		type Expected = `${number}` | `${number}.a`;
 
-    it('should extract key paths from a tuple', () => {
-        type Tuple = [number, { a: string }];
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = KeyPath<Tuple>;
-        type Expected = '0' | '1' | '1.a';
+	it("should extract key paths from a tuple", () => {
+		type Tuple = [number, { a: string }];
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = KeyPath<Tuple>;
+		type Expected = "0" | "1" | "1.a";
 
-    it('should not extract key paths from a `Date`', () => {
-        type Actual = KeyPath<Date>;
-        type Expected = never;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	it("should not extract key paths from a `Date`", () => {
+		type Actual = KeyPath<Date>;
+		type Expected = never;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

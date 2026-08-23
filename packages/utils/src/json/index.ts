@@ -6,8 +6,4 @@
  */
 export * as Json from "./Json";
 
-export {
-	parse as jsonParse,
-	safeParse as jsonSafeParse,
-	stringify as jsonStringify,
-} from "./Json";
+export { parse as jsonParse, safeParse as jsonSafeParse, stringify as jsonStringify } from "./Json";

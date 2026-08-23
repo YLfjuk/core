@@ -1,4 +1,5 @@
 import type { ExtractLiteral, Result, Success, ToStr } from "@ylfjuk-core/types";
+
 import { parse } from "./parse";
 import type {
 	ExtractTupleLiteral,

@@ -7,6 +7,5 @@ import type { UnionToIntersection } from "./union-to-intersection";
  *
  * @since 0.0.18
  */
-export type LastOfUnion<U> = UnionToIntersection<U extends any ? () => U : never> extends () => infer R
-	? R
-	: never;
+export type LastOfUnion<U> =
+	UnionToIntersection<U extends any ? () => U : never> extends () => infer R ? R : never;

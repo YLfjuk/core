@@ -1,4 +1,4 @@
-import type { Primitive } from './primitive';
+import type { Primitive } from "./primitive";
 
 /**
  * @description Extracts the literals from a string
@@ -16,4 +16,4 @@ import type { Primitive } from './primitive';
  * @modified 0.0.9 {@breaking 💥}
  */
 export type ExtractLiteral<T extends string> =
-    T extends `${infer U extends Exclude<Primitive, string | symbol>}` ? U : T;
+	T extends `${infer U extends Exclude<Primitive, string | symbol>}` ? U : T;
