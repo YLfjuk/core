@@ -12,10 +12,10 @@
 		},
 		"test": {
 			"with": ["test:types"],
-			"dependsOn": ["^test:types", "^test", "^build"]
+			"dependsOn": ["^test:types", "^test"]
 		},
 		"test:types": {
-			"dependsOn": ["^test:types", "^build"]
+			"dependsOn": ["^test:types"]
 		},
 		"lint": {
 			"dependsOn": ["^lint"]

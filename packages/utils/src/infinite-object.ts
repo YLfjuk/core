@@ -10,7 +10,9 @@ type InfiniteObject = {
  * @since 0.0.5
  */
 export const InfiniteObject: InfiniteObject = new Proxy<InfiniteObject>(
-	class {} as InfiniteObject,
+	// Bound functions have no non-configurable `prototype`, keeping the `ownKeys` trap valid.
+	// oxlint-disable-next-line no-extra-bind
+	function () {}.bind(null) as InfiniteObject,
 	{
 		has: () => true,
 		set: () => true,

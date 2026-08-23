@@ -1,6 +1,6 @@
 import { describe, expect, it, test } from "vitest";
 
-import { arrIncludes } from "../../src/arr/includes";
+import { includes as arrIncludes } from "../../src/arr/includes";
 
 describe("arr/includes", () => {
 	test.each([

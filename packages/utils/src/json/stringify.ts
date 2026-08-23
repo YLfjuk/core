@@ -132,4 +132,4 @@ type JsonStringify = {
  * @since 0.0.9
  * @modified 0.0.10
  */
-export const stringify = ((value: unknown) => JSON.stringify(value)) as JsonStringify;
+export const stringify = JSON.stringify as JsonStringify;

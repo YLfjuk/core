@@ -37,4 +37,18 @@ describe("Object that can be accessed ad infinitum", () => {
 
 		expect(actual).toBe(expected);
 	});
+
+	it("accepts object mutations", () => {
+		expect("anything" in InfiniteObject).toBe(true);
+		expect(Reflect.set(InfiniteObject, "value", 1)).toBe(true);
+		expect(Reflect.deleteProperty(InfiniteObject, "value")).toBe(true);
+		expect(Reflect.defineProperty(InfiniteObject, "value", { value: 1 })).toBe(true);
+		expect(Reflect.setPrototypeOf(InfiniteObject, null)).toBe(true);
+	});
+
+	it("has no enumerable own properties", () => {
+		expect(Reflect.ownKeys(InfiniteObject)).toStrictEqual([]);
+		expect(Reflect.getOwnPropertyDescriptor(InfiniteObject, "value")).toBeUndefined();
+		expect(Reflect.getPrototypeOf(InfiniteObject)).toBe(InfiniteObject);
+	});
 });
