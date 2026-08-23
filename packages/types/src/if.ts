@@ -1,5 +1,5 @@
 /**
- * @description A wrapper around conditional types
+ * Wraps a conditional type.
  *
  * @since 0.0.14
  */

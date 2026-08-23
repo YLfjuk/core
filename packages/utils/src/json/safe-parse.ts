@@ -86,7 +86,6 @@ type JsonSafeParse = {
  * @see {@link parse}
  *
  * @since 0.0.9
- * @modified 0.0.10
  */
 export const safeParse = ((text: string | null, reviver?: ReviverFN) => {
 	try {

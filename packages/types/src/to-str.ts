@@ -1,7 +1,7 @@
-import type { Stringifiable } from "./stringifiable";
+import type { Stringifiable } from "./stringifiable.js";
 
 /**
- * @description Stringifies values that can be turned into strings
+ * Converts stringifiable values to strings.
  *
  * @see {@link Stringifiable}
  *

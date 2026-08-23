@@ -10,7 +10,7 @@ import type { IsTuple } from "@ylfjuk-core/types";
  *   - If the array is not a tuple, includes numeric indices and recursively extracts key paths for array elements (e.g., `"items.0"`, `"items.0.subKey"`).
  * - Excludes `Date` types from extraction.
  *
- * @note Auto-completion of array indices is not supported in TypeScript, but the type will still reflect the structure.
+ * @remarks TypeScript cannot autocomplete array indices, but the type still reflects their structure.
  *
  */
 export type KeyPath<T> = T extends Date

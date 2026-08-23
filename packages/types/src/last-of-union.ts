@@ -1,7 +1,7 @@
-import type { UnionToIntersection } from "./union-to-intersection";
+import type { UnionToIntersection } from "./union-to-intersection.js";
 
 /**
- * @description Extracts the last type from a union type
+ * Extracts the last type from a union.
  *
  * @see {@link UnionToIntersection}
  *

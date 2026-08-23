@@ -5,7 +5,7 @@ type InfiniteObject = {
 };
 
 /**
- * @description An object you can use to access any property or method without worrying about it existing.
+ * An object whose properties and methods can be accessed without checking whether they exist.
  *
  * @since 0.0.5
  */

@@ -1,11 +1,9 @@
 /**
- * @description Prettifies the type and expands it
+ * Expands a type into a readable shape.
  *
- * @note Deep
- * @note preserves `Date`
+ * @remarks Applies recursively while preserving `Date`.
  *
  * @since 0.0.1
- * @modified 0.0.14
  */
 export type Prettify<T> = T extends Date
 	? T

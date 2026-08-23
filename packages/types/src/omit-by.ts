@@ -1,7 +1,7 @@
 /**
- * @description Omits keys that extend {@link U}
+ * Omits properties whose values extend `U`.
  *
- * @note Deep
+ * @remarks Applies recursively.
  *
  * @since 0.0.14
  */

@@ -1,10 +1,10 @@
-import type { Box } from "./box";
-import type { KeyofUnion } from "./keyof-union";
+import type { Box } from "./box.js";
+import type { KeyofUnion } from "./keyof-union.js";
 
 /**
- * @describe Creates a type that represents a union of objects, where each object has all keys from the union, while preserving the original types.
+ * Adds every key in an object union to each member while preserving its original property types.
  *
- * @note This type is useful when you need to be able to access any key from the union without having to check which specific type of the union you are dealing with.
+ * @remarks Use this when every union key must be accessible before narrowing to a specific member.
  *
  * @see {@link KeyofUnion} for extracting keys from a union type.
  *

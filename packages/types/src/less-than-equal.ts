@@ -1,11 +1,10 @@
-import type { Equals } from "./equals";
-import type { LessThan } from "./less-than";
+import type { Equals } from "./equals.js";
+import type { LessThan } from "./less-than.js";
 
 /**
- * @description
- * A, B ∈ ℤ (integers)
+ * Checks whether integer `A` is less than or equal to integer `B`.
  *
- * @note does not support float values
+ * @remarks Does not support floating-point values.
  *
  * @see {@link Equals}
  * @see {@link LessThan}

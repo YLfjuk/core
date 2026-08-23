@@ -1,5 +1,5 @@
 /**
- * @description Recursively replaces occurrences of type `R` in `T` with `N`.
+ * Recursively replaces occurrences of `R` in `T` with `N`.
  *
  * @template T - The original type to process.
  * @template R - The type to be replaced.

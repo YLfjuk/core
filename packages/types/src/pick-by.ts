@@ -1,5 +1,5 @@
 /**
- * @description Picks keys that extend {@link U}
+ * Picks properties whose values extend `U`.
  *
  * @since 0.0.10
  */

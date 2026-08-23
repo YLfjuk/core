@@ -1,10 +1,10 @@
-import type { ArrayOfN } from "./array-of-n";
-import type { IsPositiveOrZero } from "./is-positive-or-zero";
+import type { ArrayOfN } from "./array-of-n.js";
+import type { IsPositiveOrZero } from "./is-positive-or-zero.js";
 
 /**
- * @description Increments a numeric value by 1
+ * Increments a numeric value by one.
  *
- * @note does not support negative/float values
+ * @remarks Does not support negative or floating-point values.
  *
  * @template N ∈ ℕ
  *

@@ -1,7 +1,7 @@
 /**
- * @description An infinite record
+ * An infinitely nested record.
  *
- * @note Deep
+ * @remarks Applies recursively.
  *
  * @since 0.0.9
  */

@@ -3,7 +3,7 @@ import type { Falsy } from "@ylfjuk-core/types";
 /**
  * Type guard that checks if a value is truthy.
  *
- * @note A wrapper around `Boolean` that narrows the type to exclude falsy values.
+ * @remarks Wraps `Boolean` while narrowing the type to exclude falsy values.
  *
  * @since 0.0.8
  */

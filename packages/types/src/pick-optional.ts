@@ -1,7 +1,7 @@
 /**
- * @description Extracts optional properties from a given type `T`
+ * Extracts the optional properties from `T`.
  *
- * @note Does not preserve `exactOptionalPropertyTypes` unless `exactOptionalPropertyTypes` flag is set to true in the `tsconfig`
+ * @remarks Preserves exact optional-property semantics only when `exactOptionalPropertyTypes` is enabled.
  *
  * @example
  * ```ts

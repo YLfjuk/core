@@ -1,0 +1,55 @@
+name: Validation
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+jobs:
+    validate:
+        name: Validate
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+
+            - name: Set up pnpm
+              uses: pnpm/action-setup@v6
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v7
+              with:
+                  node-version: 24
+                  cache: pnpm
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Check formatting
+              run: pnpm run fmt:check
+
+            - name: Lint
+              run: pnpm run lint
+
+            - name: Check types
+              run: pnpm run test:types
+
+            - name: Test
+              run: pnpm run test
+
+            - name: Check coverage
+              run: pnpm run coverage
+
+            - name: Build and check packages
+              run: pnpm run build
+
+            - name: Audit dependencies
+              run: pnpm audit

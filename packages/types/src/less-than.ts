@@ -1,12 +1,11 @@
-import type { Abs } from "./abs";
-import type { ArrayOfN } from "./array-of-n";
-import type { IsPositiveOrZero } from "./is-positive-or-zero";
+import type { Abs } from "./abs.js";
+import type { ArrayOfN } from "./array-of-n.js";
+import type { IsPositiveOrZero } from "./is-positive-or-zero.js";
 
 /**
- * @description
- * A, B ∈ ℤ (integers)
+ * Checks whether integer `A` is less than integer `B`.
  *
- * @note does not support float values
+ * @remarks Does not support floating-point values.
  *
  * @see {@link IsPositiveOrZero}
  * @see {@link ArrayOfN}

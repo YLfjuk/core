@@ -1,7 +1,7 @@
-import type { UnknownArray } from "./unknown-array";
+import type { UnknownArray } from "./unknown-array.js";
 
 /**
- * @description A type that checks if an array has duplicate elements.
+ * Checks whether an array has duplicate elements.
  *
  * @since 0.0.14
  */

@@ -127,9 +127,8 @@ type JsonStringify = {
 /**
  * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
  *
- * @note A wrapper for {@link JSON.stringify} that provides type safety and overloads for various input types.
+ * @remarks Wraps {@link JSON.stringify} with type-safe overloads for supported inputs.
  *
  * @since 0.0.9
- * @modified 0.0.10
  */
 export const stringify = JSON.stringify as JsonStringify;

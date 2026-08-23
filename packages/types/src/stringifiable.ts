@@ -1,7 +1,7 @@
-import type { Primitive } from "./primitive";
+import type { Primitive } from "./primitive.js";
 
 /**
- * @description Primitives that can be stringified, or an object with the `toString` method
+ * A primitive or object with a `toString` method.
  *
  * @see {@link Primitives}
  *

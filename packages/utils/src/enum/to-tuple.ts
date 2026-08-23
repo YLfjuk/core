@@ -1,7 +1,7 @@
 import type { UnionToTuple, ValueOf } from "@ylfjuk-core/types";
 
 /**
- * @description Converts an `enum` into an ordered `tuple`
+ * Converts an enum-like object into an ordered tuple.
  *
  * @see {@link UnionToTuple}
  * @see {@link ValueOf}

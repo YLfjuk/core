@@ -1,5 +1,5 @@
 /**
- * @description A type guard that checks if a value is defined (not `null` or `undefined`).
+ * Checks whether a value is neither `null` nor `undefined`.
  *
  * @since 0.0.1
  */

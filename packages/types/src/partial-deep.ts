@@ -1,8 +1,7 @@
 /**
- * @description Recursively makes all properties in `T` optional.
+ * Recursively makes every property in `T` optional.
  *
- * @note Deep
- * @note preserves `Date`
+ * @remarks Applies recursively while preserving `Date`.
  *
  * @example
  * ```ts

@@ -1,10 +1,10 @@
-import type { InverseExtract } from "./inverse-extract";
-import type { Primitive } from "./primitive";
+import type { InverseExtract } from "./inverse-extract.js";
+import type { Primitive } from "./primitive.js";
 
 /**
- * @description Masks the literals as their primitive form
+ * Widens literal types to their primitive forms.
  *
- * @note The opposite of ExtractLiteral
+ * @remarks This is the inverse of `ExtractLiteral`. An equivalent conditional definition is:
  *
  * @see {@link Primitive}
  *
@@ -13,8 +13,6 @@ import type { Primitive } from "./primitive";
  * type MaskedLiteral = ExtractLiterals<56>; //? number
  * ```
  *
- * @alternative
- * works the same as
  * ```ts
  * type MaskLiterals<T> =
  *      T extends infer U ?
@@ -28,8 +26,6 @@ import type { Primitive } from "./primitive";
  * `K extends boolean ? boolean : K` is used since boolean is often spread into `true | false`
  *
  * @since 0.0.9
- * @modified 0.0.10
- * @modified 0.0.14 {@breaking 💥}
  *
  * TODO: Support objects
  */

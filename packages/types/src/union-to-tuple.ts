@@ -1,7 +1,7 @@
-import type { LastOfUnion } from "./last-of-union";
+import type { LastOfUnion } from "./last-of-union.js";
 
 /**
- * @description Converts a `union` into an ordered `tuple`
+ * Converts a union into an ordered tuple.
  *
  * @see {@link LastOfUnion}
  *

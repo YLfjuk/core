@@ -6,7 +6,7 @@ export default {
 	...config,
 	rules: {
 		...config.rules,
-		"jsdoc/check-tag-names": "off",
+		"jsdoc/check-tag-names": ["error", { definedTags: ["remarks"] }],
 		"typescript/no-explicit-any": "off",
 	},
 };

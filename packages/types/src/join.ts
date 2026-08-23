@@ -1,11 +1,11 @@
-import type { Stringifiable } from "./stringifiable";
-import type { ToStr } from "./to-str";
+import type { Stringifiable } from "./stringifiable.js";
+import type { ToStr } from "./to-str.js";
 
 type Settings = { separator: string };
 type DefaultSettings = { separator: "" };
 
 /**
- * @description Joins together stringifiable elements
+ * Joins stringifiable elements.
  *
  * @see {@link Stringifiable}
  * @see {@link ToStr}

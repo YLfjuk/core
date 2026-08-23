@@ -1,5 +1,5 @@
 /**
- * @description Maps a string enum into an object enum
+ * Maps a string enum-like type into an object enum-like type.
  *
  * @since 0.0.4
  */

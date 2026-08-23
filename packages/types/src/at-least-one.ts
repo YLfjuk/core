@@ -1,4 +1,4 @@
-import type { Prettify } from "./prettify";
+import type { Prettify } from "./prettify.js";
 
 /**
  * @since 0.0.10

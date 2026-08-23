@@ -6,8 +6,8 @@ import type { FN, Maybe } from "@ylfjuk-core/types";
  * @param currentOption - the current option
  * @param isEqual - A function that returns if two given elements should be treated as equal
  *
- * @description toggles between elements in an array
- * @note doesn't support duplicates in the array
+ * Toggles between elements in an array.
+ * @remarks Duplicate options are not supported.
  *
  * @example
  * const [next,] = toggle([]) // [null, -1]
@@ -17,7 +17,6 @@ import type { FN, Maybe } from "@ylfjuk-core/types";
  * const [next,] = toggle([{ id: 1 }, { id: 2 }], { id: 2 }, ([a, b]) => a.id === b.id) // [{ id: 1 }, 0]
  *
  * @since 0.0.6
- * @modified 0.0.7 {@breaking 💥}
  */
 export const toggle = <const T>(
 	options: ReadonlyArray<T>,
