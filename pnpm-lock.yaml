@@ -11,6 +11,9 @@ importers:
       '@arethetypeswrong/cli':
         specifier: ^0.18.2
         version: 0.18.5
+      '@arethetypeswrong/core':
+        specifier: ^0.18.1
+        version: 0.18.5
       '@changesets/cli':
         specifier: ^3.0.1
         version: 3.0.1
@@ -38,9 +41,12 @@ importers:
       oxlint:
         specifier: ^1.77.0
         version: 1.79.0
+      publint:
+        specifier: ^0.3.8
+        version: 0.3.24
       tsdown:
         specifier: ^0.22.14
-        version: 0.22.14(@arethetypeswrong/core@0.18.5)(oxc-resolver@11.24.2)(typescript@7.0.2)
+        version: 0.22.14(@arethetypeswrong/core@0.18.5)(oxc-resolver@11.24.2)(publint@0.3.24)(typescript@7.0.2)
       turbo:
         specifier: ^2.10.10
         version: 2.10.11
@@ -66,7 +72,11 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2
 
-  packages/utils: {}
+  packages/utils:
+    dependencies:
+      '@ylfjuk-core/types':
+        specifier: workspace:*
+        version: link:../types
 
 packages:
 
@@ -701,6 +711,10 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
+
+  '@publint/pack@0.1.7':
+    resolution: {integrity: sha512-4EDEmvxWtgsCnnVeBvtFIFZtUhPPt1+bA9JrSwU4Sa//6oKtzCSlGGXYJr44OD9aGISymbieJ4mCKHUygUDU+g==}
+    engines: {node: '>=18'}
 
   '@quansync/fs@1.0.0':
     resolution: {integrity: sha512-4TJ3DFtlf1L5LDMaM6CanJ/0lckGNtJcMjQ1NAV6zDmA0tEHKZtxNKin8EgPaVX1YzljbxckyT2tJrpQKAtngQ==}
@@ -1497,6 +1511,10 @@ packages:
     engines: {node: '>= 16'}
     hasBin: true
 
+  mri@1.2.0:
+    resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
+    engines: {node: '>=4'}
+
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
     engines: {node: '>=10'}
@@ -1580,6 +1598,11 @@ packages:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  publint@0.3.24:
+    resolution: {integrity: sha512-9zS56KrKBoqi5Qt8h92uMP8TTM9AYZSgnmCo4u2priMqkOZvQnTsziZ2p5LJ2ywbYkAjoCDp2jda9u4cgFefIw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   quansync@1.0.0:
     resolution: {integrity: sha512-5xZacEEufv3HSTPQuchrvV6soaiACMFnq1H8wkVioctoH3TRha9Sz66lOxRwPK/qZj7HPiSveih9yAyh98gvqA==}
 
@@ -1613,6 +1636,10 @@ packages:
     resolution: {integrity: sha512-VD2IE5PUG4Oj8zz2VGykiYd5wbnjdIiSsNQb8Qu5B+noEp+A78mu2iVvpp27g8es14Tk9rofNs5Tku9iQCS4fA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
+
+  sade@1.8.1:
+    resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
+    engines: {node: '>=6'}
 
   semver@7.8.5:
     resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
@@ -2353,6 +2380,10 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
+  '@publint/pack@0.1.7':
+    dependencies:
+      tinyexec: 1.3.0
+
   '@quansync/fs@1.0.0':
     dependencies:
       quansync: 1.0.0
@@ -2922,6 +2953,8 @@ snapshots:
 
   marked@9.1.6: {}
 
+  mri@1.2.0: {}
+
   mrmime@2.0.1: {}
 
   mz@2.7.0:
@@ -3057,6 +3090,13 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  publint@0.3.24:
+    dependencies:
+      '@publint/pack': 0.1.7
+      package-manager-detector: 1.8.0
+      picocolors: 1.1.1
+      sade: 1.8.1
+
   quansync@1.0.0: {}
 
   require-directory@2.1.1: {}
@@ -3097,6 +3137,10 @@ snapshots:
       '@rolldown/binding-openharmony-arm64': 1.2.5
       '@rolldown/binding-win32-arm64-msvc': 1.2.5
       '@rolldown/binding-win32-x64-msvc': 1.2.5
+
+  sade@1.8.1:
+    dependencies:
+      mri: 1.2.0
 
   semver@7.8.5: {}
 
@@ -3170,7 +3214,7 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  tsdown@0.22.14(@arethetypeswrong/core@0.18.5)(oxc-resolver@11.24.2)(typescript@7.0.2):
+  tsdown@0.22.14(@arethetypeswrong/core@0.18.5)(oxc-resolver@11.24.2)(publint@0.3.24)(typescript@7.0.2):
     dependencies:
       ansis: 4.3.1
       cac: 7.0.0
@@ -3189,6 +3233,7 @@ snapshots:
       verkit: 0.3.2
     optionalDependencies:
       '@arethetypeswrong/core': 0.18.5
+      publint: 0.3.24
       typescript: 7.0.2
     transitivePeerDependencies:
       - '@typescript/native-preview'

@@ -32,5 +32,8 @@
 		"test": "vitest run --typecheck",
 		"test:types": "tsc --noEmit",
 		"lint": "oxlint"
+	},
+	"dependencies": {
+		"@ylfjuk-core/types": "workspace:*"
 	}
 }
