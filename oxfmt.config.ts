@@ -5,4 +5,4 @@ const config = createOxfmtConfig({
 	scopes: ["ylfjuk", "ylfjuk-core"],
 });
 
-export default { ...config, endOfLine: "crlf" };
+export default { ...config, endOfLine: "lf" };
