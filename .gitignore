@@ -1,5 +1,4 @@
-# ignore top-level vscode settings
-.vscode/settings.json
+.artifacts
 
 # build output
 dist/

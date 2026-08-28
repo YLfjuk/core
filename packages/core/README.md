@@ -1,4 +1,4 @@
-# @ylfjuk/core &middot; ![GitHub License](https://img.shields.io/github/license/ylfjuk/core) ![NPM Version](https://img.shields.io/npm/v/%40ylfjuk%2Fcore?logo=typescript)
+# @ylfjuk/core &middot; ![GitHub License](https://img.shields.io/github/license/ylfjuk/core) ![NPM Version](https://img.shields.io/npm/v/%40ylfjuk/core?logo=typescript)
 
 The complete public API for the `@ylfjuk` core packages.
 
