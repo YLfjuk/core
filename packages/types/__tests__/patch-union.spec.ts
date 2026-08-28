@@ -1,4 +1,5 @@
 import { describe, expectTypeOf, it } from "vitest";
+
 import type { PatchUnion } from "./../src/patch-union";
 import type { Prettify } from "./../src/prettify";
 

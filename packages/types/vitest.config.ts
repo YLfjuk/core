@@ -1,3 +1,19 @@
 import { defineProject } from "vitest/config";
 
-export default defineProject({});
+import baseTsconfig from "../../tsconfig.base.json" with { type: "json" };
+
+const {
+	compilerOptions: { customConditions: conditions },
+} = baseTsconfig;
+
+export default defineProject({
+	resolve: {
+		conditions,
+	},
+	ssr: {
+		resolve: {
+			conditions,
+			externalConditions: conditions,
+		},
+	},
+});

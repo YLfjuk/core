@@ -1,35 +1,36 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { DeepDict } from '../src/deep-dict';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('Deep Dictionary', () => {
-    it('should allow nested dicts', () => {
-        const dict = {
-            bob: 1,
-        };
+import type { DeepDict } from "../src/deep-dict";
 
-        const nestedDict = {
-            bob: 1,
-            bert: {
-                berta: 2,
-            },
-        };
+describe("Deep Dictionary", () => {
+	it("should allow nested dicts", () => {
+		const dict = {
+			bob: 1,
+		};
 
-        type Expected = DeepDict<number>;
+		const nestedDict = {
+			bob: 1,
+			bert: {
+				berta: 2,
+			},
+		};
 
-        expectTypeOf(dict).toExtend<Expected>();
-        expectTypeOf(nestedDict).toExtend<Expected>();
-    });
+		type Expected = DeepDict<number>;
 
-    it('should work with never', () => {
-        const dict = {};
+		expectTypeOf(dict).toExtend<Expected>();
+		expectTypeOf(nestedDict).toExtend<Expected>();
+	});
 
-        const nestedDict = {
-            bob: {},
-        };
+	it("should work with never", () => {
+		const dict = {};
 
-        type Expected = DeepDict<never>;
+		const nestedDict = {
+			bob: {},
+		};
 
-        expectTypeOf(dict).toExtend<Expected>();
-        expectTypeOf(nestedDict).toExtend<Expected>();
-    });
+		type Expected = DeepDict<never>;
+
+		expectTypeOf(dict).toExtend<Expected>();
+		expectTypeOf(nestedDict).toExtend<Expected>();
+	});
 });

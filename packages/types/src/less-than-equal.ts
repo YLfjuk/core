@@ -1,20 +1,15 @@
-import type { Equals } from './equals';
-import type { LessThan } from './less-than';
+import type { Equals } from "./equals.js";
+import type { LessThan } from "./less-than.js";
 
 /**
- * @description
- * A, B ∈ ℤ (integers)
+ * Checks whether integer `A` is less than or equal to integer `B`.
  *
- * @note does not support float values
+ * @remarks Does not support floating-point values.
  *
  * @see {@link Equals}
  * @see {@link LessThan}
  *
  * @since 0.0.12
  */
-export type LessThanEqual<A extends number, B extends number> = Equals<
-    A,
-    B
-> extends true
-    ? true
-    : LessThan<A, B>;
+export type LessThanEqual<A extends number, B extends number> =
+	Equals<A, B> extends true ? true : LessThan<A, B>;

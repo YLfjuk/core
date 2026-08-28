@@ -1,25 +1,26 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { SafeRecord } from '../src/safe-record';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('A safe way to access a record when `noUncheckedIndexedAccess` is turned off', () => {
-    it('should be the same as adding `| undefined` to a regular record', () => {
-        type Actual = SafeRecord<string, number>;
-        type Expected = Record<string, number | undefined>;
+import type { SafeRecord } from "../src/safe-record";
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+describe("A safe way to access a record when `noUncheckedIndexedAccess` is turned off", () => {
+	it("should be the same as adding `| undefined` to a regular record", () => {
+		type Actual = SafeRecord<string, number>;
+		type Expected = Record<string, number | undefined>;
 
-    it('should return `T | undefined` when accessed', () => {
-        type Expected = string | undefined;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        const safeRecord: SafeRecord<string, string> = {
-            key: 'value',
-        };
+	it("should return `T | undefined` when accessed", () => {
+		type Expected = string | undefined;
 
-        const existingProperty = safeRecord.key;
-        const unknownProperty = safeRecord.bob;
+		const safeRecord: SafeRecord<string, string> = {
+			key: "value",
+		};
 
-        expectTypeOf(existingProperty).toEqualTypeOf<Expected>();
-        expectTypeOf(unknownProperty).toEqualTypeOf<Expected>();
-    });
+		const existingProperty = safeRecord.key;
+		const unknownProperty = safeRecord.bob;
+
+		expectTypeOf(existingProperty).toEqualTypeOf<Expected>();
+		expectTypeOf(unknownProperty).toEqualTypeOf<Expected>();
+	});
 });

@@ -1,8 +1,8 @@
-import type { FN } from './fn';
-import type { OmitBy } from './omit-by';
+import type { FN } from "./fn.js";
+import type { OmitBy } from "./omit-by.js";
 
 /**
- * @description Omits the set of properties that are functions
+ * Omits properties whose values are functions.
  *
  * @see {@link OmitBy}
  *

@@ -1,146 +1,147 @@
-import { describe, expectTypeOf, it, test } from 'vitest';
-import type { Prettify } from '../src/prettify';
-import type { Primitive } from '../src/primitive';
+import { describe, expectTypeOf, it, test } from "vitest";
 
-describe('Prettify the type', () => {
-    test('simple union', () => {
-        type Bob = {
-            Bob: string;
-        };
+import type { Prettify } from "../src/prettify";
+import type { Primitive } from "../src/primitive";
 
-        type Bert = {
-            Bert: string;
-        };
+describe("Prettify the type", () => {
+	test("simple union", () => {
+		type Bob = {
+			Bob: string;
+		};
 
-        type Both = Bob & Bert;
+		type Bert = {
+			Bert: string;
+		};
 
-        type Expected = {
-            Bob: string;
-            Bert: string;
-        };
+		type Both = Bob & Bert;
 
-        type Actual = Prettify<Both>;
+		type Expected = {
+			Bob: string;
+			Bert: string;
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = Prettify<Both>;
 
-    test('complex union', () => {
-        type Bob = {
-            Bob: string;
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Bert = {
-            Bert: string;
-        };
+	test("complex union", () => {
+		type Bob = {
+			Bob: string;
+		};
 
-        type Person = {
-            name: string;
-            age: number;
-        };
+		type Bert = {
+			Bert: string;
+		};
 
-        type Both = (Bob | Bert) & Person;
+		type Person = {
+			name: string;
+			age: number;
+		};
 
-        type Expected =
-            | {
-                  Bob: string;
-                  name: string;
-                  age: number;
-              }
-            | {
-                  Bert: string;
-                  name: string;
-                  age: number;
-              };
+		type Both = (Bob | Bert) & Person;
 
-        type Actual = Prettify<Both>;
+		type Expected =
+			| {
+					Bob: string;
+					name: string;
+					age: number;
+			  }
+			| {
+					Bert: string;
+					name: string;
+					age: number;
+			  };
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = Prettify<Both>;
 
-    test('deeply nested objects', () => {
-        type Bob = {
-            Bob: string;
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Bert = {
-            Bert: string;
-        };
+	test("deeply nested objects", () => {
+		type Bob = {
+			Bob: string;
+		};
 
-        type Berta = {
-            Berta: true;
-        };
+		type Bert = {
+			Bert: string;
+		};
 
-        type NestedObject =
-            | {
-                  person: Bob | Bert;
-                  nested: {
-                      identity: Bob | Bert | (Berta & { birthdate: Date });
-                  };
-              }
-            | {
-                  person: Bob & Bert;
-              };
+		type Berta = {
+			Berta: true;
+		};
 
-        type Actual = Prettify<NestedObject>;
+		type NestedObject =
+			| {
+					person: Bob | Bert;
+					nested: {
+						identity: Bob | Bert | (Berta & { birthdate: Date });
+					};
+			  }
+			| {
+					person: Bob & Bert;
+			  };
 
-        type Expected =
-            | {
-                  person:
-                      | {
-                            Bob: string;
-                        }
-                      | {
-                            Bert: string;
-                        };
-                  nested: {
-                      identity:
-                          | {
-                                Bob: string;
-                            }
-                          | {
-                                Bert: string;
-                            }
-                          | {
-                                Berta: true;
-                                birthdate: Date;
-                            };
-                  };
-              }
-            | {
-                  person: {
-                      Bob: string;
-                      Bert: string;
-                  };
-              };
+		type Actual = Prettify<NestedObject>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected =
+			| {
+					person:
+						| {
+								Bob: string;
+						  }
+						| {
+								Bert: string;
+						  };
+					nested: {
+						identity:
+							| {
+									Bob: string;
+							  }
+							| {
+									Bert: string;
+							  }
+							| {
+									Berta: true;
+									birthdate: Date;
+							  };
+					};
+			  }
+			| {
+					person: {
+						Bob: string;
+						Bert: string;
+					};
+			  };
 
-    it('should not expand a `Date` type', () => {
-        type Actual = Prettify<Date>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = Date;
+	it("should not expand a `Date` type", () => {
+		type Actual = Prettify<Date>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = Date;
 
-    it('should not expand a field `Date` type', () => {
-        type Actual = Prettify<{
-            date: Date;
-        }>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = {
-            date: Date;
-        };
+	it("should not expand a field `Date` type", () => {
+		type Actual = Prettify<{
+			date: Date;
+		}>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = {
+			date: Date;
+		};
 
-    it('should not expand a `Primitive` type', () => {
-        type Actual = Prettify<Primitive>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = Primitive;
+	it("should not expand a `Primitive` type", () => {
+		type Actual = Prettify<Primitive>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = Primitive;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

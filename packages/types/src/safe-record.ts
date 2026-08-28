@@ -1,5 +1,5 @@
 /**
- * @note {@link Record} can be used directly with the `tsconfig` flag `noUncheckedIndexedAccess` set to `true`
+ * @remarks Use `Record` directly when `noUncheckedIndexedAccess` is enabled.
  *
  * @since 0.0.13
  */

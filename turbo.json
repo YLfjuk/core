@@ -1,39 +1,24 @@
 {
-    "$schema": "https://turbo.build/schema.json",
-    "ui": "tui",
-    "tasks": {
-        "dev": {
-            "cache": false,
-            "persistent": true
-        },
-        "build": {
-            "dependsOn": [
-                "^build"
-            ],
-            "outputs": [
-                "dist/**"
-            ]
-        },
-        "test": {
-            "with": [
-                "test:types"
-            ],
-            "dependsOn": [
-                "^test:types",
-                "^test",
-                "^build"
-            ]
-        },
-        "test:types": {
-            "dependsOn": [
-                "^test:types",
-                "^build"
-            ]
-        },
-        "lint": {
-            "dependsOn": [
-                "^lint"
-            ]
-        }
-    }
+	"$schema": "https://turbo.build/schema.json",
+	"ui": "tui",
+	"tasks": {
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"]
+		},
+		"test": {
+			"with": ["test:types"],
+			"dependsOn": ["^test:types", "^test"]
+		},
+		"test:types": {
+			"dependsOn": ["^test:types"]
+		},
+		"lint": {
+			"dependsOn": ["^lint"]
+		}
+	}
 }

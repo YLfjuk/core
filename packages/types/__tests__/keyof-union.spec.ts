@@ -1,4 +1,5 @@
 import { describe, expectTypeOf, it } from "vitest";
+
 import type { KeyofUnion } from "../src/keyof-union";
 
 describe("KeyofUnion", () => {

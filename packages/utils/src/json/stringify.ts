@@ -1,4 +1,5 @@
 import type { FN, ToStr } from "@ylfjuk-core/types";
+
 import type { ReplacerFN, StringifiablePrimitive } from "./types/helpers";
 
 type JsonStringify = {
@@ -28,7 +29,11 @@ type JsonStringify = {
 	 * @param replacer Is not used in this case, so it is set to `never`.
 	 * @param spaceIs Is not used in this case, so it is set to `never`.
 	 */
-	<T extends StringifiablePrimitive | string>(value: T, replacer?: never, space?: never): ToStr<T>;
+	<T extends StringifiablePrimitive | string>(
+		value: T,
+		replacer?: never,
+		space?: never,
+	): ToStr<T>;
 
 	/**
 	 * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
@@ -122,9 +127,8 @@ type JsonStringify = {
 /**
  * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
  *
- * @note A wrapper for {@link JSON.stringify} that provides type safety and overloads for various input types.
+ * @remarks Wraps {@link JSON.stringify} with type-safe overloads for supported inputs.
  *
  * @since 0.0.9
- * @modified 0.0.10
  */
-export const stringify = ((value: unknown) => JSON.stringify(value)) as JsonStringify;
+export const stringify = JSON.stringify as JsonStringify;

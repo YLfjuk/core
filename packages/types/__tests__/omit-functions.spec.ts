@@ -1,75 +1,75 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { OmitFunctions } from '../src/omit-functions';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('Omits the set of properties that are functions', () => {
-    it('should omit the functions from an object', () => {
-        const actual = {
-            bob: 'bob',
-            bert: 'bert',
+import type { OmitFunctions } from "../src/omit-functions";
 
-            berta() {
-                return 'berta';
-            },
+describe("Omits the set of properties that are functions", () => {
+	it("should omit the functions from an object", () => {
+		const actual = {
+			bob: "bob",
+			bert: "bert",
 
-            another: () => 'another',
-        };
+			berta() {
+				return "berta";
+			},
 
-        type Actual = OmitFunctions<typeof actual>;
-        type Expected = {
-            bob: string;
-            bert: string;
-        };
+			another: () => "another",
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = OmitFunctions<typeof actual>;
+		type Expected = {
+			bob: string;
+			bert: string;
+		};
 
-    it('should omit the functions from a class and only show non-private properties', () => {
-        class Class {
-            width!: number;
-            height!: number;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-            #private = 'hidden';
+	it("should omit the functions from a class and only show non-private properties", () => {
+		class Class {
+			width!: number;
+			height!: number;
 
-            getWidth() {
-                return this.width;
-            }
+			#private = "hidden";
 
-            getHeight = () => this.height;
+			getWidth() {
+				return this.width;
+			}
 
-            getPrivate() {
-                return this.#private;
-            }
-        }
+			getHeight = () => this.height;
 
-        const instance = new Class();
+			getPrivate() {
+				return this.#private;
+			}
+		}
 
-        type ActualClass = OmitFunctions<Class>;
-        type ActualInstance = OmitFunctions<typeof instance>;
+		const instance = new Class();
 
-        type ExpectedClass = {
-            width: number;
-            height: number;
-        };
+		type ActualClass = OmitFunctions<Class>;
+		type ActualInstance = OmitFunctions<typeof instance>;
 
-        type ExpectedInstance = {
-            width: number;
-            height: number;
-        };
+		type ExpectedClass = {
+			width: number;
+			height: number;
+		};
 
-        expectTypeOf<ActualClass>().toEqualTypeOf<ExpectedClass>();
-        expectTypeOf<ActualInstance>().toEqualTypeOf<ExpectedInstance>();
-    });
+		type ExpectedInstance = {
+			width: number;
+			height: number;
+		};
 
-    it('should strip function', () => {
-        const fn = () => {
-            return 'bob';
-        };
+		expectTypeOf<ActualClass>().toEqualTypeOf<ExpectedClass>();
+		expectTypeOf<ActualInstance>().toEqualTypeOf<ExpectedInstance>();
+	});
 
-        type Actual = OmitFunctions<typeof fn>;
+	it("should strip function", () => {
+		const fn = () => {
+			return "bob";
+		};
 
-        // biome-ignore lint/complexity/noBannedTypes: testing
-        type Expected = {};
+		type Actual = OmitFunctions<typeof fn>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = {};
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

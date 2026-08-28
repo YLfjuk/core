@@ -1,44 +1,39 @@
 {
-    "name": "@ylfjuk-core/utils",
-    "version": "0.0.10",
-    "author": "YLfjuk",
-    "type": "module",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/YLfjuk/core.git",
-        "directory": "packages/utils"
-    },
-    "keywords": [
-        "ylfjuk",
-        "core",
-        "utils"
-    ],
-    "files": [
-        "dist"
-    ],
-    "main": "dist/index.cjs",
-    "module": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "exports": {
-        ".": {
-            "require": "./dist/index.cjs",
-            "import": "./dist/index.js"
-        }
-    },
-    "sideEffects": false,
-    "scripts": {
-        "build": "tsup",
-        "dev": "tsup --watch",
-        "test": "vitest run --typecheck",
-        "test:types": "tsc --noEmit",
-        "lint": "biome lint --write"
-    },
-    "devDependencies": {
-        "@ylfjuk-core/types": "^0.0.18",
-        "@ylfjuk/biome": "^0.1.1",
-        "@ylfjuk/tsconfigs": "^0.0.6",
-        "tsup": "^8.4.0",
-        "typescript": "^5.8.3"
-    }
+	"name": "@ylfjuk-core/utils",
+	"version": "0.0.11",
+	"keywords": [
+		"core",
+		"utils",
+		"ylfjuk"
+	],
+	"license": "MIT",
+	"author": "YLfjuk",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/YLfjuk/core.git",
+		"directory": "packages/utils"
+	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"sideEffects": false,
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"@ylfjuk-core/dev.src": "./src/index.ts",
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch",
+		"test": "vitest run --typecheck",
+		"test:types": "tsc --noEmit",
+		"lint": "oxlint"
+	},
+	"dependencies": {
+		"@ylfjuk-core/types": "workspace:*"
+	}
 }

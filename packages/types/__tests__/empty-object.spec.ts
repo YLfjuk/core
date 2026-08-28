@@ -1,25 +1,25 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { EmptyObject } from '../src/empty-object';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('Empty Object', () => {
-    it('should match an empty object', () => {
-        type Actual = EmptyObject;
-        const actual = {};
+import type { EmptyObject } from "../src/empty-object";
 
-        // biome-ignore lint/complexity/noBannedTypes: testing types
-        type Expected = {};
+describe("Empty Object", () => {
+	it("should match an empty object", () => {
+		type Actual = EmptyObject;
+		const actual = {};
 
-        expectTypeOf(actual).toExtend<Actual>();
-        expectTypeOf<Actual>().toExtend<Expected>();
-    });
+		type Expected = {};
 
-    it('should not work non-empty objects', () => {
-        const nestedDict = {
-            bob: '',
-        };
+		expectTypeOf(actual).toExtend<Actual>();
+		expectTypeOf<Actual>().toExtend<Expected>();
+	});
 
-        type Expected = EmptyObject;
+	it("should not work non-empty objects", () => {
+		const nestedDict = {
+			bob: "",
+		};
 
-        expectTypeOf(nestedDict).not.toExtend<Expected>();
-    });
+		type Expected = EmptyObject;
+
+		expectTypeOf(nestedDict).not.toExtend<Expected>();
+	});
 });

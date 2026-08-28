@@ -1,61 +1,62 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { OmitBy } from '../src/omit-by';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('Omits keys by condition', () => {
-    test('matches', () => {
-        type Obj = {
-            bob: string;
-            bert: string;
-            berta: number;
-            josh: {
-                amount: number;
-            };
-        };
+import type { OmitBy } from "../src/omit-by";
 
-        type Actual = OmitBy<Obj, string>;
-        type Expected = {
-            berta: number;
-            josh: {
-                amount: number;
-            };
-        };
+describe("Omits keys by condition", () => {
+	test("matches", () => {
+		type Obj = {
+			bob: string;
+			bert: string;
+			berta: number;
+			josh: {
+				amount: number;
+			};
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = OmitBy<Obj, string>;
+		type Expected = {
+			berta: number;
+			josh: {
+				amount: number;
+			};
+		};
 
-    test('matches obj', () => {
-        type Obj = {
-            bob: string;
-            bert: string;
-            berta: number;
-            josh: {
-                amount: number;
-            };
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = OmitBy<Obj, { amount: number }>;
-        type Expected = {
-            bob: string;
-            bert: string;
-            berta: number;
-        };
+	test("matches obj", () => {
+		type Obj = {
+			bob: string;
+			bert: string;
+			berta: number;
+			josh: {
+				amount: number;
+			};
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = OmitBy<Obj, { amount: number }>;
+		type Expected = {
+			bob: string;
+			bert: string;
+			berta: number;
+		};
 
-    test('nothing matches', () => {
-        type Obj = {
-            bob: string;
-            bert: string;
-            berta: number;
-            josh: {
-                amount: number;
-            };
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = OmitBy<Obj, symbol>;
-        type Expected = Obj;
+	test("nothing matches", () => {
+		type Obj = {
+			bob: string;
+			bert: string;
+			berta: number;
+			josh: {
+				amount: number;
+			};
+		};
 
-        expectTypeOf<Actual>().toMatchTypeOf<Expected>();
-    });
+		type Actual = OmitBy<Obj, symbol>;
+		type Expected = Obj;
+
+		expectTypeOf<Actual>().toMatchTypeOf<Expected>();
+	});
 });

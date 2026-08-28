@@ -1,38 +1,39 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { MappedEnum } from '../src/mapped-enum';
-import type { ValueOf } from '../src/value-of';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('Map an enum into an object', () => {
-    test('standalone', () => {
-        type Enum = 'bob' | 'bert' | 'bobette' | 'big berta';
+import type { MappedEnum } from "../src/mapped-enum";
+import type { ValueOf } from "../src/value-of";
 
-        type Expected = {
-            bob: 'bob';
-            bert: 'bert';
-            bobette: 'bobette';
-            'big berta': 'big berta';
-        };
+describe("Map an enum into an object", () => {
+	test("standalone", () => {
+		type Enum = "bob" | "bert" | "bobette" | "big berta";
 
-        type Actual = MappedEnum<Enum>;
+		type Expected = {
+			bob: "bob";
+			bert: "bert";
+			bobette: "bobette";
+			"big berta": "big berta";
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = MappedEnum<Enum>;
 
-    test('recreate from ValueOf<T>', () => {
-        const Enum = {
-            BOB: 'BOB',
-            BERT: 'BERT',
-        } as const;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Enum = ValueOf<typeof Enum>;
+	test("recreate from ValueOf<T>", () => {
+		const Enum = {
+			BOB: "BOB",
+			BERT: "BERT",
+		} as const;
 
-        type Expected = {
-            BOB: 'BOB';
-            BERT: 'BERT';
-        };
+		type Enum = ValueOf<typeof Enum>;
 
-        type Actual = MappedEnum<Enum>;
+		type Expected = {
+			BOB: "BOB";
+			BERT: "BERT";
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = MappedEnum<Enum>;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

@@ -3,6 +3,4 @@
  *
  * @since 0.0.10
  */
-export type Abs<N extends number> = `${N}` extends `-${infer P extends number}`
-    ? P
-    : N;
+export type Abs<N extends number> = `${N}` extends `-${infer P extends number}` ? P : N;

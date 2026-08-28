@@ -1,4 +1,4 @@
-import type { UnionToIntersection } from './union-to-intersection';
+import type { UnionToIntersection } from "./union-to-intersection.js";
 
 /**
  * @see {@link UnionToIntersection}
@@ -14,7 +14,7 @@ import type { UnionToIntersection } from './union-to-intersection';
  * utility to convert the union type into an intersection type. If the result is `never`, it indicates that
  * the original type was a union.
  *
- * @note Objects will always be considered to have an intersection
+ * @remarks Objects are always considered to intersect.
  *
  * @see {@link UnionToIntersection}
  *
@@ -28,6 +28,4 @@ import type { UnionToIntersection } from './union-to-intersection';
  *
  * @since 0.0.7
  */
-export type IsDisjointUnion<T> = UnionToIntersection<T> extends never
-    ? true
-    : false;
+export type IsDisjointUnion<T> = UnionToIntersection<T> extends never ? true : false;

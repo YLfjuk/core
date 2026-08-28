@@ -1,16 +1,10 @@
-import type { Abs } from './abs';
+import type { Abs } from "./abs.js";
 
 /**
- * @description
- * return N >= 0;
+ * Checks whether `N` is greater than or equal to zero.
  *
  * @see {@link Abs}
  *
- * @previous IsNatural {@v 0.0.10}
- *
  * @since 0.0.10
- * @modified 0.0.11 {@breaking 💥}
  */
-export type IsPositiveOrZero<N extends number> = Abs<N> extends N
-    ? true
-    : false;
+export type IsPositiveOrZero<N extends number> = Abs<N> extends N ? true : false;

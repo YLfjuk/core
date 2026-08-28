@@ -1,104 +1,87 @@
-import { describe, expect, expectTypeOf, it } from 'vitest';
-import { bool } from './../src/bool';
+import { describe, expect, expectTypeOf, it } from "vitest";
 
-describe('bool', () => {
-    it.each([
-        false,
-        0,
-        '',
-        null,
-        undefined,
-        0n,
-        Number.NaN,
-        1,
-        1.2,
-        Math.random(),
-        new Date(),
-        'str',
-        Symbol(),
-        Number.NEGATIVE_INFINITY,
-        true,
-        1n,
-        {},
-        [],
-        { key: undefined },
-        [null],
-    ])('should have the same result as `Boolean`', (value) => {
-        const actual = bool(value);
-        const expected = Boolean(value);
+import { bool } from "./../src/bool";
 
-        expect(actual).toBe(expected);
-    });
+describe("bool", () => {
+	it.each([
+		false,
+		0,
+		"",
+		null,
+		undefined,
+		0n,
+		Number.NaN,
+		1,
+		1.2,
+		Math.random(),
+		new Date(),
+		"str",
+		Symbol(),
+		Number.NEGATIVE_INFINITY,
+		true,
+		1n,
+		{},
+		[],
+		{ key: undefined },
+		[null],
+	])("should have the same result as `Boolean`", (value) => {
+		const actual = bool(value);
+		const expected = Boolean(value);
 
-    it('should narrow down the type correctly', () => {
-        const arr = [
-            false,
-            0,
-            '',
-            null,
-            undefined,
-            0n,
-            1,
-            1.2,
-            'str',
-            new Date(),
-            Symbol(),
-            true,
-            1n,
-            [],
-        ] as const;
+		expect(actual).toBe(expected);
+	});
 
-        const actual = arr.filter(bool);
+	it("should narrow down the type correctly", () => {
+		const arr = [
+			false,
+			0,
+			"",
+			null,
+			undefined,
+			0n,
+			1,
+			1.2,
+			"str",
+			new Date(),
+			Symbol(),
+			true,
+			1n,
+			[],
+		] as const;
 
-        type Actual = typeof actual;
+		const actual = arr.filter(bool);
 
-        type Expected = (
-            | true
-            | symbol
-            | 1
-            | 1.2
-            | Date
-            | 'str'
-            | 1n
-            | readonly []
-        )[];
+		type Actual = typeof actual;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = (true | symbol | 1 | 1.2 | Date | "str" | 1n | readonly [])[];
 
-    it('`Boolean` should not narrow down the type correctly', () => {
-        const arr = [
-            false,
-            0,
-            '',
-            null,
-            undefined,
-            0n,
-            1,
-            1.2,
-            'str',
-            new Date(),
-            Symbol(),
-            true,
-            1n,
-            [],
-        ] as const;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        const actual = arr.filter(Boolean);
+	it("`Boolean` should not narrow down the type correctly", () => {
+		const arr = [
+			false,
+			0,
+			"",
+			null,
+			undefined,
+			0n,
+			1,
+			1.2,
+			"str",
+			new Date(),
+			Symbol(),
+			true,
+			1n,
+			[],
+		] as const;
 
-        type Actual = typeof actual;
+		const actual = arr.filter(Boolean);
 
-        type Expected = (
-            | true
-            | symbol
-            | 1
-            | 1.2
-            | Date
-            | 'str'
-            | 1n
-            | readonly []
-        )[];
+		type Actual = typeof actual;
 
-        expectTypeOf<Actual>().not.toEqualTypeOf<Expected>();
-    });
+		type Expected = (true | symbol | 1 | 1.2 | Date | "str" | 1n | readonly [])[];
+
+		expectTypeOf<Actual>().not.toEqualTypeOf<Expected>();
+	});
 });

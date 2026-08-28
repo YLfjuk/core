@@ -1,63 +1,64 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { ExactlyOne } from '../src/exactly-one';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('requires to pass exactly one of the values', () => {
-    it('should allow objects with exactly one of the fields', () => {
-        type Obj = {
-            bob: string;
-            bert: number;
-            berta: {
-                check: boolean;
-            };
-        };
+import type { ExactlyOne } from "../src/exactly-one";
 
-        type Actual = ExactlyOne<Obj>;
+describe("requires to pass exactly one of the values", () => {
+	it("should allow objects with exactly one of the fields", () => {
+		type Obj = {
+			bob: string;
+			bert: number;
+			berta: {
+				check: boolean;
+			};
+		};
 
-        const exactlyBob = { bob: '13' };
-        const exactlyBert = { bert: 13 };
-        const exactlyBerta = {
-            berta: {
-                check: true,
-            },
-        };
+		type Actual = ExactlyOne<Obj>;
 
-        const bobAndBert = {
-            bob: '13',
-            bert: 13,
-        };
+		const exactlyBob = { bob: "13" };
+		const exactlyBert = { bert: 13 };
+		const exactlyBerta = {
+			berta: {
+				check: true,
+			},
+		};
 
-        const bobAndBerta = {
-            bob: '13',
-            berta: {
-                check: true,
-            },
-        };
+		const bobAndBert = {
+			bob: "13",
+			bert: 13,
+		};
 
-        const bertAndBerta = {
-            bert: 13,
-            berta: {
-                check: true,
-            },
-        };
+		const bobAndBerta = {
+			bob: "13",
+			berta: {
+				check: true,
+			},
+		};
 
-        const all = {
-            bob: '13',
-            bert: 13,
-            berta: {
-                check: true,
-            },
-        };
+		const bertAndBerta = {
+			bert: 13,
+			berta: {
+				check: true,
+			},
+		};
 
-        const nothing = {};
+		const all = {
+			bob: "13",
+			bert: 13,
+			berta: {
+				check: true,
+			},
+		};
 
-        expectTypeOf(exactlyBob).toExtend<Actual>();
-        expectTypeOf(exactlyBert).toExtend<Actual>();
-        expectTypeOf(exactlyBerta).toExtend<Actual>();
+		const nothing = {};
 
-        expectTypeOf(bobAndBert).not.toExtend<Actual>();
-        expectTypeOf(bobAndBerta).not.toExtend<Actual>();
-        expectTypeOf(bertAndBerta).not.toExtend<Actual>();
-        expectTypeOf(all).not.toExtend<Actual>();
-        expectTypeOf(nothing).not.toExtend<Actual>();
-    });
+		expectTypeOf(exactlyBob).toExtend<Actual>();
+		expectTypeOf(exactlyBert).toExtend<Actual>();
+		expectTypeOf(exactlyBerta).toExtend<Actual>();
+
+		expectTypeOf(bobAndBert).not.toExtend<Actual>();
+		expectTypeOf(bobAndBerta).not.toExtend<Actual>();
+		expectTypeOf(bertAndBerta).not.toExtend<Actual>();
+		expectTypeOf(all).not.toExtend<Actual>();
+		expectTypeOf(nothing).not.toExtend<Actual>();
+	});
 });

@@ -1,35 +1,36 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { Increment } from '../src/increment';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('returns an increment of the provided value', () => {
-    test('positive int', () => {
-        type Actual = Increment<1>;
-        type Expected = 2;
+import type { Increment } from "../src/increment";
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+describe("returns an increment of the provided value", () => {
+	test("positive int", () => {
+		type Actual = Increment<1>;
+		type Expected = 2;
 
-    test('0', () => {
-        type Actual = Increment<0>;
-        type Expected = 1;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test("0", () => {
+		type Actual = Increment<0>;
+		type Expected = 1;
 
-    test('"negative" zero', () => {
-        type Actual = Increment<-0>;
-        type Expected = 1;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test('"negative" zero', () => {
+		type Actual = Increment<-0>;
+		type Expected = 1;
 
-    test('negative int', () => {
-        type Actual = Increment<-1>;
-        type Expected = 'Error: Unsupported numeric value';
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+	test("negative int", () => {
+		type Actual = Increment<-1>;
+		type Expected = "Error: Unsupported numeric value";
 
-    test.todo('float');
-    test.todo('negative float');
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
+
+	test.todo("float");
+	test.todo("negative float");
 });

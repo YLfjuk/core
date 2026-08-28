@@ -1,8 +1,7 @@
 /**
- * @description Recursively makes all properties in `T` optional.
+ * Recursively makes every property in `T` optional.
  *
- * @note Deep
- * @note preserves `Date`
+ * @remarks Applies recursively while preserving `Date`.
  *
  * @example
  * ```ts
@@ -14,9 +13,9 @@
  * @since 0.0.14
  */
 export type PartialDeep<T> = T extends Date
-    ? Date
-    : T extends object
-    ? {
-          [K in keyof T]?: PartialDeep<T[K]>;
-      }
-    : T;
+	? Date
+	: T extends object
+		? {
+				[K in keyof T]?: PartialDeep<T[K]>;
+			}
+		: T;

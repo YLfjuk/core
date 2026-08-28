@@ -1,15 +1,16 @@
-import { describe, expect, expectTypeOf, test } from 'vitest';
-import type { FN } from '../src';
+import { describe, expect, expectTypeOf, test } from "vitest";
 
-describe('testing packages', () => {
-    test('testing @ylfjuk-core/types', async () => {
-        expectTypeOf<FN>().toEqualTypeOf<FN>();
-    });
+import type { FN } from "../src";
 
-    test('testing @ylfjuk-core/utils', async () => {
-        const { isDefined, noop } = await import('../src');
+describe("testing packages", () => {
+	test("testing @ylfjuk-core/types", async () => {
+		expectTypeOf<FN>().toEqualTypeOf<FN>();
+	});
 
-        expect(isDefined).toBeDefined();
-        expect(noop).toBeDefined();
-    });
+	test("testing @ylfjuk-core/utils", async () => {
+		const { isDefined, noop } = await import("../src");
+
+		expect(isDefined).toBeDefined();
+		expect(noop).toBeDefined();
+	});
 });

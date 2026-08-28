@@ -1,17 +1,18 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { InverseExtract } from '../src/inverse-extract';
-import type { Box } from '../src/box';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('A type to Box union types', () => {
-    it('should match full unions instead of testing each element separately', () => {
-        type UnionIsTestedSeparately = InverseExtract<string | number, string>;
+import type { Box } from "../src/box";
+import type { InverseExtract } from "../src/inverse-extract";
 
-        type Actual = InverseExtract<Box<string | number>, Box<string>>;
+describe("A type to Box union types", () => {
+	it("should match full unions instead of testing each element separately", () => {
+		type UnionIsTestedSeparately = InverseExtract<string | number, string>;
 
-        type Expected = never;
+		type Actual = InverseExtract<Box<string | number>, Box<string>>;
 
-        expectTypeOf<UnionIsTestedSeparately>().toEqualTypeOf<string>();
-        expectTypeOf<UnionIsTestedSeparately>().not.toEqualTypeOf<Expected>();
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = never;
+
+		expectTypeOf<UnionIsTestedSeparately>().toEqualTypeOf<string>();
+		expectTypeOf<UnionIsTestedSeparately>().not.toEqualTypeOf<Expected>();
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

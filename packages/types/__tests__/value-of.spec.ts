@@ -1,46 +1,47 @@
-import { describe, expectTypeOf, it, test } from 'vitest';
-import type { ValueOf } from '../src/value-of';
+import { describe, expectTypeOf, it, test } from "vitest";
 
-describe('Value Of', () => {
-    test('type contains values of object', () => {
-        const obj = {
-            Bob: 'bob',
-            Bert: 'bert',
-        };
+import type { ValueOf } from "../src/value-of";
 
-        type Expected = string;
-        type Actual = ValueOf<typeof obj>;
+describe("Value Of", () => {
+	test("type contains values of object", () => {
+		const obj = {
+			Bob: "bob",
+			Bert: "bert",
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = string;
+		type Actual = ValueOf<typeof obj>;
 
-    test('type contains values of const object', () => {
-        const obj = {
-            Bob: 'bob',
-            Bert: 'bert',
-        } as const;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = 'bob' | 'bert';
-        type Actual = ValueOf<typeof obj>;
+	test("type contains values of const object", () => {
+		const obj = {
+			Bob: "bob",
+			Bert: "bert",
+		} as const;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = "bob" | "bert";
+		type Actual = ValueOf<typeof obj>;
 
-    it('should return the elements of an array', () => {
-        const arr = ['bob', 'bert', 2];
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = string | number;
-        type Actual = ValueOf<typeof arr>;
+	it("should return the elements of an array", () => {
+		const arr = ["bob", "bert", 2];
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = string | number;
+		type Actual = ValueOf<typeof arr>;
 
-    it('should return the elements of a const array', () => {
-        const arr = ['bob', 'bert'] as const;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = 'bob' | 'bert';
-        type Actual = ValueOf<typeof arr>;
+	it("should return the elements of a const array", () => {
+		const arr = ["bob", "bert"] as const;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = "bob" | "bert";
+		type Actual = ValueOf<typeof arr>;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

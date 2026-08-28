@@ -1,13 +1,12 @@
 /**
- * @description makes all keys required while preserving their nullability
- *
- * @note {@link Required} can be used directly with the `tsconfig` flag `exactOptionalPropertyTypes` set to `true`
+ * Makes every key required while preserving nullability.
  *
  * @remarks
- * The type can also be described as `PreserveUndefined`, `LeanRequired`, `LaxRequired` or `SofRequired`
+ * Use `Required` directly when `exactOptionalPropertyTypes` is enabled. This type is also known as
+ * `PreserveUndefined`, `LeanRequired`, `LaxRequired`, or `SoftRequired`.
  *
  * @since 0.0.14
  */
 export type NonOptional<T> = {
-    [K in keyof Required<T>]: T[K];
+	[K in keyof Required<T>]: T[K];
 };

@@ -1,50 +1,51 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { Equals } from '../src/equals';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('A type that checks if two other types are strictly equal', () => {
-    test('diff types', () => {
-        type Actual = Equals<string, number>;
-        type InvertedActual = Equals<number, string>;
+import type { Equals } from "../src/equals";
 
-        type Expected = false;
+describe("A type that checks if two other types are strictly equal", () => {
+	test("diff types", () => {
+		type Actual = Equals<string, number>;
+		type InvertedActual = Equals<number, string>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-        expectTypeOf<InvertedActual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = false;
 
-    test('same types', () => {
-        type Actual = Equals<number, number>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+		expectTypeOf<InvertedActual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = true;
+	test("same types", () => {
+		type Actual = Equals<number, number>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = true;
 
-    test('same literals', () => {
-        type Actual = Equals<2, 2>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = true;
+	test("same literals", () => {
+		type Actual = Equals<2, 2>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = true;
 
-    test('literals and mask', () => {
-        type Actual = Equals<2, number>;
-        type InvertedActual = Equals<number, 2>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = false;
+	test("literals and mask", () => {
+		type Actual = Equals<2, number>;
+		type InvertedActual = Equals<number, 2>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-        expectTypeOf<InvertedActual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = false;
 
-    test('type and union with it', () => {
-        type Actual = Equals<string | number, number>;
-        type InvertedActual = Equals<number, string | number>;
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+		expectTypeOf<InvertedActual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = false;
+	test("type and union with it", () => {
+		type Actual = Equals<string | number, number>;
+		type InvertedActual = Equals<number, string | number>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-        expectTypeOf<InvertedActual>().toEqualTypeOf<Expected>();
-    });
+		type Expected = false;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+		expectTypeOf<InvertedActual>().toEqualTypeOf<Expected>();
+	});
 });

@@ -1,4 +1,5 @@
 import type { ExtractLiteral, ToStr } from "@ylfjuk-core/types";
+
 import type {
 	ExtractTupleLiteral,
 	ReviverFN,
@@ -75,10 +76,9 @@ type JsonParse = {
 /**
  * Parses a JSON string into an object.
  *
- * @note A wrapper for {@link JSON.parse} that provides type safety and overloads for various input types.
+ * @remarks Wraps {@link JSON.parse} with type-safe overloads for supported inputs.
  *
  * @since 0.0.9
- * @modified 0.0.10
  */
 export const parse = ((text: string | null | StringifiableTuplePrimitive, reviver?: ReviverFN) =>
 	// @ts-expect-error: JSON.parse can receive `null`, or a single literal element tuple, but it is not represented by `ts`

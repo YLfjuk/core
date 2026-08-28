@@ -1,10 +1,10 @@
 /**
- * @description An infinite record
+ * An infinitely nested record.
  *
- * @note Deep
+ * @remarks Applies recursively.
  *
  * @since 0.0.9
  */
 export type DeepDict<T = unknown> = {
-    [key: string]: T | DeepDict<T>;
+	[key: string]: T | DeepDict<T>;
 };

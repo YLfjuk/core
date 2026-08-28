@@ -1,37 +1,38 @@
-import { describe, expectTypeOf, it } from 'vitest';
-import type { Suggest } from '../src/suggest';
+import { describe, expectTypeOf, it } from "vitest";
 
-describe('Suggests a type, but accepts any non-nullable value', () => {
-    it('should accept suggestion', () => {
-        type Expected = Suggest<{ bob: 'bob' }>;
+import type { Suggest } from "../src/suggest";
 
-        const actual: Expected = { bob: 'bob' };
+describe("Suggests a type, but accepts any non-nullable value", () => {
+	it("should accept suggestion", () => {
+		type Expected = Suggest<{ bob: "bob" }>;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = { bob: "bob" };
 
-    it('should accept primitive suggestion', () => {
-        type Expected = Suggest<6>;
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 
-        const actual: Expected = 6;
+	it("should accept primitive suggestion", () => {
+		type Expected = Suggest<6>;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = 6;
 
-    it('should accept any non nullable value', () => {
-        type Expected = Suggest<'bob' | 'bert'>;
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 
-        const actual: Expected = 2;
+	it("should accept any non nullable value", () => {
+		type Expected = Suggest<"bob" | "bert">;
 
-        expectTypeOf(actual).toExtend<Expected>();
-    });
+		const actual: Expected = 2;
 
-    it('should not accept nullable value', () => {
-        type Expected = Suggest<'bob' | 'bert'>;
+		expectTypeOf(actual).toExtend<Expected>();
+	});
 
-        // @ts-expect-error: testing
-        const actual = null satisfies Expected;
+	it("should not accept nullable value", () => {
+		type Expected = Suggest<"bob" | "bert">;
 
-        expectTypeOf(actual).not.toExtend<Expected>();
-    });
+		// @ts-expect-error: testing
+		const actual = null satisfies Expected;
+
+		expectTypeOf(actual).not.toExtend<Expected>();
+	});
 });

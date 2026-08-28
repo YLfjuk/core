@@ -1,60 +1,61 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { EmptyObject } from '../src/empty-object';
-import type { PickBy } from '../src/pick-by';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('pick fields of an object if they match type', () => {
-    test('matches', () => {
-        type Obj = {
-            bob: string;
-            bert: string;
-            berta: number;
-            josh: {
-                amount: number;
-            };
-        };
+import type { EmptyObject } from "../src/empty-object";
+import type { PickBy } from "../src/pick-by";
 
-        type Actual = PickBy<Obj, string>;
-        type Expected = {
-            bob: string;
-            bert: string;
-        };
+describe("pick fields of an object if they match type", () => {
+	test("matches", () => {
+		type Obj = {
+			bob: string;
+			bert: string;
+			berta: number;
+			josh: {
+				amount: number;
+			};
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = PickBy<Obj, string>;
+		type Expected = {
+			bob: string;
+			bert: string;
+		};
 
-    test('matches obj', () => {
-        type Obj = {
-            bob: string;
-            bert: string;
-            berta: number;
-            josh: {
-                amount: number;
-            };
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = PickBy<Obj, { amount: number }>;
-        type Expected = {
-            josh: {
-                amount: number;
-            };
-        };
+	test("matches obj", () => {
+		type Obj = {
+			bob: string;
+			bert: string;
+			berta: number;
+			josh: {
+				amount: number;
+			};
+		};
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = PickBy<Obj, { amount: number }>;
+		type Expected = {
+			josh: {
+				amount: number;
+			};
+		};
 
-    test('nothing matches', () => {
-        type Obj = {
-            bob: string;
-            bert: string;
-            berta: number;
-            josh: {
-                amount: number;
-            };
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Actual = PickBy<Obj, symbol>;
-        type Expected = EmptyObject;
+	test("nothing matches", () => {
+		type Obj = {
+			bob: string;
+			bert: string;
+			berta: number;
+			josh: {
+				amount: number;
+			};
+		};
 
-        expectTypeOf<Actual>().toExtend<Expected>();
-    });
+		type Actual = PickBy<Obj, symbol>;
+		type Expected = EmptyObject;
+
+		expectTypeOf<Actual>().toExtend<Expected>();
+	});
 });

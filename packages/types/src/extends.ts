@@ -1,18 +1,12 @@
-import type { Box } from '@ylfjuk-core/types';
+import type { Box } from "@ylfjuk-core/types";
 
 /**
- * @description A stricter wrapper around the `extends` keyword'
+ * A stricter wrapper around the `extends` keyword.
  *
- * @bug Does not work on the `never` type
+ * @remarks Does not support `never` because TypeScript evaluates the underlying conditional as `true`:
  * ```ts
  * type MyType = Extends<never, any>; // Result: true
  * ```
- *
- * - This is due to the behavior of typescript
- * ```ts
- * type MyType = never extends any ? true : false; // Result: true
- * ```
- * TODO: fix bug
  *
  * @since 0.0.14
  */

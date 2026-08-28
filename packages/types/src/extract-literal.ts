@@ -1,9 +1,9 @@
-import type { Primitive } from './primitive';
+import type { Primitive } from "./primitive.js";
 
 /**
- * @description Extracts the literals from a string
+ * Extracts literal types from a string.
  *
- * @note The opposite of MaskLiterals
+ * @remarks The inverse of `MaskLiterals`.
  *
  * @see {@link Primitive}
  *
@@ -13,7 +13,6 @@ import type { Primitive } from './primitive';
  * ```
  *
  * @since 0.0.8
- * @modified 0.0.9 {@breaking 💥}
  */
 export type ExtractLiteral<T extends string> =
-    T extends `${infer U extends Exclude<Primitive, string | symbol>}` ? U : T;
+	T extends `${infer U extends Exclude<Primitive, string | symbol>}` ? U : T;

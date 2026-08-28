@@ -1,4 +1,5 @@
 import { describe, expect, expectTypeOf, it } from "vitest";
+
 import { Enum } from "../../src/enum";
 
 describe("enum/toTuple", () => {

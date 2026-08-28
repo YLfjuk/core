@@ -1,9 +1,9 @@
-import type { Replace } from './replace';
+import type { Replace } from "./replace.js";
 
 /**
- * @description Masks the `Date` type as a `string`
+ * Replaces `Date` with `string`.
  *
- * @note Useful for wrapping API response types or handling `JSON` data where `Date` objects are serialized as strings.
+ * @remarks Useful for API responses and JSON data where dates are serialized as strings.
  *
  * @see {@link Replace}
  *

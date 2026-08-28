@@ -1,73 +1,66 @@
-import { describe, expectTypeOf, test } from 'vitest';
-import type { FN } from '../src/fn';
+import { describe, expectTypeOf, test } from "vitest";
 
-describe('FN', () => {
-    test('any function type', () => {
-        const fn = (...args: any[]) => {
-            return args?.[0];
-        };
+import type { FN } from "../src/fn";
 
-        type Expected = FN;
+describe("FN", () => {
+	test("any function type", () => {
+		const fn = (...args: any[]) => {
+			return args?.[0];
+		};
 
-        type Actual = typeof fn;
+		type Expected = FN;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = typeof fn;
 
-    test('any any[] function type', () => {
-        const fn = (...args: any[]) => {
-            return args;
-        };
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = FN<any[]>;
+	test("any any[] function type", () => {
+		const fn = (...args: any[]) => {
+			return args;
+		};
 
-        type Actual = typeof fn;
+		type Expected = FN<any[]>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = typeof fn;
 
-    test('string void function type', () => {
-        const fn = (...args: string[]) => console.log(args);
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = FN<void, string[]>;
+	test("string void function type", () => {
+		const fn = (...args: string[]) => console.log(args);
 
-        type Actual = typeof fn;
+		type Expected = FN<void, string[]>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = typeof fn;
 
-    test('function with named arguments', () => {
-        const fn = (arg1: string, arg2: number, ...rest: boolean[]) =>
-            console.log(arg1, arg2, ...rest);
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = FN<
-            void,
-            [arg1: string, arg2: number, ...rest: boolean[]]
-        >;
+	test("function with named arguments", () => {
+		const fn = (arg1: string, arg2: number, ...rest: boolean[]) =>
+			console.log(arg1, arg2, ...rest);
 
-        type Actual = typeof fn;
+		type Expected = FN<void, [arg1: string, arg2: number, ...rest: boolean[]]>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = typeof fn;
 
-    test('function with `this`', () => {
-        function fn(
-            this: { name: string },
-            arg1: string,
-            arg2: number,
-            ...rest: boolean[]
-        ) {
-            console.log(this.name, arg1, arg2, ...rest);
-        }
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 
-        type Expected = FN<
-            void,
-            [arg1: string, arg2: number, ...rest: boolean[]],
-            { name: string }
-        >;
+	test("function with `this`", () => {
+		function fn(this: { name: string }, arg1: string, arg2: number, ...rest: boolean[]) {
+			console.log(this.name, arg1, arg2, ...rest);
+		}
 
-        type Actual = typeof fn;
+		type Expected = FN<
+			void,
+			[arg1: string, arg2: number, ...rest: boolean[]],
+			{ name: string }
+		>;
 
-        expectTypeOf<Actual>().toEqualTypeOf<Expected>();
-    });
+		type Actual = typeof fn;
+
+		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+	});
 });

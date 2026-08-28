@@ -1,5 +1,13 @@
 # @ylfjuk-core/types
 
+## 0.0.19
+
+### Patch Changes
+
+- 6c2dedf: - Add `Func` as an alias for `FN`.
+    - Support Node-compatible ESM resolution for published type imports.
+    - Modernize ESM API documentation.
+
 ## 0.0.18
 
 ### Patch Changes
@@ -7,8 +15,8 @@
 #### Features 🆕
 
 - Added
-  - LastOfUnion | Extracts the last type from a union type
-  - UnionToTuple | Converts a `union` into an ordered `tuple`
+    - LastOfUnion | Extracts the last type from a union type
+    - UnionToTuple | Converts a `union` into an ordered `tuple`
 
 ## 0.0.17
 
@@ -17,13 +25,13 @@
 #### Features 🆕
 
 - Added
-  - Success | A Result type that represents a successful operation
-  - Failure | A Result type that represents a failed operation
-  - KeyofUnion | Extracts the keys of a union type
-  - PatchUnion | Creates a type that represents a union of objects, where each object has all keys from the union
+    - Success | A Result type that represents a successful operation
+    - Failure | A Result type that represents a failed operation
+    - KeyofUnion | Extracts the keys of a union type
+    - PatchUnion | Creates a type that represents a union of objects, where each object has all keys from the union
 
 - Modified
-  - Result | Using the `Success` and `Failure` types
+    - Result | Using the `Success` and `Failure` types
 
 ## 0.0.16
 
@@ -32,7 +40,7 @@
 #### Features 🆕
 
 - Added
-  - Falsy | A type that represents all representable falsy values in TypeScript
+    - Falsy | A type that represents all representable falsy values in TypeScript
 
 #### Chores 🧹
 
@@ -53,33 +61,33 @@
 #### Features 🆕
 
 - Added
-  - Extends | A wrapper around the `extends` keyword', with option for strictness
-  - HasDuplicates | Checks if an array has duplicate elements
-  - If | A wrapper around conditional types
-  - Join | Joins together `Stringifiable` elements
-  - KeyPath | Extracts all possible key paths from a given object
-  - MaskDates | Masks the `Date` type as a `string`
-  - NonOptional | Makes all keys required
-  - OmitBy | Omits keys by condition
-  - OmitFunctions | Omits the set of properties that are functions
-  - PartialDeep | Recursively makes all properties in `T` optional.
-  - PickOptional | Picks optional properties from a given type `T`
-  - Replace | Recursively replaces occurrences of type `R` in `T` with `N`.
-  - Reverse | Reverses an array
-  - Stringifiable | `Primitive`s that can be stringified, or an object with the `toString` method
-  - SuggestStr | Similar to the `Suggest` type, but allows any any string
-  - ToStr | Stringifies values that can be turned into strings
-  - UnknownArray | An array of unknown values
-  - Whatever | Similar to the `Suggest` type, but allows any value
+    - Extends | A wrapper around the `extends` keyword', with option for strictness
+    - HasDuplicates | Checks if an array has duplicate elements
+    - If | A wrapper around conditional types
+    - Join | Joins together `Stringifiable` elements
+    - KeyPath | Extracts all possible key paths from a given object
+    - MaskDates | Masks the `Date` type as a `string`
+    - NonOptional | Makes all keys required
+    - OmitBy | Omits keys by condition
+    - OmitFunctions | Omits the set of properties that are functions
+    - PartialDeep | Recursively makes all properties in `T` optional.
+    - PickOptional | Picks optional properties from a given type `T`
+    - Replace | Recursively replaces occurrences of type `R` in `T` with `N`.
+    - Reverse | Reverses an array
+    - Stringifiable | `Primitive`s that can be stringified, or an object with the `toString` method
+    - SuggestStr | Similar to the `Suggest` type, but allows any any string
+    - ToStr | Stringifies values that can be turned into strings
+    - UnknownArray | An array of unknown values
+    - Whatever | Similar to the `Suggest` type, but allows any value
 
 - Modified
-  - Equals | Renamed from `Equal`
-  - ExtractValues | Flattened the nesting
-  - FN | Added better support for args array, and the `this` arg (breaking 💥)
-  - MaskLiterals | Only accepts a `Primitive` type (breaking 💥)
-  - Prettify | Prettifies the entire `object`, and avoids expanding the `Date` type
-  - Suggest | Now a generic suggestion
-  - SuggestStr | Split from `Suggest`
+    - Equals | Renamed from `Equal`
+    - ExtractValues | Flattened the nesting
+    - FN | Added better support for args array, and the `this` arg (breaking 💥)
+    - MaskLiterals | Only accepts a `Primitive` type (breaking 💥)
+    - Prettify | Prettifies the entire `object`, and avoids expanding the `Date` type
+    - Suggest | Now a generic suggestion
+    - SuggestStr | Split from `Suggest`
 
 #### Chores 🧹
 
@@ -93,14 +101,14 @@
 
 - Added Types
 
-  - SafeRecord | A record that emulates the `noUncheckedIndexedAccess` tsconfig setting
-  - Result
-  - ResultData | Extracts the data from a `Result` type
-  - ResultError | Extracts the error from a `Result` type
+    - SafeRecord | A record that emulates the `noUncheckedIndexedAccess` tsconfig setting
+    - Result
+    - ResultData | Extracts the data from a `Result` type
+    - ResultError | Extracts the error from a `Result` type
 
 - Modified Types
-  - ValueOf | Add support for arrays
-  - Extend
+    - ValueOf | Add support for arrays
+    - Extend
 
 #### Chores 🧹
 
@@ -113,12 +121,12 @@
 #### Features 🆕
 
 - Added Types
-  - Box | Boxes union types
-  - Equal | Returns if two types are strictly equal
-  - LessThanEqual | Returns if a number is less than or equal to another number | ⚠️ Floats Unsupported
+    - Box | Boxes union types
+    - Equal | Returns if two types are strictly equal
+    - LessThanEqual | Returns if a number is less than or equal to another number | ⚠️ Floats Unsupported
 
 - Modified Types
-  - ArrayOfN | Fill now accepts any type
+    - ArrayOfN | Fill now accepts any type
 
 ## 0.0.11
 
@@ -127,7 +135,7 @@
 #### Features 🆕
 
 - Added Types
-  - `Increment` | Increments a N ∈ ℕ number by 1 | ⚠️ Negative/Floats Unsupported
+    - `Increment` | Increments a N ∈ ℕ number by 1 | ⚠️ Negative/Floats Unsupported
 
 #### Fixes 🩹
 
@@ -145,18 +153,18 @@
 
 - Added Types
 
-  - Abs | Returns the absolute value of a number
-  - ArrayOfN | Returns an array of n length
-  - AtLeastOne | Requires at least one of the fields in an object
-  - ExactlyOne | Requires exactly one of the fields in an object
-  - IsNatural | Returns if the number is an element of the Natural numbers group
-  - IsTuple | Return if an array is a tuple
-  - LessThan | Returns if a number is less than another number | ⚠️ Floats Unsupported
-  - PickBy | Picks the fields of an object where the value matches the condition
+    - Abs | Returns the absolute value of a number
+    - ArrayOfN | Returns an array of n length
+    - AtLeastOne | Requires at least one of the fields in an object
+    - ExactlyOne | Requires exactly one of the fields in an object
+    - IsNatural | Returns if the number is an element of the Natural numbers group
+    - IsTuple | Return if an array is a tuple
+    - LessThan | Returns if a number is less than another number | ⚠️ Floats Unsupported
+    - PickBy | Picks the fields of an object where the value matches the condition
 
 - Modified Types
-  - Primitive | Added support for `symbol` type
-  - MaskLiterals | Trailing changes from the `Primitive` type modification
+    - Primitive | Added support for `symbol` type
+    - MaskLiterals | Trailing changes from the `Primitive` type modification
 
 ## 0.0.9
 
@@ -169,12 +177,12 @@
 #### Features 🆕
 
 - Added Types
-  - DeepDict
-  - EmptyObject
-  - InverseExtract
-  - MaskLiterals
-  - NonEmptyArray
-  - Primitive
+    - DeepDict
+    - EmptyObject
+    - InverseExtract
+    - MaskLiterals
+    - NonEmptyArray
+    - Primitive
 
 #### Fixes 🩹
 
@@ -227,7 +235,7 @@
 ### Patch Changes
 
 - Utility types
-  - ValueOf
-  - Prettify
-  - Extend
-  - AutoCompleteStr
+    - ValueOf
+    - Prettify
+    - Extend
+    - AutoCompleteStr

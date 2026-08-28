@@ -1,5 +1,5 @@
 /**
- * @describe Extracts the keys of a union type, including distinct keys from each member of the union.
+ * Extracts every key from every member of a union.
  *
  * @example
  * type Union = { bob: string } | { bert: number };
