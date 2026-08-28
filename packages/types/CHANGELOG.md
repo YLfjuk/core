@@ -1,5 +1,13 @@
 # @ylfjuk-core/types
 
+## 0.0.19
+
+### Patch Changes
+
+- 6c2dedf: - Add `Func` as an alias for `FN`.
+    - Support Node-compatible ESM resolution for published type imports.
+    - Modernize ESM API documentation.
+
 ## 0.0.18
 
 ### Patch Changes

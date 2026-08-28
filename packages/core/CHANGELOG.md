@@ -1,5 +1,17 @@
 # @ylfjuk/core
 
+## 0.0.20
+
+### Patch Changes
+
+- 6c2dedf: - Re-export `Func` as an alias for `FN`.
+    - Include corrected `InfiniteObject` reflection behavior and complete `JSON.stringify` argument forwarding.
+    - Modernize ESM package documentation.
+- Updated dependencies [6c2dedf]
+- Updated dependencies [6c2dedf]
+    - @ylfjuk-core/types@0.0.19
+    - @ylfjuk-core/utils@0.0.11
+
 ## 0.0.19
 
 ### Patch Changes

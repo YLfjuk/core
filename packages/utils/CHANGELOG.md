@@ -1,5 +1,15 @@
 # @ylfjuk-core/utils
 
+## 0.0.11
+
+### Patch Changes
+
+- 6c2dedf: - Preserve `replacer` and `space` arguments in the typed `JSON.stringify` wrapper.
+    - Keep `InfiniteObject` callable and constructable without violating JavaScript reflection invariants.
+    - Modernize ESM API documentation.
+- Updated dependencies [6c2dedf]
+    - @ylfjuk-core/types@0.0.19
+
 ## 0.0.10
 
 ### Patch Changes
