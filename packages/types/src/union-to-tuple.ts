@@ -12,11 +12,11 @@ import type { LastOfUnion } from "./last-of-union.js";
  * @example
  * import type { UnionToTuple } from "@ylfjuk-core/types";
  *
- * type Enum = "bert" | "berta" | "bob";
+ * type Name = "bert" | "berta" | "bob";
  *
- * type EnumAsTuple = UnionToTuple<Enum>; // Element order is unspecified.
- * type Members = EnumAsTuple[number]; // "bert" | "berta" | "bob"
- * type Length = EnumAsTuple["length"]; // 3
+ * type NameTuple = UnionToTuple<Name>; // Element order is unspecified.
+ * type Members = NameTuple[number]; // "bert" | "berta" | "bob"
+ * type Length = NameTuple["length"]; // 3
  *
  * @since 0.0.18
  */
