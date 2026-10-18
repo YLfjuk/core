@@ -5,10 +5,15 @@ import { unlinkSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
+const npmExecPath = process.env.npm_execpath;
+assert.ok(npmExecPath, "Run this check via `pnpm run test:discovery` (npm_execpath is unset).");
+const [command, ...prefixArgs] = /\.[cm]?js$/i.test(npmExecPath)
+	? [process.execPath, npmExecPath]
+	: [npmExecPath];
 const fixtures = [];
 
 function pnpm(...args) {
-	const result = spawnSync(process.execPath, [process.env.npm_execpath, ...args], {
+	const result = spawnSync(command, [...prefixArgs, ...args], {
 		cwd: root,
 		encoding: "utf8",
 		timeout: 60_000,
@@ -47,5 +52,18 @@ try {
 	}
 	console.log("Root Vitest rejected the invalid assertion in all three projects");
 } finally {
-	for (const { path } of fixtures) unlinkSync(path);
+	const errors = [];
+	for (const { path } of fixtures) {
+		try {
+			unlinkSync(path);
+		} catch (error) {
+			errors.push(error);
+		}
+	}
+	if (errors.length) {
+		console.error(
+			new AggregateError(errors, "Could not remove all typecheck discovery fixtures"),
+		);
+		process.exitCode = 1;
+	}
 }
