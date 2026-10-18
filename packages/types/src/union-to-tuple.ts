@@ -1,15 +1,22 @@
 import type { LastOfUnion } from "./last-of-union.js";
 
 /**
- * Converts a union into an ordered tuple.
+ * Converts a union into a tuple with unspecified, unstable element order.
+ *
+ * @remarks
+ * Do not rely on a particular order or use this type to predict `Object.values`
+ * order. Unions do not preserve insertion order or duplicate values.
  *
  * @see {@link LastOfUnion}
  *
  * @example
+ * import type { UnionToTuple } from "@ylfjuk-core/types";
+ *
  * type Enum = "bert" | "berta" | "bob";
  *
- * type EnumAsTuple = UnionToTuple<Enum>; // ["bert", "berta", "bob"]
- * type IsEnumAsTuple = IsTuple<EnumAsTuple>; // true
+ * type EnumAsTuple = UnionToTuple<Enum>; // Element order is unspecified.
+ * type Members = EnumAsTuple[number]; // "bert" | "berta" | "bob"
+ * type Length = EnumAsTuple["length"]; // 3
  *
  * @since 0.0.18
  */
