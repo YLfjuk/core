@@ -2,3 +2,8 @@ packages:
     - apps/*
     - packages/*
     - playground/*
+
+overrides:
+    # Oxfmt 0.61.0 pins vulnerable tinypool 2.1.0. Remove when oxfmt requires >=2.1.2.
+    # https://github.com/advisories/GHSA-85c8-ppgw-ccpr
+    oxfmt@0.61.0>tinypool: 2.1.2
