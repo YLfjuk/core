@@ -29,8 +29,6 @@ Oxfmt and Oxlint handle formatting and linting, Vitest runs tests and coverage, 
 
 Each package's `tsconfig.test.json` includes its source and existing `.spec.ts` tests. Both `test:types` and Vitest use it, so `test`, `test:v`, and `coverage` check type assertions too. The source-only `tsconfig.json` files remain separate for package builds.
 
-`pnpm run test:discovery` temporarily adds an invalid `expectTypeOf` assertion to each package and verifies that both the package compiler command and root Vitest command report it. Its `finally` block attempts to remove every temporary file on success or a handled failure. Forced termination or filesystem errors can leave files behind. Before rerunning tests, manually delete any `*-typecheck-discovery-*.spec.ts` files in `packages/types/__tests__`, `packages/utils/__tests__`, and `packages/core/tests`. These generated files are ignored by Git.
-
 ## Releases
 
 Add a changeset with `pnpm run plan`. Merges to `main` update a release pull request; merging that pull request publishes changed packages through npm trusted publishing.
