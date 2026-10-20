@@ -39,6 +39,9 @@ jobs:
             - name: Lint
               run: pnpm run lint
 
+            - name: Check type test discovery
+              run: pnpm run test:discovery
+
             - name: Check types
               run: pnpm run test:types
 

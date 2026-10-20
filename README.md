@@ -19,12 +19,15 @@ pnpm install --frozen-lockfile
 pnpm run fmt:check
 pnpm run lint
 pnpm run test:types
+pnpm run test:discovery
 pnpm run test
 pnpm run coverage
 pnpm run build
 ```
 
-Oxfmt and Oxlint handle formatting and linting, Vitest runs tests and coverage, TypeScript checks declarations, and tsdown builds and validates publishable packages with publint and Are the Types Wrong.
+Oxfmt and Oxlint handle formatting and linting, Vitest runs tests and coverage, TypeScript checks source and test files, and tsdown builds and validates publishable packages with publint and Are the Types Wrong.
+
+Each package's `tsconfig.test.json` includes its source and existing `.spec.ts` tests. Both `test:types` and Vitest use it, so `test`, `test:v`, and `coverage` check type assertions too. The source-only `tsconfig.json` files remain separate for package builds.
 
 ## Releases
 

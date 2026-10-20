@@ -30,3 +30,6 @@ pnpm-debug.log*
 
 # tests
 coverage/
+/packages/types/__tests__/types-typecheck-discovery-*.spec.ts
+/packages/utils/__tests__/utils-typecheck-discovery-*.spec.ts
+/packages/core/tests/core-typecheck-discovery-*.spec.ts
