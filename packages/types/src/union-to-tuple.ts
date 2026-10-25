@@ -1,18 +1,19 @@
-import type { LastOfUnion } from "./last-of-union.js";
+import type { MemberOfUnion } from "./member-of-union.js";
 
 /**
- * Converts a union into an ordered tuple.
+ * Converts a union into a tuple with unspecified, compiler-dependent order.
  *
- * @see {@link LastOfUnion}
+ * @see {@link MemberOfUnion}
  *
  * @example
- * type Enum = "bert" | "berta" | "bob";
+ * type Name = "bert" | "berta" | "bob";
  *
- * type EnumAsTuple = UnionToTuple<Enum>; // ["bert", "berta", "bob"]
- * type IsEnumAsTuple = IsTuple<EnumAsTuple>; // true
+ * type NameTuple = UnionToTuple<Name>;
+ * type Members = NameTuple[number]; // "bert" | "berta" | "bob"
+ * type Length = NameTuple["length"]; // 3
  *
  * @since 0.0.18
  */
 export type UnionToTuple<T> = [T] extends [never]
 	? []
-	: [...UnionToTuple<Exclude<T, LastOfUnion<T>>>, LastOfUnion<T>];
+	: [...UnionToTuple<Exclude<T, MemberOfUnion<T>>>, MemberOfUnion<T>];

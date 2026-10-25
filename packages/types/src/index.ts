@@ -29,6 +29,7 @@ export type * from "./mapped-enum.js";
 export type * from "./mask-dates.js";
 export type * from "./mask-literals.js";
 export type * from "./maybe.js";
+export type * from "./member-of-union.js";
 export type * from "./non-empty-array.js";
 export type * from "./non-optional.js";
 export type * from "./omit-by.js";

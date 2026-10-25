@@ -1,12 +1,18 @@
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { LastOfUnion } from "../src/last-of-union";
+import type { LastOfUnion, MemberOfUnion } from "@ylfjuk-core/types";
+
+import type { LastOfUnion as LegacyPath } from "../src/last-of-union.js";
 
 describe("LastOfUnion", () => {
-	it("should extract the last element in a union", () => {
-		type Actual = LastOfUnion<1 | 2 | 3 | 4 | 5 | "bob" | 6>;
-		type Expected = 6;
+	it("retains the public alias and existing source import path", () => {
+		type Input = 1 | 2 | 3 | "bob";
 
-		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
+		expectTypeOf<LastOfUnion<Input>>().toEqualTypeOf<MemberOfUnion<Input>>();
+		expectTypeOf<LegacyPath<Input>>().toEqualTypeOf<MemberOfUnion<Input>>();
+		expectTypeOf<LastOfUnion<"bob">>().toEqualTypeOf<"bob">();
+		expectTypeOf<LastOfUnion<never>>().toBeNever();
+		expectTypeOf<LastOfUnion<boolean>>().toEqualTypeOf<MemberOfUnion<boolean>>();
+		expectTypeOf<LastOfUnion<string | "bob">>().toEqualTypeOf<string>();
 	});
 });
