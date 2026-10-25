@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { MemberOfUnion } from "@ylfjuk-core/types";
+import type { IsDisjointUnion, MemberOfUnion } from "@ylfjuk-core/types";
 
 describe("MemberOfUnion", () => {
 	it("selects exactly one member without assuming union order", () => {
@@ -9,7 +9,7 @@ describe("MemberOfUnion", () => {
 
 		expectTypeOf<Actual>().not.toBeNever();
 		expectTypeOf<Actual>().toExtend<Input>();
-		expectTypeOf<[Actual]>().toExtend<[1] | [2] | [3] | ["bob"]>();
+		expectTypeOf<IsDisjointUnion<Actual>>().toEqualTypeOf<false>();
 	});
 
 	it("preserves a singleton", () => {
@@ -24,7 +24,7 @@ describe("MemberOfUnion", () => {
 		type Actual = MemberOfUnion<boolean>;
 
 		expectTypeOf<Actual>().not.toBeNever();
-		expectTypeOf<[Actual]>().toExtend<[true] | [false]>();
+		expectTypeOf<IsDisjointUnion<Actual>>().toEqualTypeOf<false>();
 	});
 
 	it("respects a union collapsed by the compiler", () => {

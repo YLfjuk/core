@@ -3,8 +3,7 @@ import type { UnionToIntersection } from "./union-to-intersection.js";
 /**
  * Selects a single member of a union, or `never` for `never`.
  *
- * Selection is unspecified and compiler-dependent. Unions have no meaningful
- * order, so the selected member is not a meaningful "last" member.
+ * Selection is unspecified and may differ between compiler versions and programs.
  *
  * @see {@link UnionToIntersection}
  *
