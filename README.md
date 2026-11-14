@@ -19,7 +19,6 @@ pnpm install --frozen-lockfile
 pnpm run fmt:check
 pnpm run lint
 pnpm run test:types
-pnpm run test:discovery
 pnpm run test
 pnpm run coverage
 pnpm run build
