@@ -1,24 +1,18 @@
 import { describe, expectTypeOf, it } from "vitest";
 
-import type { IsDisjointUnion } from "../src/is-disjoint-union";
-import type { LastOfUnion } from "../src/last-of-union";
+import type { LastOfUnion, MemberOfUnion } from "@ylfjuk-core/types";
+
+import type { LastOfUnion as LegacyPath } from "../src/last-of-union.js";
 
 describe("LastOfUnion", () => {
-	it("should extract one member from a union", () => {
-		type Members = 1 | 2 | 3 | 4 | 5 | "bob" | 6;
-		type Actual = LastOfUnion<Members>;
+	it("retains the public alias and existing source import path", () => {
+		type Input = 1 | 2 | 3 | "bob";
 
-		// Union ordering is not guaranteed by TypeScript.
-		expectTypeOf<Actual>().toExtend<Members>();
-		expectTypeOf<Actual>().not.toBeNever();
-		expectTypeOf<IsDisjointUnion<Actual>>().toEqualTypeOf<false>();
-	});
-
-	it("should preserve a single member", () => {
+		expectTypeOf<LastOfUnion<Input>>().toEqualTypeOf<MemberOfUnion<Input>>();
+		expectTypeOf<LegacyPath<Input>>().toEqualTypeOf<MemberOfUnion<Input>>();
 		expectTypeOf<LastOfUnion<"bob">>().toEqualTypeOf<"bob">();
-	});
-
-	it("should return never for an empty union", () => {
 		expectTypeOf<LastOfUnion<never>>().toBeNever();
+		expectTypeOf<LastOfUnion<boolean>>().toEqualTypeOf<MemberOfUnion<boolean>>();
+		expectTypeOf<LastOfUnion<string | "bob">>().toEqualTypeOf<string>();
 	});
 });

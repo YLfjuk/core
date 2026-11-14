@@ -1,11 +1,11 @@
-import type { UnionToIntersection } from "./union-to-intersection.js";
+import type { MemberOfUnion } from "./member-of-union.js";
 
 /**
- * Extracts the last type from a union.
+ * Selects a single member of a union, or `never` for `never`.
  *
- * @see {@link UnionToIntersection}
+ * @deprecated Use {@link MemberOfUnion}. Selection is unspecified and
+ * compiler-dependent; unions have no meaningful order or "last" member.
  *
  * @since 0.0.18
  */
-export type LastOfUnion<U> =
-	UnionToIntersection<U extends any ? () => U : never> extends () => infer R ? R : never;
+export type LastOfUnion<U> = MemberOfUnion<U>;

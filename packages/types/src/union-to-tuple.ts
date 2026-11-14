@@ -1,4 +1,4 @@
-import type { LastOfUnion } from "./last-of-union.js";
+import type { MemberOfUnion } from "./member-of-union.js";
 
 /**
  * Converts a union into a tuple with unspecified, unstable element order.
@@ -7,7 +7,7 @@ import type { LastOfUnion } from "./last-of-union.js";
  * Do not rely on a particular order or use this type to predict `Object.values`
  * order. Unions do not preserve insertion order or duplicate values.
  *
- * @see {@link LastOfUnion}
+ * @see {@link MemberOfUnion}
  *
  * @example
  * import type { UnionToTuple } from "@ylfjuk-core/types";
@@ -22,4 +22,4 @@ import type { LastOfUnion } from "./last-of-union.js";
  */
 export type UnionToTuple<T> = [T] extends [never]
 	? []
-	: [...UnionToTuple<Exclude<T, LastOfUnion<T>>>, LastOfUnion<T>];
+	: [...UnionToTuple<Exclude<T, MemberOfUnion<T>>>, MemberOfUnion<T>];
