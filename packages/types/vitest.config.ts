@@ -7,6 +7,13 @@ const {
 } = baseTsconfig;
 
 export default defineProject({
+	test: {
+		typecheck: {
+			enabled: true,
+			include: ["**/*.spec.ts"],
+			tsconfig: "tsconfig.test.json",
+		},
+	},
 	resolve: {
 		conditions,
 	},

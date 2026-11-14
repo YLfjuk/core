@@ -28,7 +28,7 @@
 	"scripts": {
 		"build": "pnpm run test && pnpm run test:types && publint && attw --pack --profile esm-only",
 		"test": "vitest run --typecheck",
-		"test:types": "tsc --noEmit"
+		"test:types": "tsc -p tsconfig.test.json"
 	},
 	"peerDependencies": {
 		"typescript": "^7.0.2"
