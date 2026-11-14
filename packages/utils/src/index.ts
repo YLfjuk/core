@@ -1,7 +1,6 @@
 export * from "./arr";
 export * from "./assert-never";
 export * from "./bool";
-export * from "./enum";
 export * from "./infinite-object";
 export * from "./is-defined";
 export * from "./json";
