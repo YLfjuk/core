@@ -1,14 +1,20 @@
 import type { MemberOfUnion } from "./member-of-union.js";
 
 /**
- * Converts a union into a tuple with unspecified, compiler-dependent order.
+ * Converts a union into a tuple with unspecified, unstable element order.
+ *
+ * @remarks
+ * Do not rely on a particular order or use this type to predict `Object.values`
+ * order. Unions do not preserve insertion order or duplicate values.
  *
  * @see {@link MemberOfUnion}
  *
  * @example
+ * import type { UnionToTuple } from "@ylfjuk-core/types";
+ *
  * type Name = "bert" | "berta" | "bob";
  *
- * type NameTuple = UnionToTuple<Name>;
+ * type NameTuple = UnionToTuple<Name>; // Element order is unspecified.
  * type Members = NameTuple[number]; // "bert" | "berta" | "bob"
  * type Length = NameTuple["length"]; // 3
  *
