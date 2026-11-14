@@ -1,6 +1,6 @@
 import { describe, expectTypeOf, it, test } from "vitest";
 
-import type { Prettify } from "../src/prettify";
+import type { AtLeastOne, ExactlyOne, Prettify, PrettifyDeep } from "../src/index";
 import type { Primitive } from "../src/primitive";
 
 describe("Prettify the type", () => {
@@ -82,7 +82,7 @@ describe("Prettify the type", () => {
 					person: Bob & Bert;
 			  };
 
-		type Actual = Prettify<NestedObject>;
+		type Actual = PrettifyDeep<NestedObject>;
 
 		type Expected =
 			| {
@@ -144,4 +144,65 @@ describe("Prettify the type", () => {
 
 		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
 	});
+});
+
+test("shallow expansion preserves nested identity and modifiers", () => {
+	type Nested = { a: string } & { b: number };
+	type Input = { readonly nested?: Nested } & { cb: (n: number) => string };
+	expectTypeOf<Prettify<Input>>().toEqualTypeOf<{
+		readonly nested?: Nested;
+		cb: (n: number) => string;
+	}>();
+	expectTypeOf<PrettifyDeep<Input>>().toEqualTypeOf<{
+		readonly nested?: { a: string; b: number };
+		cb: (n: number) => string;
+	}>();
+	expectTypeOf<Prettify.Deep<Input>>().toEqualTypeOf<PrettifyDeep<Input>>();
+});
+
+test("composition utilities retain callback signatures", () => {
+	type Input = { cb: (n: number) => string };
+	expectTypeOf<AtLeastOne<Input>>().toEqualTypeOf<Input>();
+	expectTypeOf<ExactlyOne<Input>>().toEqualTypeOf<Input>();
+	// @ts-expect-error A callback cannot be replaced by a number.
+	const atLeast: AtLeastOne<Input> = { cb: 123 };
+	// @ts-expect-error A callback cannot be replaced by a number.
+	const exactly: ExactlyOne<Input> = { cb: 123 };
+	void atLeast;
+	void exactly;
+	expectTypeOf<PrettifyDeep<{ nested: Input }>["nested"]["cb"]>().toEqualTypeOf<Input["cb"]>();
+});
+
+test("deep expansion preserves signatures and their attached properties", () => {
+	type Callable = { (value: string): number; (value: number): string; meta: { a: 1 } & { b: 2 } };
+	type Constructor = abstract new (value: string) => { value: string };
+	expectTypeOf<PrettifyDeep<Callable>>().toEqualTypeOf<Callable>();
+	expectTypeOf<PrettifyDeep<Constructor>>().toEqualTypeOf<Constructor>();
+	expectTypeOf<PrettifyDeep<{ ctor: Constructor }>["ctor"]>().toEqualTypeOf<Constructor>();
+});
+
+test("deep expansion retains tuple and array structure", () => {
+	type Item = { a: 1 } & { b: 2 };
+	type Expanded = { a: 1; b: 2 };
+	expectTypeOf<PrettifyDeep<readonly [Item, Item?, ...Item[]]>>().toEqualTypeOf<
+		readonly [Expanded, Expanded?, ...Expanded[]]
+	>();
+	expectTypeOf<PrettifyDeep<[Item]>>().toEqualTypeOf<[Expanded]>();
+	expectTypeOf<PrettifyDeep<Item[]>>().toEqualTypeOf<Expanded[]>();
+	expectTypeOf<PrettifyDeep<readonly Item[]>>().toEqualTypeOf<readonly Expanded[]>();
+});
+
+test("deep expansion preserves primitive, Date and collection leaves", () => {
+	type Item = { a: 1 } & { b: 2 };
+	type Leaves =
+		| Primitive
+		| Date
+		| Map<string, Item>
+		| ReadonlyMap<string, Item>
+		| Set<Item>
+		| ReadonlySet<Item>
+		| WeakMap<Item, Item>
+		| WeakSet<Item>;
+	expectTypeOf<PrettifyDeep<Leaves>>().toEqualTypeOf<Leaves>();
+	expectTypeOf<PrettifyDeep<{ value: Leaves }>>().toEqualTypeOf<{ value: Leaves }>();
 });
