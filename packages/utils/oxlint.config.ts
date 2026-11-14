@@ -1,12 +1,9 @@
-import { createOxlintConfig } from "@ylfjuk/oxc/oxlint";
-
-const config = createOxlintConfig({ jsdoc: true });
+import config from "../../oxlint.config.ts";
 
 export default {
 	...config,
 	rules: {
 		...config.rules,
-		"jsdoc/check-tag-names": ["error", { definedTags: ["remarks"] }],
 		"typescript/no-explicit-any": "off",
 	},
 };
