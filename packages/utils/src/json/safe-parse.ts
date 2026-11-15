@@ -11,9 +11,12 @@ type JsonSafeParse = {
 		? unknown extends ParsedPrimitive<T>
 			? Result<unknown, SyntaxError>
 			: Success<ParsedPrimitive<T>>
-		: Result<R, unknown>;
+		: Result<NoInfer<R>, unknown>;
 	<R>(text: string | null, reviver: ReviverFN<R>): Result<R, unknown>;
-	<R = unknown>(text: string | null, reviver?: ReviverFN<NoInfer<R>>): Result<R, unknown>;
+	<R = unknown>(
+		text: string | null,
+		reviver?: ReviverFN<NoInfer<R>>,
+	): Result<NoInfer<R>, unknown>;
 };
 
 /**

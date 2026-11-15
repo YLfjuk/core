@@ -7,6 +7,15 @@ import { safeParse } from "../../src/json/safe-parse";
 import { stringify } from "../../src/json/stringify";
 
 function parseWithOptionalReviver(reviver?: (key: string, value: unknown) => string) {
+	// @ts-expect-error A return annotation must not assert a parsed type implicitly.
+	const contextual: string = parse("{}");
+	// @ts-expect-error A return annotation must not assert a success type implicitly.
+	const contextualResult: Result<string, unknown> = safeParse("{}");
+	// @ts-expect-error An optional callback may not run.
+	const optionalContext: string = parse("{}", reviver);
+	// @ts-expect-error An optional callback may not run.
+	const optionalResult: Result<string, unknown> = safeParse("{}", reviver);
+	void [contextual, contextualResult, optionalContext, optionalResult];
 	const parsed = parse("{}", reviver);
 	const result = safeParse("{}", reviver);
 	expectTypeOf(parsed).toEqualTypeOf<unknown>();

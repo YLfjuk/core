@@ -4,9 +4,9 @@ type JsonParse = {
 	<R = never, const T extends string | null = string | null>(
 		text: T,
 		reviver?: never,
-	): [R] extends [never] ? ParsedPrimitive<T> : R;
+	): NoInfer<[R] extends [never] ? ParsedPrimitive<T> : R>;
 	<R>(text: string | null, reviver: ReviverFN<R>): R;
-	<R = unknown>(text: string | null, reviver?: ReviverFN<NoInfer<R>>): R;
+	<R = unknown>(text: string | null, reviver?: ReviverFN<NoInfer<R>>): NoInfer<R>;
 };
 
 /**
