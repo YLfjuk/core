@@ -41,3 +41,28 @@ describe("Extracts optional properties from a given type `T`", () => {
 		expectTypeOf<Result>().toEqualTypeOf<Expected>();
 	});
 });
+
+test("uses structural optionality and preserves modifiers", () => {
+	type Optional = {
+		readonly unknown?: unknown;
+		any?: any;
+		never?: never;
+		undefined?: undefined;
+		value?: number | undefined;
+	};
+	type Required = {
+		unknown: unknown;
+		any: any;
+		never: never;
+		undefined: undefined;
+		value: number | undefined;
+	};
+	expectTypeOf<PickOptional<Optional & Required>>().toEqualTypeOf<{}>();
+	expectTypeOf<PickOptional<Optional & { required: Required }>>().toEqualTypeOf<Optional>();
+	const value: PickOptional<Optional> = {};
+	// @ts-expect-error readonly properties remain readonly
+	value.unknown = 1;
+	// @ts-expect-error required properties are excluded
+	const excluded: keyof PickOptional<{ required: undefined }> = "required";
+	void excluded;
+});

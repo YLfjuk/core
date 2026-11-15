@@ -1,7 +1,7 @@
 /**
  * Extracts the optional properties from `T`.
  *
- * @remarks Preserves exact optional-property semantics only when `exactOptionalPropertyTypes` is enabled.
+ * @remarks Preserves property modifiers and value types with either `exactOptionalPropertyTypes` setting.
  *
  * @example
  * ```ts
@@ -13,5 +13,5 @@
  * @since 0.0.14
  */
 export type PickOptional<T> = {
-	[K in keyof T as T[K] extends Required<T>[K] ? never : K]: T[K];
+	[K in keyof T as {} extends Pick<T, K> ? K : never]: T[K];
 };
