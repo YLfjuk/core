@@ -1,102 +1,31 @@
-import type { ExtractLiteral, Result, Success, ToStr } from "@ylfjuk-core/types";
+import type { Result, Success } from "@ylfjuk-core/types";
 
 import { parse } from "./parse";
-import type {
-	ExtractTupleLiteral,
-	ReviverFN,
-	StringifiablePrimitive,
-	StringifiableTuplePrimitive,
-} from "./types/helpers";
+import type { ParsedPrimitive, ReviverFN } from "./types/helpers";
 
 type JsonSafeParse = {
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text
-	 */
-	(text: null, reviver?: never): Success<null>;
-
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text
-	 * @param reviver A function that transforms the results. In this case, `null`
-	 */
-	<R = unknown>(text: null, reviver?: ReviverFN<R, null, "">): Result<R>;
-
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text A string literal of a primitive type
-	 */
-	<const T extends ToStr<StringifiablePrimitive>>(
+	<const T extends string | null>(
 		text: T,
 		reviver?: never,
-	): Success<ExtractLiteral<T>>;
-
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text A string literal of a primitive type
-	 * @param reviver A function that transforms the results. In this case, the literal value of the string
-	 */
-	<const T extends ToStr<StringifiablePrimitive>, R = unknown>(
-		text: T,
-		reviver?: ReviverFN<R, ExtractLiteral<T>, "">,
-	): Result<R>;
-
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text A tuple array with a single element that is a primitive type or string literal of a primitive type
-	 */
-	<const T extends StringifiableTuplePrimitive>(
-		text: T,
-		reviver?: never,
-	): Success<ExtractTupleLiteral<T>>;
-
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text A tuple array with a single element that is a primitive type or string literal of a primitive type
-	 * @param reviver A function that transforms the results. In this case, the literal value of the element
-	 */
-	<const T extends StringifiableTuplePrimitive, R = unknown>(
-		text: T,
-		reviver?: ReviverFN<R, ExtractTupleLiteral<T>, "">,
-	): Result<R>;
-
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text A valid JSON string.
-	 * @param reviver A function that transforms the results. This function is called for each member of the object.
-	 * If a member contains nested objects, the nested objects are transformed before the parent object is.
-	 */
-	(text: string, reviver?: ReviverFN): Result<unknown, SyntaxError>;
-
-	/**
-	 * Converts a JavaScript Object Notation (JSON) string into an object.
-	 * @param text A valid JSON string or `null`.
-	 * @param reviver A function that transforms the results. This function is called for each member of the object.
-	 * If a member contains nested objects, the nested objects are transformed before the parent object is.
-	 *
-	 * @returns The parsed value, or `null`.
-	 * @throws {SyntaxError} If the string is not a valid JSON.
-	 */
-	(text: string | null, reviver?: ReviverFN): Result<unknown, Error>;
+	): unknown extends ParsedPrimitive<T>
+		? Result<unknown, SyntaxError>
+		: Success<ParsedPrimitive<T>>;
+	<R = unknown>(text: string | null, reviver?: ReviverFN<R>): Result<R, unknown>;
 };
 
 /**
- * Safely parses a JSON string, returning a result object that indicates success or failure.
+ * Parses JSON text, returning success data or the unchanged thrown value.
  *
- * @see {@link parse}
- *
+ * @remarks Supports string or null, with the same inference as {@link parse}.
+ * Unproven text can fail with SyntaxError. With a reviver, the failure reason is
+ * unknown because callbacks can throw any value. A root result of undefined is
+ * still a success. An explicit result type does not validate the parsed value.
  * @since 0.0.9
  */
 export const safeParse = ((text: string | null, reviver?: ReviverFN) => {
 	try {
-		return {
-			success: true,
-			data: parse(text, reviver),
-		};
+		return { success: true, data: parse(text, reviver) };
 	} catch (error) {
-		return {
-			success: false,
-			reason: error,
-		};
+		return { success: false, reason: error };
 	}
 }) as JsonSafeParse;
