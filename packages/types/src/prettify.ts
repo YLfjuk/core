@@ -5,7 +5,7 @@
  *
  * @since 0.0.1
  */
-export type Prettify<T> = T extends Date ? T : { [K in keyof T]: T[K] };
+export type Prettify<T> = { [K in keyof T]: T[K] } & {};
 
 /**
  * Recursively expands object properties and array/tuple elements.

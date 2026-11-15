@@ -160,6 +160,12 @@ test("shallow expansion preserves nested identity and modifiers", () => {
 	expectTypeOf<Prettify.Deep<Input>>().toEqualTypeOf<PrettifyDeep<Input>>();
 });
 
+test("shallow expansion preserves empty and nullable types", () => {
+	expectTypeOf<Prettify<never>>().toEqualTypeOf<never>();
+	expectTypeOf<Prettify<null | undefined>>().toEqualTypeOf<null | undefined>();
+	expectTypeOf<Prettify<{ a: 1 } | { b: 2 }>>().toEqualTypeOf<{ a: 1 } | { b: 2 }>();
+});
+
 test("composition utilities retain callback signatures", () => {
 	type Input = { cb: (n: number) => string };
 	expectTypeOf<AtLeastOne<Input>>().toEqualTypeOf<Input>();
