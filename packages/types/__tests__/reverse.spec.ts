@@ -19,3 +19,17 @@ describe("Reverses an array", () => {
 		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
 	});
 });
+
+it("accepts readonly tuples and preserves existing fallback boundaries", () => {
+	expectTypeOf<Reverse<readonly [1, 2]>>().toEqualTypeOf<[2, 1]>();
+	expectTypeOf<Reverse<[]>>().toEqualTypeOf<[]>();
+	expectTypeOf<Reverse<readonly []>>().toEqualTypeOf<readonly []>();
+	expectTypeOf<Reverse<readonly number[]>>().toEqualTypeOf<readonly number[]>();
+	expectTypeOf<Reverse<[1?]>>().toEqualTypeOf<[1?]>();
+	expectTypeOf<Reverse<[1, 2?]>>().toEqualTypeOf<[]>();
+	expectTypeOf<Reverse<[1, ...number[]]>>().toEqualTypeOf<[]>();
+	expectTypeOf<Reverse<[...number[], 1]>>().toEqualTypeOf<[1, ...number[]]>();
+	expectTypeOf<Reverse<readonly [1, 2] | [3, 4]>>().toEqualTypeOf<[2, 1] | [4, 3]>();
+	// @ts-expect-error input must be an array
+	expectTypeOf<Reverse<number>>().toEqualTypeOf<[]>();
+});
