@@ -20,8 +20,13 @@ export type Join<
 	Options extends Settings = DefaultSettings,
 > = T extends readonly []
 	? ""
-	: number extends T["length"]
-		? string
-		: T extends readonly [infer S extends Stringifiable, ...infer Rest extends Stringifiable[]]
-			? `${ToStr<S>}${Rest extends [] ? "" : `${Options["separator"]}${Join<Rest, Options>}`}`
-			: string;
+	: T extends Required<T>
+		? number extends T["length"]
+			? string
+			: T extends readonly [
+						infer S extends Stringifiable,
+						...infer Rest extends Stringifiable[],
+				  ]
+				? `${ToStr<S>}${Rest extends [] ? "" : `${Options["separator"]}${Join<Rest, Options>}`}`
+				: string
+		: string;

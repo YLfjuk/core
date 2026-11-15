@@ -91,6 +91,8 @@ test("retains empty elements and handles tuple boundaries", () => {
 	expectTypeOf<Join<readonly string[]>>().toEqualTypeOf<string>();
 	expectTypeOf<Join<["a", ...string[]], { separator: "," }>>().toEqualTypeOf<string>();
 	expectTypeOf<Join<["a"?]>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<["a", "b"?], { separator: "," }>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<readonly ["a", "b"?], { separator: "," }>>().toEqualTypeOf<string>();
 	expectTypeOf<Join<["a"] | readonly ["b", "c"], { separator: "," }>>().toEqualTypeOf<
 		"a" | "b,c"
 	>();
