@@ -1,5 +1,21 @@
 # @ylfjuk-core/utils
 
+## 0.0.12
+
+### Patch Changes
+
+- 2a10978: Fix `toggle` to advance from falsy current options, including `false`, `0`, `""`, and `null`. Explicit `undefined` now selects an option rather than acting as omission; omit the argument to start at the first option, and include `undefined` in the option type when passing it explicitly. Default equality now uses `Object.is`, so `NaN` matches itself and `+0` and `-0` are distinct. Pass `(a, b) => a === b` to retain strict equality.
+- a3562ab: BREAKING CHANGE: remove `Enum.toTuple`, its `enumToTuple` alias, and the otherwise empty `Enum` namespace. Imports of these APIs must be removed.
+
+    The helper's ordered-tuple guarantee was unsound: object types and unions cannot encode runtime insertion order, and unions discard duplicate values even though `Object.values` retains them. The claimed tuple could therefore have incorrect positions and length.
+
+    Replace `Enum.toTuple(enumLikeObject)` or `enumToTuple(enumLikeObject)` with `Object.values(enumLikeObject)` for an array without fixed positional typing. When exact positions matter, define an explicit tuple as the source of truth, for example `const names = ["bob", "bert", "bob"] as const`. See the [migration guide](https://github.com/YLfjuk/core/blob/main/packages/utils/README.md#migrate-from-enumtotuple).
+
+- Updated dependencies [a3562ab]
+- Updated dependencies [d832695]
+- Updated dependencies [f272e67]
+    - @ylfjuk-core/types@0.0.20
+
 ## 0.0.11
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @ylfjuk-core/types
 
+## 0.0.20
+
+### Patch Changes
+
+- a3562ab: Clarify that `UnionToTuple` element order is unspecified and unstable. It cannot predict `Object.values` order or recover duplicate values discarded by a union.
+- d832695: Add `MemberOfUnion` as the preferred name for selecting a single union member with unspecified, compiler-dependent selection. Deprecate `LastOfUnion` while retaining it as a compatible alias with unchanged behavior.
+- f272e67: BREAKING CHANGE: `Prettify<T>` now expands only one level, preserving nested property types. This also prevents callback properties from accepting non-functions in `AtLeastOne` and `ExactlyOne`.
+
+    Replace recursive uses with `PrettifyDeep<T>` or `Prettify.Deep<T>`. Both preserve functions and constructors, including attached properties, and leave Date and Map/Set collections unchanged. Arrays and tuples expand recursively; other objects are mapped structurally.
+
 ## 0.0.19
 
 ### Patch Changes

@@ -1,5 +1,28 @@
 # @ylfjuk/core
 
+## 0.0.21
+
+### Patch Changes
+
+- d832695: Add `MemberOfUnion` as the preferred name for selecting a single union member with unspecified, compiler-dependent selection. Deprecate `LastOfUnion` while retaining it as a compatible alias with unchanged behavior.
+- a3562ab: BREAKING CHANGE: remove `Enum.toTuple`, its `enumToTuple` alias, and the otherwise empty `Enum` namespace. Imports of these APIs must be removed.
+
+    The helper's ordered-tuple guarantee was unsound: object types and unions cannot encode runtime insertion order, and unions discard duplicate values even though `Object.values` retains them. The claimed tuple could therefore have incorrect positions and length.
+
+    Replace `Enum.toTuple(enumLikeObject)` or `enumToTuple(enumLikeObject)` with `Object.values(enumLikeObject)` for an array without fixed positional typing. When exact positions matter, define an explicit tuple as the source of truth, for example `const names = ["bob", "bert", "bob"] as const`. See the [migration guide](https://github.com/YLfjuk/core/blob/main/packages/utils/README.md#migrate-from-enumtotuple).
+
+- f272e67: BREAKING CHANGE: `Prettify<T>` now expands only one level, preserving nested property types. This also prevents callback properties from accepting non-functions in `AtLeastOne` and `ExactlyOne`.
+
+    Replace recursive uses with `PrettifyDeep<T>` or `Prettify.Deep<T>`. Both preserve functions and constructors, including attached properties, and leave Date and Map/Set collections unchanged. Arrays and tuples expand recursively; other objects are mapped structurally.
+
+- Updated dependencies [a3562ab]
+- Updated dependencies [2a10978]
+- Updated dependencies [d832695]
+- Updated dependencies [a3562ab]
+- Updated dependencies [f272e67]
+    - @ylfjuk-core/types@0.0.20
+    - @ylfjuk-core/utils@0.0.12
+
 ## 0.0.20
 
 ### Patch Changes
