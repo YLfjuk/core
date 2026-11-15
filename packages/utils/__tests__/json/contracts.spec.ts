@@ -6,7 +6,29 @@ import { parse } from "../../src/json/parse";
 import { safeParse } from "../../src/json/safe-parse";
 import { stringify } from "../../src/json/stringify";
 
+function parseWithOptionalReviver(reviver?: (key: string, value: unknown) => string) {
+	const parsed = parse("{}", reviver);
+	const result = safeParse("{}", reviver);
+	expectTypeOf(parsed).toEqualTypeOf<unknown>();
+	expectTypeOf(result).toEqualTypeOf<Result<unknown, unknown>>();
+	return { parsed, result };
+}
+
 describe("JSON contracts", () => {
+	it("does not infer a transformed result from an optional reviver", () => {
+		expect(parseWithOptionalReviver()).toStrictEqual({
+			parsed: {},
+			result: { success: true, data: {} },
+		});
+		expect(parseWithOptionalReviver(() => "changed")).toStrictEqual({
+			parsed: "changed",
+			result: { success: true, data: "changed" },
+		});
+		expectTypeOf(parse("{}", () => "changed")).toEqualTypeOf<string>();
+		expectTypeOf(parse<string>("{}")).toEqualTypeOf<string>();
+		expectTypeOf(safeParse<string>("{}")).toEqualTypeOf<Result<string, unknown>>();
+	});
+
 	it.each(["0xff", "NaN", "Infinity", "01", "undefined"])(
 		"does not promise success for %s",
 		(text) => {

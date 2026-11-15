@@ -1,6 +1,6 @@
 ---
-"@ylfjuk-core/utils": major
-"@ylfjuk/core": major
+"@ylfjuk-core/utils": patch
+"@ylfjuk/core": patch
 ---
 
 Correct JSON serialization and parsing return types. Stringify now accounts for quoted/escaped strings, replacers, and toJSON returning undefined. Check for undefined before using output from objects, functions, unknown inputs, or function replacers.

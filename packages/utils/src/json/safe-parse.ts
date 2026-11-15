@@ -4,13 +4,16 @@ import { parse } from "./parse";
 import type { ParsedPrimitive, ReviverFN } from "./types/helpers";
 
 type JsonSafeParse = {
-	<const T extends string | null>(
+	<R = never, const T extends string | null = string | null>(
 		text: T,
 		reviver?: never,
-	): unknown extends ParsedPrimitive<T>
-		? Result<unknown, SyntaxError>
-		: Success<ParsedPrimitive<T>>;
-	<R = unknown>(text: string | null, reviver?: ReviverFN<R>): Result<R, unknown>;
+	): [R] extends [never]
+		? unknown extends ParsedPrimitive<T>
+			? Result<unknown, SyntaxError>
+			: Success<ParsedPrimitive<T>>
+		: Result<R, unknown>;
+	<R>(text: string | null, reviver: ReviverFN<R>): Result<R, unknown>;
+	<R = unknown>(text: string | null, reviver?: ReviverFN<NoInfer<R>>): Result<R, unknown>;
 };
 
 /**

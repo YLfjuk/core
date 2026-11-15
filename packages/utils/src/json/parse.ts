@@ -1,8 +1,12 @@
 import type { ParsedPrimitive, ReviverFN } from "./types/helpers";
 
 type JsonParse = {
-	<const T extends string | null>(text: T, reviver?: never): ParsedPrimitive<T>;
-	<R = unknown>(text: string | null, reviver?: ReviverFN<R>): R;
+	<R = never, const T extends string | null = string | null>(
+		text: T,
+		reviver?: never,
+	): [R] extends [never] ? ParsedPrimitive<T> : R;
+	<R>(text: string | null, reviver: ReviverFN<R>): R;
+	<R = unknown>(text: string | null, reviver?: ReviverFN<NoInfer<R>>): R;
 };
 
 /**
