@@ -34,3 +34,15 @@ describe("returns an increment of the provided value", () => {
 	test.todo("float");
 	test.todo("negative float");
 });
+
+describe("numeric input guards", () => {
+	test("handles broad, unsupported, union, and boundary inputs", () => {
+		expectTypeOf<Increment<number>>().toEqualTypeOf<number>();
+		expectTypeOf<Increment<any>>().toEqualTypeOf<number>();
+		expectTypeOf<Increment<never>>().toEqualTypeOf<never>();
+		expectTypeOf<Increment<1.5>>().toEqualTypeOf<"Error: Unsupported numeric value">();
+		expectTypeOf<Increment<-1.5>>().toEqualTypeOf<"Error: Unsupported numeric value">();
+		expectTypeOf<Increment<0 | 2>>().toEqualTypeOf<1 | 3>();
+		expectTypeOf<Increment<128>>().toEqualTypeOf<129>();
+	});
+});

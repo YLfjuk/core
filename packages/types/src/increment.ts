@@ -4,7 +4,9 @@ import type { IsPositiveOrZero } from "./is-positive-or-zero.js";
 /**
  * Increments a numeric value by one.
  *
- * @remarks Does not support negative or floating-point values.
+ * @remarks Negative and fractional literals return `"Error: Unsupported numeric value"`.
+ * Broad `number` and `any` return `number`; unions distribute and `never` stays `never`.
+ * Tuple construction through {@link ArrayOfN} remains subject to compiler recursion limits.
  *
  * @template N ∈ ℕ
  *
@@ -13,9 +15,12 @@ import type { IsPositiveOrZero } from "./is-positive-or-zero.js";
  *
  * @since 0.0.10
  */
-export type Increment<N extends number> =
-	IsPositiveOrZero<N> extends true
-		? [...ArrayOfN<N>, N]["length"]
-		: "Error: Unsupported numeric value";
-
-// TODO: add support for Z, R values
+export type Increment<N extends number> = N extends unknown
+	? number extends N
+		? number
+		: `${N}` extends `${bigint}`
+			? IsPositiveOrZero<N> extends true
+				? [...ArrayOfN<N>, N]["length"]
+				: "Error: Unsupported numeric value"
+			: "Error: Unsupported numeric value"
+	: never;
