@@ -56,7 +56,7 @@ describe("JSON contracts", () => {
 		expectTypeOf(parse("false")).toEqualTypeOf<false>();
 		expectTypeOf(parse("null")).toEqualTypeOf<null>();
 		expectTypeOf(parse("1e3")).toEqualTypeOf<unknown>();
-		expectTypeOf(parse("01")).toEqualTypeOf<unknown>();
+		expectTypeOf(() => parse("01")).returns.toEqualTypeOf<unknown>();
 		expectTypeOf(safeParse("01")).toEqualTypeOf<Result<unknown, SyntaxError>>();
 		expectTypeOf(parse("9007199254740993")).toEqualTypeOf<unknown>();
 		expectTypeOf(safeParse("0xff")).toEqualTypeOf<Result<unknown, SyntaxError>>();
