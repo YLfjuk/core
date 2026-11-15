@@ -2,7 +2,7 @@
 
 Run `pnpm run plan` for each user-visible package change and commit the changeset in the implementation PR.
 
-A releaser runs `pnpm run version` locally in that PR or a coordinated version PR. Before running it, replace each released API's `@since next` with its actual planned package version. Review the resulting versions, dependency updates, changelogs, and consumed changesets together. Commit them for approval. CI never versions packages or opens version PRs.
+A releaser runs `pnpm run version` locally in that PR or a coordinated version PR. Before running it, replace each released API's `@since @next` with its actual planned package version. Review the resulting versions, dependency updates, changelogs, and consumed changesets together. Commit them for approval. CI never versions packages or opens version PRs.
 
 Merging to `main` runs formatting, lint, types, tests, coverage, build/package checks, dependency audit, and `changeset pack`. Only successful validation of that exact commit permits the publish job to enter `npm-publish`. The publish-only action runs `pnpm run release` and pushes release tags. PR validation only packs into a temporary directory, with read-only permissions and no npm credentials or OIDC permission.
 
