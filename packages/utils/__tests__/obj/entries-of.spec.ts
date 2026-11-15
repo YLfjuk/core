@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from "vitest";
 
-import { entries as entriesOf } from "../../src/obj/entries";
+import { Obj, entriesOf } from "../../src";
 
 describe("obj/entriesOf", () => {
 	it("returns typed entries", () => {
@@ -22,5 +22,27 @@ describe("obj/entriesOf", () => {
 		const value = Object.defineProperty({ visible: 1, [symbol]: 2 }, "hidden", { value: 3 });
 
 		expect(entriesOf(value)).toStrictEqual([["visible", 1]]);
+	});
+
+	it("stringifies numeric keys and excludes symbols from types", () => {
+		const symbol = Symbol("ignored");
+		const value = { 7: "seven", label: true, [symbol]: 42 } as const;
+		const actual = entriesOf(value);
+		expect(actual).toStrictEqual([
+			["7", "seven"],
+			["label", true],
+		]);
+		expectTypeOf(actual).toEqualTypeOf<(["7", "seven"] | ["label", true])[]>();
+		expectTypeOf(Obj.entries(value)).toEqualTypeOf(actual);
+	});
+
+	it("retains optional values without optional mapping artifacts", () => {
+		const value: { 7?: string; label?: boolean } = { 7: undefined };
+		const actual = entriesOf(value);
+		expect(actual).toStrictEqual([["7", undefined]]);
+		expectTypeOf(actual).toEqualTypeOf<
+			(["7", string | undefined] | ["label", boolean | undefined])[]
+		>();
+		expect(entriesOf({} satisfies typeof value)).toStrictEqual([]);
 	});
 });
