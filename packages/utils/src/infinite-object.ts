@@ -5,7 +5,12 @@ type InfiniteObject = {
 };
 
 /**
- * An object whose properties and methods can be accessed without checking whether they exist.
+ * A placeholder for prototyping recursive property access and calls.
+ *
+ * @remarks Property access, calls, and construction return the same placeholder.
+ * Avoid `await`, `Promise.resolve`, and returning it from an async function: its callable
+ * `then` causes promise assimilation to remain pending. String conversion and other
+ * primitive coercion throw a TypeError.
  *
  * @since 0.0.5
  */
