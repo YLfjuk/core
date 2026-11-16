@@ -79,3 +79,23 @@ describe("Joins together things that can be stringified", () => {
 		expectTypeOf<Actual2>().toEqualTypeOf<Expected2>();
 	});
 });
+
+test("retains empty elements and handles tuple boundaries", () => {
+	expectTypeOf<Join<[]>>().toEqualTypeOf<"">();
+	expectTypeOf<Join<["a"]>>().toEqualTypeOf<"a">();
+	expectTypeOf<Join<["a", ""], { separator: "," }>>().toEqualTypeOf<"a,">();
+	expectTypeOf<Join<["", "", ""], { separator: "," }>>().toEqualTypeOf<",,">();
+	expectTypeOf<Join<readonly ["", "a", ""], { separator: "::" }>>().toEqualTypeOf<"::a::">();
+	expectTypeOf<Join<["a", ""]>>().toEqualTypeOf<"a">();
+	expectTypeOf<Join<string[]>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<readonly string[]>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<["a", ...string[]], { separator: "," }>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<["a"?]>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<["a", "b"?], { separator: "," }>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<readonly ["a", "b"?], { separator: "," }>>().toEqualTypeOf<string>();
+	expectTypeOf<Join<["a"] | readonly ["b", "c"], { separator: "," }>>().toEqualTypeOf<
+		"a" | "b,c"
+	>();
+	// @ts-expect-error elements must be stringifiable
+	expectTypeOf<Join<[symbol]>>().toEqualTypeOf<string>();
+});
