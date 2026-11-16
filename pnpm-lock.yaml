@@ -63,11 +63,7 @@ importers:
         specifier: workspace:*
         version: link:../utils
 
-  packages/types:
-    dependencies:
-      typescript:
-        specifier: ^7.0.2
-        version: 7.0.2
+  packages/types: {}
 
   packages/utils:
     dependencies:
