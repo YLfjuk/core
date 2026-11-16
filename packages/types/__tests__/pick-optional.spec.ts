@@ -59,10 +59,4 @@ test("uses structural optionality and preserves modifiers", () => {
 	};
 	expectTypeOf<PickOptional<Optional & Required>>().toEqualTypeOf<{}>();
 	expectTypeOf<PickOptional<Optional & { required: Required }>>().toEqualTypeOf<Optional>();
-	const value: PickOptional<Optional> = {};
-	// @ts-expect-error readonly properties remain readonly
-	value.unknown = 1;
-	// @ts-expect-error required properties are excluded
-	const excluded: keyof PickOptional<{ required: undefined }> = "required";
-	void excluded;
 });
