@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from "vitest";
 
-import { Obj, keysOf } from "../../src";
+import { keysOf } from "../../src";
 
 describe("obj/keysOf", () => {
 	it("returns exact keys", () => {
@@ -26,7 +26,6 @@ describe("obj/keysOf", () => {
 		const actual = keysOf(value);
 		expect(actual).toStrictEqual(["7", "label"]);
 		expectTypeOf(actual).toEqualTypeOf<("7" | "label")[]>();
-		expectTypeOf(Obj.keys(value)).toEqualTypeOf(actual);
 	});
 
 	it("retains optional values without optional mapping artifacts", () => {

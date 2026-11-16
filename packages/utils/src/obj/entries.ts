@@ -7,9 +7,7 @@ type Entry<T extends object> = ValueOf<{
 /**
  * Gets the entries of an object as an array of key-value pairs.
  *
- * @remarks Returns own enumerable string-keyed entries, with numeric keys stringified and
- * symbols omitted. Key-value pairs retain their declared correlation. Structurally typed
- * objects can have extra runtime keys, so these types are not an exhaustive runtime guarantee.
+ * @remarks Wraps {@link Object.entries} while retaining stringified keys and their value types.
  *
  * @since 0.0.8
  */

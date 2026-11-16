@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from "vitest";
 
-import { Obj, entriesOf } from "../../src";
+import { entriesOf } from "../../src";
 
 describe("obj/entriesOf", () => {
 	it("returns typed entries", () => {
@@ -33,7 +33,6 @@ describe("obj/entriesOf", () => {
 			["label", true],
 		]);
 		expectTypeOf(actual).toEqualTypeOf<(["7", "seven"] | ["label", true])[]>();
-		expectTypeOf(Obj.entries(value)).toEqualTypeOf(actual);
 	});
 
 	it("retains optional values without optional mapping artifacts", () => {
