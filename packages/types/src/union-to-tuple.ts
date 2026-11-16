@@ -20,6 +20,8 @@ import type { MemberOfUnion } from "./member-of-union.js";
  *
  * @since 0.0.18
  */
-export type UnionToTuple<T> = [T] extends [never]
-	? []
-	: [...UnionToTuple<Exclude<T, MemberOfUnion<T>>>, MemberOfUnion<T>];
+export type UnionToTuple<T> = UnionToTupleAccumulator<T, []>;
+
+type UnionToTupleAccumulator<T, Result extends unknown[]> = [T] extends [never]
+	? Result
+	: UnionToTupleAccumulator<Exclude<T, MemberOfUnion<T>>, [MemberOfUnion<T>, ...Result]>;
