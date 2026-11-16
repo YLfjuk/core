@@ -2,4 +2,4 @@
 "@ylfjuk-core/utils": patch
 ---
 
-Document InfiniteObject as a prototyping placeholder, including its pending promise assimilation and throwing primitive coercion limitations. Runtime behavior is unchanged.
+Allow InfiniteObject coercion to return "[InfiniteObject]" for string/default hints and NaN for numeric hints. Recursive property access and calls remain unchanged. Document the prototyping intent and the unchanged pending promise-assimilation limitation.
