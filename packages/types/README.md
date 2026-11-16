@@ -14,10 +14,6 @@ This package is type-only.
 import type { Result } from "@ylfjuk-core/types";
 ```
 
-## Development
-
-From the repository root, use Node.js 22.18.0 or newer and run `pnpm run test` and `pnpm run test:types`.
-
 ## License
 
 MIT [@YLfjuk](https://github.com/YLfjuk)
