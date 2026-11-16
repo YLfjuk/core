@@ -3,6 +3,11 @@ import { describe, expectTypeOf, test } from "vitest";
 import type { IsDisjointUnion } from "../src/is-disjoint-union";
 
 describe("is disjoint union", () => {
+	test("object members can intersect", () => {
+		type Actual = IsDisjointUnion<{ a: string } | { b: number }>;
+		expectTypeOf<Actual>().toEqualTypeOf<false>();
+	});
+
 	test("a non-union", () => {
 		type Expected = false;
 

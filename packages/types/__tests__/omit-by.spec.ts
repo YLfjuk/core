@@ -3,6 +3,11 @@ import { describe, expectTypeOf, test } from "vitest";
 import type { OmitBy } from "../src/omit-by";
 
 describe("Omits keys by condition", () => {
+	test("keeps nested matching properties", () => {
+		type Actual = OmitBy<{ name: string; nested: { name: string } }, string>;
+		expectTypeOf<Actual>().toEqualTypeOf<{ nested: { name: string } }>();
+	});
+
 	test("matches", () => {
 		type Obj = {
 			bob: string;

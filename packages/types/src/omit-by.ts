@@ -1,7 +1,7 @@
 /**
- * Omits properties whose values extend `U`.
+ * Omits properties whose values extend `Check`.
  *
- * @remarks Applies recursively.
+ * @remarks Only top-level properties are checked; nested values are unchanged.
  *
  * @since 0.0.14
  */

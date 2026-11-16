@@ -1,15 +1,13 @@
 import type { Primitive } from "./primitive.js";
 
 /**
- * Extracts literal types from a string.
- *
- * @remarks The inverse of `MaskLiterals`.
+ * Infers a primitive type from a string when possible; otherwise returns the string unchanged.
  *
  * @see {@link Primitive}
  *
  * @example
  * ```ts
- * type LiteralNumber = ExtractLiterals<'56'>; //? 56
+ * type LiteralNumber = ExtractLiteral<"56">; //? 56
  * ```
  *
  * @since 0.0.8
