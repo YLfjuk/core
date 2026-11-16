@@ -3,6 +3,13 @@ import { describe, expect, it } from "vitest";
 import { InfiniteObject } from "./../src/infinite-object";
 
 describe("Object that can be accessed ad infinitum", () => {
+	it("leaves the placeholder on primitive coercion", () => {
+		expect(String(InfiniteObject)).toBe("[InfiniteObject]");
+		expect(`${InfiniteObject}`).toBe("[InfiniteObject]");
+		expect(Number(InfiniteObject)).toBeNaN();
+		expect(InfiniteObject[Symbol.toPrimitive]("default")).toBe("[InfiniteObject]");
+		expect(InfiniteObject.then).toBe(InfiniteObject);
+	});
 	it("can be accessed infinitely", () => {
 		const expected = InfiniteObject;
 		const actual = InfiniteObject.a?.b?.c;
