@@ -19,10 +19,6 @@
 		},
 		"lint": {
 			"dependsOn": ["^lint"]
-		},
-		"@ylfjuk-core/types#build": {
-			"dependsOn": ["test", "test:types", "^build"],
-			"outputs": ["dist/**"]
 		}
 	}
 }
