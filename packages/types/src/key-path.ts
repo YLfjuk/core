@@ -17,7 +17,7 @@ export type KeyPath<T> = T extends Date
 	? never
 	: T extends ReadonlyArray<infer U>
 		? IsTuple<T> extends true
-			? KeyPath<Omit<T, keyof unknown[] | keyof (readonly unknown[])>>
+			? KeyPath<Omit<T, keyof unknown[]>>
 			: `${number}` | `${number}.${KeyPath<U>}`
 		: T extends object
 			? {
