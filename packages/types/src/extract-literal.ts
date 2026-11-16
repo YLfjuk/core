@@ -1,7 +1,7 @@
 import type { Primitive } from "./primitive.js";
 
 /**
- * Infers a primitive literal from a string, or returns the string unchanged.
+ * Infers a primitive type from a string when possible; otherwise returns the string unchanged.
  *
  * @see {@link Primitive}
  *
