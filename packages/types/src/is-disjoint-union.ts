@@ -1,29 +1,15 @@
 import type { UnionToIntersection } from "./union-to-intersection.js";
 
 /**
- * @see {@link UnionToIntersection}
+ * Checks whether the intersection produced by {@link UnionToIntersection} is `never`.
  *
- * @since 0.0.7
- *
- *
- * /
-/**
- * Checks if a type `T` is a union type.
- *
- * A union type is a type that can be one of several types. This utility type uses the `UnionToIntersection`
- * utility to convert the union type into an intersection type. If the result is `never`, it indicates that
- * the original type was a union.
- *
- * @remarks Objects are always considered to intersect.
- *
- * @see {@link UnionToIntersection}
- *
- * @template T The type to check.
+ * @remarks This does not detect every union. Object members can have a non-never intersection.
  *
  * @example
  * ```ts
- * type A = IsUnion<string | number>; // true
- * type B = IsUnion<string>; // false
+ * type A = IsDisjointUnion<string | number>; // true
+ * type B = IsDisjointUnion<string>; // false
+ * type C = IsDisjointUnion<{ a: string } | { b: number }>; // false
  * ```
  *
  * @since 0.0.7
