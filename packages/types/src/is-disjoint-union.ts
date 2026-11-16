@@ -1,7 +1,7 @@
 import type { UnionToIntersection } from "./union-to-intersection.js";
 
 /**
- * Checks whether the intersection produced by {@link UnionToIntersection} is `never`.
+ * Identifies unions whose members cannot share a value.
  *
  * @remarks This does not detect every union. Object members can have a non-never intersection.
  *
