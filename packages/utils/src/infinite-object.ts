@@ -25,7 +25,7 @@ export const InfiniteObject: InfiniteObject = new Proxy<InfiniteObject>(
 		ownKeys: () => [],
 		get: (_, key) =>
 			key === Symbol.toPrimitive
-				? (hint: string) => (hint === "number" ? NaN : "[InfiniteObject]")
+				? (hint: string) => (hint === "number" ? Number.NaN : "[InfiniteObject]")
 				: InfiniteObject,
 		setPrototypeOf: () => true,
 		deleteProperty: () => true,
