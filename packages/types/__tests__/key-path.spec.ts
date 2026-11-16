@@ -71,3 +71,33 @@ describe("KeyPath", () => {
 		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
 	});
 });
+
+describe("readonly key paths", () => {
+	it("uses element paths without array members", () => {
+		expectTypeOf<KeyPath<readonly { x: number }[]>>().toEqualTypeOf<
+			`${number}` | `${number}.x`
+		>();
+		expectTypeOf<
+			Extract<KeyPath<readonly { x: number }[]>, "map" | "length">
+		>().toEqualTypeOf<never>();
+		expectTypeOf<
+			KeyPath<{ readonly rows: readonly { readonly dates: readonly Date[] }[] }>
+		>().toEqualTypeOf<
+			"rows" | `rows.${number}` | `rows.${number}.dates` | `rows.${number}.dates.${number}`
+		>();
+	});
+	it("handles required, optional, and variadic tuples", () => {
+		expectTypeOf<KeyPath<readonly [number, { x: number }]>>().toEqualTypeOf<
+			"0" | "1" | "1.x"
+		>();
+		expectTypeOf<KeyPath<readonly [number, { x: number }?]>>().toEqualTypeOf<
+			"0" | "1" | "1.x"
+		>();
+		expectTypeOf<KeyPath<readonly [{ x: number }, ...{ y: number }[]]>>().toEqualTypeOf<
+			`${number}` | `${number}.x` | `${number}.y`
+		>();
+		expectTypeOf<
+			Extract<KeyPath<readonly [number]>, "map" | "length">
+		>().toEqualTypeOf<never>();
+	});
+});
