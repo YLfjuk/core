@@ -1,7 +1,7 @@
 import type { ValueOf } from "@ylfjuk-core/types";
 
 type Entry<T extends object> = ValueOf<{
-	[K in keyof T]-?: K extends string | number ? [`${K}`, T[K]] : never;
+	[K in keyof T]-?: K extends string ? [K, T[K]] : K extends number ? [`${K}`, T[K]] : never;
 }>;
 
 /**

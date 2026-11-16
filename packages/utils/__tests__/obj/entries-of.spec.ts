@@ -3,6 +3,13 @@ import { describe, expect, expectTypeOf, it } from "vitest";
 import { entriesOf } from "../../src";
 
 describe("obj/entriesOf", () => {
+	it("preserves branded string keys", () => {
+		type Brand = string & { readonly brand: unique symbol };
+		const value: Record<Brand, number> = {};
+		const actual = entriesOf(value);
+		expectTypeOf(actual).toEqualTypeOf<[Brand, number][]>();
+		expect(actual).toStrictEqual([]);
+	});
 	it("returns typed entries", () => {
 		const actual = entriesOf({ name: "Ada", active: true } as const);
 
