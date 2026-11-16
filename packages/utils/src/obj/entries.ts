@@ -1,13 +1,13 @@
 import type { ValueOf } from "@ylfjuk-core/types";
 
 type Entry<T extends object> = ValueOf<{
-	[K in keyof T]: [K, T[K]];
+	[K in keyof T]-?: K extends string ? [K, T[K]] : K extends number ? [`${K}`, T[K]] : never;
 }>;
 
 /**
  * Gets the entries of an object as an array of key-value pairs.
  *
- * @remarks Wraps {@link Object.entries} while retaining key and value types.
+ * @remarks Wraps {@link Object.entries} while retaining stringified keys and their value types.
  *
  * @since 0.0.8
  */
