@@ -1,6 +1,7 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"ui": "tui",
+	"globalDependencies": ["tsconfig.base.json"],
 	"tasks": {
 		"dev": {
 			"cache": false,
@@ -11,8 +12,7 @@
 			"outputs": ["dist/**"]
 		},
 		"test": {
-			"with": ["test:types"],
-			"dependsOn": ["^test:types", "^test"]
+			"dependsOn": ["^test"]
 		},
 		"test:types": {
 			"dependsOn": ["^test:types"]
