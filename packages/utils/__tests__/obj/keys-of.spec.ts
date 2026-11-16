@@ -2,7 +2,14 @@ import { describe, expect, expectTypeOf, it } from "vitest";
 
 import { keysOf } from "../../src";
 
+function keyList<K extends string>(value: Record<K, unknown>): K[] {
+	return keysOf(value);
+}
+
 describe("obj/keysOf", () => {
+	it("preserves generic string keys", () => {
+		expect(keyList({ name: "Ada" })).toEqual(["name"]);
+	});
 	it("returns exact keys", () => {
 		const actual = keysOf({ name: "Ada", active: true });
 
