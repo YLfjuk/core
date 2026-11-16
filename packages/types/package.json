@@ -26,7 +26,7 @@
 		}
 	},
 	"scripts": {
-		"build": "tsc --emitDeclarationOnly --outDir dist --rootDir src && publint && attw --pack --profile esm-only",
+		"build": "tsdown",
 		"test": "vitest run --typecheck",
 		"test:types": "tsc -p tsconfig.test.json"
 	}
