@@ -8,7 +8,7 @@ TypeScript utility types used by [`@ylfjuk/core`](../core/README.md).
 pnpm add @ylfjuk-core/types
 ```
 
-The package is type-only, uses ESM package metadata, and requires TypeScript 7.
+This package is type-only.
 
 ```ts
 import type { Result } from "@ylfjuk-core/types";

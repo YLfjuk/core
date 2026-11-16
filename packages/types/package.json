@@ -14,23 +14,20 @@
 		"directory": "packages/types"
 	},
 	"files": [
-		"src"
+		"dist"
 	],
 	"type": "module",
 	"sideEffects": false,
-	"types": "./src/index.ts",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"@ylfjuk-core/dev.src": "./src/index.ts",
-			"types": "./src/index.ts"
+			"types": "./dist/index.d.ts"
 		}
 	},
 	"scripts": {
-		"build": "pnpm run test && pnpm run test:types && publint && attw --pack --profile esm-only",
+		"build": "tsdown",
 		"test": "vitest run --typecheck",
 		"test:types": "tsc -p tsconfig.test.json"
-	},
-	"peerDependencies": {
-		"typescript": "^7.0.2"
 	}
 }
