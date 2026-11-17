@@ -12,8 +12,6 @@ The runtime packages are ESM-only and target ES2024. Use `import`, not `require`
 
 ## Development
 
-Development requires Node.js 22.18.0 or newer and the pnpm version declared in `package.json`.
-
 ```sh
 pnpm install --frozen-lockfile
 pnpm run fmt:check
