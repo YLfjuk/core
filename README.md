@@ -30,9 +30,11 @@ Each package's `tsconfig.test.json` includes its source and existing `.spec.ts` 
 
 ## Releases
 
-Add a changeset with `pnpm run plan`. Merges to `main` update a release pull request; merging that pull request publishes changed packages through npm trusted publishing.
+Add a changeset with `pnpm run plan`. A releaser runs `pnpm run version` locally and commits the reviewed release changes.
+After validation, merges to `main` publish package versions missing from npm and push release tags.
 
-Each public package must trust GitHub owner `YLfjuk`, repository `core`, workflow `release.yml`, with only `npm publish` allowed. The workflow uses OIDC and does not use an npm token.
+See the [release guide](.changeset/README.md) for version review, GitHub environment setup, and npm trusted publishing.
+Complete that setup before enabling releases.
 
 ## License
 

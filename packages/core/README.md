@@ -12,13 +12,12 @@ This package is ESM-only and targets ES2024.
 
 ```ts
 import { isDefined } from "@ylfjuk/core";
+
+const values = [0, null, "", undefined];
+const defined = values.filter(isDefined); // [0, ""]
 ```
 
 It re-exports [`@ylfjuk-core/types`](../types/README.md) and [`@ylfjuk-core/utils`](../utils/README.md).
-
-## Development
-
-From the repository root, use Node.js 22.18.0 or newer and run `pnpm run build`, `pnpm run test`, and `pnpm run test:types`.
 
 ## License
 
