@@ -96,3 +96,15 @@ describe("returns if a number is less than another number", () => {
 
 	test.todo("add float support");
 });
+
+describe("numeric input guards", () => {
+	test("handles broad, unsupported, union, and boundary inputs", () => {
+		expectTypeOf<LessThan<number, 2>>().toEqualTypeOf<boolean>();
+		expectTypeOf<LessThan<2, number>>().toEqualTypeOf<boolean>();
+		expectTypeOf<LessThan<any, 2>>().toEqualTypeOf<boolean>();
+		expectTypeOf<LessThan<never, 2>>().toEqualTypeOf<never>();
+		expectTypeOf<LessThan<1.5, 2>>().toEqualTypeOf<never>();
+		expectTypeOf<LessThan<-1.5, -2>>().toEqualTypeOf<never>();
+		expectTypeOf<LessThan<0 | 2, 1>>().toEqualTypeOf<boolean>();
+	});
+});

@@ -86,3 +86,22 @@ describe("Array of n", () => {
 		expectTypeOf<Actual>().toEqualTypeOf<Expected>();
 	});
 });
+
+describe("numeric input guards", () => {
+	test("handles broad, unsupported, union, and boundary inputs", () => {
+		expectTypeOf<ArrayOfN<number>>().toEqualTypeOf<0[]>();
+		expectTypeOf<ArrayOfN<any>>().toEqualTypeOf<0[]>();
+		expectTypeOf<ArrayOfN<never>>().toEqualTypeOf<never>();
+		expectTypeOf<ArrayOfN<1.5>>().toEqualTypeOf<never>();
+		expectTypeOf<ArrayOfN<-1.5>>().toEqualTypeOf<never>();
+		expectTypeOf<ArrayOfN<1 | 3>>().toEqualTypeOf<[0] | [0, 0, 0]>();
+		expectTypeOf<ArrayOfN<3, 2.5>>().toEqualTypeOf<never>();
+		expectTypeOf<ArrayOfN<3, number>>().toEqualTypeOf<0[]>();
+		expectTypeOf<ArrayOfN<2, -1, [0, 0, 0]>>().toEqualTypeOf<never>();
+		expectTypeOf<ArrayOfN<4, 1, [0, 0]>>().toEqualTypeOf<never>();
+		expectTypeOf<ArrayOfN<2, -1, 0[]>>().toEqualTypeOf<0[]>();
+		expectTypeOf<ArrayOfN<2, -1, [0?], 0 | undefined>>().toEqualTypeOf<never>();
+		expectTypeOf<ArrayOfN<2, -1, [], string>>().toEqualTypeOf<[string, string]>();
+		expectTypeOf<ArrayOfN<128>["length"]>().toEqualTypeOf<128>();
+	});
+});
